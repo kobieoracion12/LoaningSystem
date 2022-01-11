@@ -1,0 +1,28 @@
+body {
+	text-align: center;
+	background-image: url('../img/login-bg5.jpg');	
+}
+
+.form-style {
+	text-align: : center;
+}
+
+.login-button {
+	background-color: #1AEBB6;
+	border: #1AEBB6;
+	width: 100%;
+}
+
+.login-label {
+	float: left;
+	font-weight: bolder;
+	font-style: 8vw;
+}
+
+.login-vector {
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+	height: 300px;
+	width: auto;
+}
