@@ -1,6 +1,6 @@
 body {
 	text-align: center;
-	background-image: url('../img/login-bg5.jpg');	
+	background-image: url(../img/login-bg5.jpg);
 }
 
 .form-style {
@@ -13,6 +13,19 @@ body {
 	width: 100%;
 }
 
+.reg-submit {
+	background-color: #1AEBB6;
+	border: #1AEBB6;
+	width: auto;
+}
+
+.reg-cancel {
+	background-color: #1AEBB6;
+	border: #1AEBB6;
+	width: auto;
+}
+
+
 .login-label {
 	float: left;
 	font-weight: bolder;
@@ -23,6 +36,56 @@ body {
 	position: relative;
 	top: 50%;
 	transform: translateY(-50%);
-	height: 300px;
+	height: 200px;
 	width: auto;
 }
+
+.terms-title {
+	float: left;
+	color: #294567;
+}
+
+.home-body {
+	background-image: url('../img/login-bg5.jpg');	
+	background-repeat: no-repeat;
+}
+
+.nav-width {
+	position: fixed;
+	width: 20%;
+	height: 100%;
+}
+
+.nav-width {
+	height: 100%;
+}
+
+.nav-list {
+	margin-top: 20px;
+}
+
+.nav-style {
+	text-align: left;
+}
+
+.dropdown-style {
+	position: absolute;
+	inset: auto auto 0px 0px;
+	margin: 0px;
+	transform: translate(0px, -34px);
+}
+
+.color-scheme {
+	background-color: #1AEBB6;
+	border: #1AEBB6;
+}
+
+.main-content {
+	text-align: left;
+}
+
+.button-color {
+	background-color: #1AEBB6;
+	border: #1AEBB6;
+}
+

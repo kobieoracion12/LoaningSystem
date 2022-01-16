@@ -25,19 +25,19 @@
              <div class="col">
                <div class="container-fluid">
                  <div class="row">
-                   <form style="padding: 15%">
+                   <form method="post" action="php/auth.php" style="padding: 15%">
                     <div class="mb-3 mt-3">
                       <h3 style="font-weight: bold">Log in</h3><br><br><br>
 
                       <label for="username-input" class="form-label" style="float:left; font-weight: bold; font-size: 1.1vw">Username</label><br>
-                      <input type="text" id="username-input" class="form-control form-style" placeholder="Username"><br>
+                      <input type="text" id="username-input" name="username-input" class="form-control form-style" placeholder="Username"><br>
 
                       <label for="password-input" class="form-label"  style="float:left; font-weight: bold; font-size: 1.1vw">Password</label><br>
-                      <input type="password" id="password-input" class="form-control form-style" placeholder="Password"><br>
+                      <input type="password" id="password-input" name="password-input" class="form-control form-style" placeholder="Password"><br>
 
-                      <p style="font-weight: bold">Don't have an account? <a href="#" style="text-decoration: none">Sign up Here!</a></p>
+                      <p style="font-weight: bold">Don't have an account? <a href="php/sign-up.php" style="text-decoration: none">Sign up Here!</a></p>
 
-                      <button type="submit" class="btn btn-primary login-button btn-lg">Login</button>
+                      <button type="submit" value="Submit" class="btn btn-primary login-button btn-lg">Login</button>
                     </div>
                    </form>
                  </div>
