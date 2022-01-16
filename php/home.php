@@ -54,7 +54,7 @@ session_start();
 							</li>
 
 							<li class="nav-item nav-list">
-								<a class="nav-link" href="accounts.php">
+								<a class="nav-link" href="account.php">
 									<i class="fas fa-regular fa-user bi me-2"></i>
 									Accounts
 								</a>
