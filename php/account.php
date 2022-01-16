@@ -7,7 +7,7 @@ session_start();
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Account</title>
+	<title>Accounts</title>
 	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../css/style-min.css">
 	<link rel="stylesheet" type="text/css" href="../css/fontawesome.css">
@@ -21,10 +21,10 @@ session_start();
 	 <div class="row g-0">
 
 	 	<!--Left Sidebar-->
-	 	<div class="col g-0">
-	 		<div class="container g-0">
+	 	<div class="col-2 g-0">
+	 		<div class="container-fluid g-0">
 				<div class="row flex-nowrap">
-					<div class="d-flex flex-column flex-shrink-0 p-3 bg-light nav-width shadow p-3 mb-5 bg-body rounded-0">
+					<div class="d-flex flex-column flex-shrink-0 p-3 bg-light nav-width shadow p-3 mb-5 rounded-0">
 						<a class="d-flex align-items-center mb-3 mb-md-0 me-auto link-dark text-decoration-none" href="#">
 							<span class="fs-4"><strong>Welcome Back</strong></span>
 						</a>
@@ -104,12 +104,218 @@ session_start();
 	 	</div>
 
 	 	<!--Main Body-->
-	 	<div class="col g-4 main-content">
-	 		<div class="container-fluid">
-	 			<h3 class="text-light"><strong>Account Settings</strong></h3><br>
-	 			
+	 	<div class="col-10 g-5 ps-5 main-content">
+	 		<div class="container g-5">
+	 			<h3 class="text-light ps-4"><strong>My Account</strong></h3><br>
+
+	 			<div class="card shadow p-2 mb-5 bg-body rounded-3 g-0">
+	 				<div class="card-body p-5">
+	 					<div class="container-fluid">
+
+	 						<!--Left Side-->
+	 						<div class="row">
+	 							<div class="col">
+	 								<div class="container-fluid">
+	 									<label for="user-email"><strong>First Name</strong></label>
+			 							<div class="card shadow-sm mb-5 bg-body rounded-3" id="user-email">
+				 							<div class="card-body">
+				 								<div class="container">
+				 									<div class="row">
+				 										<div class="col">
+						 									Kobie
+						 								</div>
+
+						 								<div class="col text-end">
+						 									 <a href="#" data-bs-toggle="modal" data-bs-target="#f-modal">
+						 									 	<i class="fa-solid fa-pencil"></i>
+						 									 </a>
+
+						 									 <div class="modal fade" id="f-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
+						 									 	<div class="modal-dialog modal-dialog-centered">
+						 									 		<div class="modal-content">
+						 									 			<div class="modal-header">
+						 									 				<h5 class="modal-title" id="staticBackdropLabel">Edit Details</h5>
+        																	<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						 									 			</div>
+
+						 									 			<div class="modal-body text-center">
+						 									 				<form class="form-control" method="post">
+						 									 					<div class="mb-3 text-start">
+						 									 						<label for="recipient-name" class="col-form-label ps-3">First Name:</label>
+            																		<input type="text" class="form-control" id="recipient-name">
+						 									 					</div>
+						 									 				</form>
+						 									 			</div>
+
+						 									 			<div class="modal-footer">
+						 									 				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+						 									 				<button type="button" class="btn btn-primary">Edit</button>
+						 									 			</div>
+						 									 		</div>
+						 									 	</div>
+						 									 </div>
+						 								</div>
+				 									</div>
+				 								</div>
+				 							</div>
+				 						</div>
+	 								</div>		
+	 							</div>
+
+	 							<div class="col">
+	 								<div class="container-fluid">
+	 									<label for="user-email"><strong>Email Address</strong></label>
+			 							<div class="card shadow-sm mb-5 bg-body rounded-3" id="user-email">
+				 							<div class="card-body">
+				 								<div class="container ">
+				 									<div class="row">
+				 										<div class="col">
+						 									kobie.oracion12@gmail.com
+						 								</div>
+
+						 								<div class="col text-end">
+						 									 <a href="#" data-bs-toggle="modal" data-bs-target="#email-modal">
+						 									 	<i class="fa-solid fa-pencil"></i>
+						 									 </a>
+
+						 									 <div class="modal fade" id="email-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
+						 									 	<div class="modal-dialog modal-dialog-centered">
+						 									 		<div class="modal-content">
+						 									 			<div class="modal-header">
+						 									 				<h5 class="modal-title" id="staticBackdropLabel">Edit Details</h5>
+        																	<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						 									 			</div>
+
+						 									 			<div class="modal-body text-center">
+						 									 				<form class="form-control" method="post">
+						 									 					<div class="mb-3 text-start">
+						 									 						<label for="recipient-name" class="col-form-label ps-3">Email Address:</label>
+            																		<input type="text" class="form-control" id="recipient-name">
+						 									 					</div>
+						 									 				</form>
+						 									 			</div>
+
+						 									 			<div class="modal-footer">
+						 									 				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+						 									 				<button type="button" class="btn btn-primary">Edit</button>
+						 									 			</div>
+						 									 		</div>
+						 									 	</div>
+						 									 </div>
+						 								</div>
+				 									</div>
+				 								</div>
+				 							</div>
+				 						</div>
+	 								</div>		
+	 							</div>
+	 						</div>
+
+	 						<!--Right Side-->
+	 						<div class="row">
+	 							<div class="col">
+	 								<div class="container-fluid">
+	 									<label for="user-email"><strong>Last Name</strong></label>
+			 							<div class="card shadow-sm mb-5 bg-body rounded-3" id="user-email">
+				 							<div class="card-body">
+				 								<div class="container ">
+				 									<div class="row">
+				 										<div class="col">
+						 									Oracion
+						 								</div>
+
+						 								<div class="col text-end">
+						 									 <a href="#" data-bs-toggle="modal" data-bs-target="#last-modal">
+						 									 	<i class="fa-solid fa-pencil"></i>
+						 									 </a>
+
+						 									 <div class="modal fade" id="last-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
+						 									 	<div class="modal-dialog modal-dialog-centered">
+						 									 		<div class="modal-content">
+						 									 			<div class="modal-header">
+						 									 				<h5 class="modal-title" id="staticBackdropLabel">Edit Details</h5>
+        																	<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						 									 			</div>
+
+						 									 			<div class="modal-body text-center">
+						 									 				<form class="form-control" method="post">
+						 									 					<div class="mb-3 text-start">
+						 									 						<label for="recipient-name" class="col-form-label ps-3">Last Name:</label>
+            																		<input type="text" class="form-control" id="recipient-name">
+						 									 					</div>
+						 									 				</form>
+						 									 			</div>
+
+						 									 			<div class="modal-footer">
+						 									 				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+						 									 				<button type="button" class="btn btn-primary">Edit</button>
+						 									 			</div>
+						 									 		</div>
+						 									 	</div>
+						 									 </div>
+						 								</div>
+				 									</div>
+				 								</div>
+				 							</div>
+				 						</div>
+	 								</div>		
+	 							</div>
+
+	 							<div class="col">
+	 								<div class="container-fluid">
+	 									<label for="user-email"><strong>Contact Number</strong></label>
+			 							<div class="card shadow-sm mb-5 bg-body rounded-3" id="user-email">
+				 							<div class="card-body">
+				 								<div class="container ">
+				 									<div class="row">
+				 										<div class="col">
+						 									09976616289
+						 								</div>
+
+						 								<div class="col text-end">
+						 									 <a href="#" data-bs-toggle="modal" data-bs-target="#number-modal">
+						 									 	<i class="fa-solid fa-pencil"></i>
+						 									 </a>
+
+						 									 <div class="modal fade" id="number-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
+						 									 	<div class="modal-dialog modal-dialog-centered">
+						 									 		<div class="modal-content">
+						 									 			<div class="modal-header">
+						 									 				<h5 class="modal-title" id="staticBackdropLabel">Edit Details</h5>
+        																	<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						 									 			</div>
+
+						 									 			<div class="modal-body text-center">
+						 									 				<form class="form-control" method="post">
+						 									 					<div class="mb-3 text-start">
+						 									 						<label for="recipient-name" class="col-form-label ps-3">Mobile Number:</label>
+            																		<input type="text" class="form-control" id="recipient-name">
+						 									 					</div>
+						 									 				</form>
+						 									 			</div>
+
+						 									 			<div class="modal-footer">
+						 									 				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+						 									 				<button type="button" class="btn btn-primary">Edit</button>
+						 									 			</div>
+						 									 		</div>
+						 									 	</div>
+						 									 </div>
+						 								</div>
+				 									</div>
+				 								</div>
+				 							</div>
+				 						</div>
+	 								</div>		
+	 							</div>
+	 						</div>
+	 					</div>
+	 				</div>
+	 			</div>
 	 		</div>
 	 	</div>
+
+	 	
 	 </div>
 </div>
 
