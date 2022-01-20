@@ -8,51 +8,37 @@
 	<link rel="stylesheet" type="text/css" href="css/style-min.css">
 </head>
 <body>
-
-<div class="container-fluid">
-  <div class="row">
-    <div class="col"></div>
-
-    <div class="col-8" style="margin:4.8%">
-      <div class="card shadow p-3 mb-5 bg-white rounded">
-        <div class="card-body">
-          <div class="container-fluid">
-            <div class="row g-0">
-             <div class="col-md-4 g-0">
-              <img class="login-vector" src="img/login-vector.jpg">
-             </div>
-
-             <div class="col">
-               <div class="container-fluid">
-                 <div class="row">
-                   <form method="post" action="php/auth.php" style="padding: 15%">
-                    <div class="mb-3 mt-3">
-                      <h3 style="font-weight: bold">Log in</h3><br><br><br>
-
-                      <label for="username-input" class="form-label" style="float:left; font-weight: bold; font-size: 1.1vw">Username</label><br>
-                      <input type="text" id="username-input" name="username-input" class="form-control form-style" placeholder="Username"><br>
-
-                      <label for="password-input" class="form-label"  style="float:left; font-weight: bold; font-size: 1.1vw">Password</label><br>
-                      <input type="password" id="password-input" name="password-input" class="form-control form-style" placeholder="Password"><br>
-
-                      <p style="font-weight: bold">Don't have an account? <a href="php/sign-up.php" style="text-decoration: none">Sign up Here!</a></p>
-
-                      <button type="submit" value="Submit" class="btn btn-primary login-button btn-lg">Login</button>
-                    </div>
-                   </form>
-                 </div>
-               </div>
-             </div> 
-            </div>
+<div class="d-flex justify-content-center align-items-center vh-100">
+  <div class="card bg-white rounded-3 w-75">
+    <div class="card-body">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col">
+            <img class="login-vector" src="img/login-vector.jpg">
           </div>
 
+          <div class="col">
+            <form method="post" action="php/auth.php" style="padding: 15%">
+              <div class="mb-3 mt-3">
+                <h3 style="font-weight: bold">Login</h3><br><br>
+                
+                <label for="username-input" class="form-label" style="float:left; font-weight: bold;">Username</label><br>
+                <input type="text" id="username-input" name="username-input" class="form-control form-style" placeholder="Username"><br>
+
+                <label for="password-input" class="form-label"  style="float:left; font-weight: bold;">Password</label><br>
+                <input type="password" id="password-input" name="password-input" class="form-control form-style" placeholder="Password"><br>
+
+                <p style="font-weight: bold">Don't have an account? <a href="php/sign-up.php" style="text-decoration: none">Sign up Here!</a></p><br>
+
+                <button type="submit" value="Submit" class="btn btn-primary login-button btn-lg">Login</button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>
-
-    <div class="col"></div>
   </div>
 </div>
-
 </body>
+<script type="text/javascript" src="js/bootstrap.js"></script>
 </html>

@@ -14,7 +14,7 @@ $count = mysqli_num_rows($result);
 
 if($count == 1) {
 	$_SESSION['user-details'] = $user_name;
-	header("location: home.php");
+	header("location: dashboard.php");
 }
 else {
 	echo "<h1>Invalid Username/Password</h1>";

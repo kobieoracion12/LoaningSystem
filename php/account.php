@@ -32,13 +32,6 @@ session_start();
 						<hr>
 
 						<ul class="nav nav-pills flex-column mb-auto nav-style">
-							<li class="nav-item">
-								<a class="nav-link" aira-current="page" href="home.php">
-									<i class="fas fa-regular fa-house bi me-2"></i>	
-									Home
-								</a>
-							</li>
-
 							<li class="nav-item nav-list">
 								<a class="nav-link" href="dashboard.php">
 									<i class="fas fa-regular fa-gauge bi me-2"></i>	

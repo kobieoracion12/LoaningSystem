@@ -22,13 +22,7 @@
           <div class="container-fluid">
           	<div class="row g-0">
           		<div class="col g-0">
-          			<h4><b>Registration Progress</b></h4><br>
-
-<!--
-          			<div class="progress" style="height: 30px">
-          				<div class="progress-bar w-50" role="progresbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">50%</div>
-          			</div>
--->
+          			<h4><b>Registration</b></h4>
           		</div>
           	</div>
 
@@ -96,7 +90,7 @@
 		              <div class="container-fluid">
 		                <div class="row">
 		                	<div class="col">
-			                	<label for="bday-input" class="form-label" style="float:left; font-weight: bold; font-size: 1.1vw">Birth Date</label><br>
+			                	<label for="bday-input" class="form-label" style="float:left; font-weight: bold;">Birth Date</label><br>
 			                	<input type="date" id="bday-input" name="bday" class="form-control form-style" placeholder="Birth Date"><br>
 			                </div>
 
@@ -171,25 +165,6 @@
 	          </div>
 	      	</form>
         </div>
-
-
-<!--
-        <div class="container-fluid">
-        	<div class="row g-0" style="padding-bottom: 3%">
-        		<div class="col g-0">
-        			<nav aria-label="Pagination">
-        				<ul class="pagination justify-content-end">
-        					<li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
-        					<li class="page-item active"><a class="page-link" href="#">1</a></li>
-        					<li class="page-item"><a class="page-link" href="sign-up2.php">2</a></li>
-        					<li class="page-item"><a class="page-link" href="sign-up2.php">Next</a></li>
-        				</ul>
-        			</nav>
-        		</div>
-        	</div>
-        </div>
-
--->
       </div>
     </div>
 
