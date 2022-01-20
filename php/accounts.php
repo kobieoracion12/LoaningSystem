@@ -7,7 +7,7 @@ session_start();
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Dashboard</title>
+	<title>Accounts</title>
 	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../css/style-min.css">
 	<link rel="stylesheet" type="text/css" href="../css/fontawesome.css">
@@ -52,7 +52,7 @@ session_start();
                     </li>
 
 					<li class="nav-item nav-list">
-						<a href="accounts.php" class="nav-link align-middle px-0">
+						<a href="account.php" class="nav-link align-middle px-0">
 							<i class="fas fa-regular fa-user bi me-2"></i>	
 							<span class="d-none d-sm-inline fw-bold">Accounts</span>
 						</a>
@@ -87,7 +87,42 @@ session_start();
 		</div>
 
 		<!--Main Content-->
-		<div class="col py-3">
+		<div class="col py-3 d-flex justify-content-center align-items-center vh-100">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col">
+						<h2 class="text-white text-start ps-3">Account Information</h2>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col">
+						<div class="p-4 shadow-4 rounded-3 bg-white">
+							<div class="container-fluid">
+								<div class="row">
+									<div class="col">
+										<label for="user-email"><strong>First Name</strong></label>
+										<div class="card shadow-sm mb-5 bg-body rounded-3" id="user-email">
+											<div class="card-body">
+												<div class="container-fluid">
+													<div class="row">
+														<div class="col">
+															<span>Kobie</span>
+														</div>
+														<div class="col">
+															<span>Kobie</span>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 			
 		</div>
 
