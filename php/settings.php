@@ -19,7 +19,7 @@ session_start();
 <div class="container-fluid">
 	<div class="row flex-nowrap">
 		<!--Navigation Sidebar-->
-		<div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-white shadow">
+		<div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-white">
 			<div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-3 min-vh-100">
 				<span class="fs-5 d-none d-sm-inline fw-bold">Menu</span>
 
@@ -87,107 +87,15 @@ session_start();
 		</div>
 
 		<!--Main Content-->
-		<div class="col py-3 d-flex justify-content-center align-items-center vh-100">
+		<div class="col py-3 d-flex justify-content-center align-items-center vh-100 bg-light text-dark">
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col">
-						<h2 class="text-white text-start ps-3">Account Information</h2>
+						<h2 class="text-start ps-3">Settings</h2>
 					</div>
 				</div>
 
-				<div class="row">
-					<div class="col">
-						<div class="p-4 shadow-4 rounded-3 bg-white">
-							<div class="container-fluid">
-								<div class="row text-start">
-									<div class="col-md-6">
-										<label for="user-first" class="d-flex justify-content-start ps-3">
-											<strong>First Name</strong></label>
-										<div class="card shadow-sm rounded-3" id="user-first">
-											<div class="card-body">
-												<h6 class="ps-4">First Name Here...</h6>
-											</div>
-										</div>
-									</div>
-
-									<div class="col-md-6">
-										<label for="user-first" class="d-flex justify-content-start ps-3">
-											<strong>Last Name</strong></label>
-										<div class="card shadow-sm rounded">
-											<div class="card-body">
-												 <h6 class="ps-4">Last Name Here...</h6>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<br>
-
-								<div class="row text-start">
-									<div class="col-md-6">
-										<label for="user-first" class="d-flex justify-content-start ps-3">
-											<strong>Email Address</strong></label>
-										<div class="card shadow-sm rounded-3" id="user-first">
-											<div class="card-body">
-												<h6 class="ps-4">Email Address Here...</h6>
-											</div>
-										</div>
-									</div>
-
-									<div class="col-md-6">
-										<label for="user-first" class="d-flex justify-content-start ps-3">
-											<strong>Mobile Number</strong></label>
-										<div class="card shadow-sm rounded">
-											<div class="card-body">
-												 <h6 class="ps-4">Mobile Number Here...</h6>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<br>
-
-								<div class="row text-start">
-									<div class="col-md-6">
-										<label for="user-first" class="d-flex justify-content-start ps-3">
-											<strong>Birth Date</strong></label>
-										<div class="card shadow-sm rounded-3" id="user-first">
-											<div class="card-body">
-												<h6 class="ps-4">Birth Date Here...</h6>
-											</div>
-										</div>
-									</div>
-
-									<div class="col-md-6">
-										<label for="user-first" class="d-flex justify-content-start ps-3">
-											<strong>Age</strong></label>
-										<div class="card shadow-sm rounded">
-											<div class="card-body">
-												 <h6 class="ps-4">Age Here...</h6>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<br>
-
-								<label for="user-first" class="d-flex justify-content-start ps-3">
-									<strong>Address</strong></label>
-								<div class="card shadow-sm rounded">
-									<div class="card-body">
-										<h6 class="ps-4 text-start">Address Here...</h6>
-									</div>
-								</div>
-
-								<br>
-
-								<div class="col d-flex justify-content-end">
-									<button class="btn-lg btn-primary">Edit Information</button>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>	
+				
 			</div>
 		</div>
 	</div>
