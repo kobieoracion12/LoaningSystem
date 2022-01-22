@@ -7,7 +7,7 @@ session_start();
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Accounts</title>
+	<title>Settings</title>
 	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../css/style-min.css">
 	<link rel="stylesheet" type="text/css" href="../css/fontawesome.css">
@@ -87,15 +87,111 @@ session_start();
 		</div>
 
 		<!--Main Content-->
-		<div class="col py-3 d-flex justify-content-center align-items-center vh-100 bg-light text-dark">
+		<div class="col py-3 d-flex justify-content-center align-items-center vh-100 overflow-auto">
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col">
-						<h2 class="text-start ps-3">Settings</h2>
+						<h2 class="text-start text-white ps-3">Settings</h2><br>
 					</div>
 				</div>
 
-				
+				<div class="row">
+					<div class="col-md-6 col-lg-6 col-sm-12 py-1">
+						<div class="p-4 bg-white shadow-4 rounded-3">
+							<div class="row">
+								<div class="col text-start ps-3 fw-bold">
+									<label for="lang-list" class="form-label">Language</label>
+								</div>
+								
+							</div>
+
+							<div class="row">
+								<div class="col d-flex justify-content-center">
+									<input class="form-control" list="language" id="lang-list" placeholder="English (Default)">
+									<datalist id="language"> 
+										<option value="English (US)">
+										<option value="English (UK)">
+									</datalist>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-6 col-lg-6 col-sm-12 py-1">
+						<div class="p-4 bg-white shadow-4 rounded-3">
+							<div class="row">
+								<div class="col text-start ps-3 fw-bold">
+									<label for="lang-list" class="form-label">Language</label>
+								</div>
+								
+							</div>
+
+							<div class="row">
+								<div class="col d-flex justify-content-center">
+									<input class="form-control" list="language" id="lang-list" placeholder="English (Default)">
+									<datalist id="language"> 
+										<option value="English (US)">
+										<option value="English (UK)">
+									</datalist>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<hr class="text-white">
+
+				<div class="row">
+					<div class="col-md-12 col-lg-12 col-sm-12 py-1">
+						<div class="p-4 bg-white shadow-4 rounded-3">
+							<div class="row">
+								<div class="col text-start ps-3 fw-bold">
+									<label for="lang-list" class="form-label">More Settings</label>
+								</div>
+							</div>
+
+							<br>
+
+							<div class="row">
+								<div class="col">
+									<div class="row">
+										<div class="col-lg-6 col-md-12 col-sm-12 py-2">
+											 <div class="card shadow-sm rounded-3">
+											 	 <div class="card-body">
+											 	 	<div class="col fw-bold">
+														SMS Notification(s)
+													</div>
+
+													<div class="col">
+														<div class="form-check form-switch d-flex justify-content-center">
+														  <input class="form-check-input" type="checkbox" id="sms-notif">
+														</div>
+													</div>
+											 	 </div>
+											 </div>
+										</div>
+
+										<div class="col-lg-6 col-md-12 col-sm-12">
+											<div class="card shadow-sm rounded-3 py-2">
+											 	 <div class="card-body">
+											 	 	<div class="col fw-bold py">
+														Push Notification(s)
+													</div>
+
+													<div class="col">
+														<div class="form-check form-switch d-flex justify-content-center">
+														  <input class="form-check-input" type="checkbox" id="push-notif">
+														</div>
+													</div>
+											 	 </div>
+											 </div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

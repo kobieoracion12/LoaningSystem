@@ -87,11 +87,11 @@ session_start();
 		</div>
 
 		<!--Main Content-->
-		<div class="col py-3 d-flex justify-content-center align-items-center vh-100">
+		<div class="col py-3 d-flex justify-content-center align-items-center vh-100 overflow-auto">
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col">
-						<h2 class="text-white text-start ps-3">Account Information</h2>
+						<h2 class="text-white text-start ps-3">Account Information</h2><br>
 					</div>
 				</div>
 
