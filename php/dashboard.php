@@ -103,7 +103,7 @@
 				<div class="row">
 
 					<!--Welcome Card-->
-					<div class="col-lg-4 col-md-12 col-sm-12 py-2">
+					<div class="col-xxl-4 col-lg-12 col-md-12 col-sm-12 py-2">
 						<div class="card">
 							<div class="card-body m-5">
 								<h5 class="text-primary">Welcome to your Personal Dashboard</h5>
@@ -115,7 +115,7 @@
 					
 
 					<!--Recent Messages Card-->
-					<div class="col-lg-4 col-md-12 col-sm-12 py-2">
+					<div class="col-xxl-4 col-lg-12 col-md-12 col-sm-12 py-2">
 						<div class="card">
 							<div class="card-header text-primary text-start ps-4">
 								Recent Messages
@@ -162,7 +162,7 @@
 					</div>
 
 					<!--Progress Card-->
-					<div class="col-lg-4 col-md-12 col-sm-12 py-2">
+					<div class="col-xxl-4 col-lg-12 col-md-12 col-sm-12 py-2">
 						<div class="card">
 							<div class="card-header text-primary text-start ps-4">
 								Progress Tracker
