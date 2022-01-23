@@ -12,13 +12,17 @@ $result = mysqli_query($config, $sql);
 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 $count = mysqli_num_rows($result);
 
+
 if($count == 1) {
-	$_SESSION['user-details'] = $user_name;
+	session_start();
+	$_SESSION['username'] = $user_name;
 	header("location: dashboard.php");
+	exit;
 }
 else {
 	echo "<h1>Invalid Username/Password</h1>";
 	header("location: ../index.php?Invalid");
 }
 
+mysqli_close($config);
 ?>

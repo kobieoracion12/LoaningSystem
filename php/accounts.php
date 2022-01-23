@@ -1,5 +1,5 @@
 <?php
-session_start();
+	include_once "session.php";
 ?>
 
 <!DOCTYPE html>
@@ -71,7 +71,11 @@ session_start();
 				<div class="dropdown pb-4">
 					<a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle" id="user-dropdown" data-bs-toggle="dropdown" aria-expanded="false">
 						<i class="fas fa-regular fa-circle-user bi me-2"></i>
-						<span class="d-none d-sm-inline mx-1 fw-bold">Full Name</span>
+						<span class="d-none d-sm-inline mx-1 fw-bold">
+							<?php
+								echo $_SESSION["username"];
+							?>
+						</span>
 					</a>
 					<ul class="dropdown-menu text-small shadow">
 						<li><a class="dropdown-item" href="#">New Installment...</a></li>
@@ -80,7 +84,7 @@ session_start();
 						<li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="#">Sign out</a></li>
+                        <li><a class="dropdown-item" href="logout.php">Sign out</a></li>
 					</ul>
 				</div>
 			</div>
