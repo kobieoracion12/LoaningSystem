@@ -102,6 +102,7 @@
 					</div>
 				</div>
 
+				<!--View Information-->
 				<div class="row">
 					<div class="col">
 						<div class="p-4 shadow-4 rounded-3 bg-white">
@@ -217,7 +218,74 @@
 								<br>
 
 								<div class="col d-flex justify-content-end">
-									<button class="btn-lg btn-primary">Edit Information</button>
+									<button type="button" class="btn-lg btn-primary" data-bs-toggle="modal" data-bs-target="#editInformation">Edit Information</button>
+								</div>
+
+								<div class="modal fade" id="editInformation" tabindex="-1" aria-labelledby="editInformationLabel" aria-hidden="true">
+									<div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-xl">
+										<div class="modal-content">
+											<div class="modal-header">
+												<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+											</div>
+
+											<div class="modal-body">
+												<div class="container-fluid">
+													<br><h4>Edit Information</h4>
+													<div class="row">
+														<form class="form-control border-0 p-5" action="method" action="#">
+															<div class="col">
+																<div class="row">
+																	<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 py-2">
+																		<label for="user-first" class="d-flex justify-content-start ps-3">First Name</label>
+																		<input type="text" name="user-first" id="user-first" class="form-control">
+																	</div>
+
+																	<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 py-2">
+																		<label for="user-last" class="d-flex justify-content-start ps-3">Last Name</label>
+																		<input type="text" name="user-last" id="user-last" class="form-control">
+																	</div>
+																</div>
+
+																<div class="row">
+																	<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 py-2">
+																		<label for="user-email" class="d-flex justify-content-start ps-3">Email Address</label>
+																		<input type="text" name="user-email" id="user-email" class="form-control">
+																	</div>
+
+																	<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 py-2">
+																		<label for="user-mobile" class="d-flex justify-content-start ps-3">Mobile Number</label>
+																		<input type="number" name="user-mobile" id="user-mobile" class="form-control">
+																	</div>
+																</div>
+
+																<div class="row">
+																	<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 py-2">
+																		<label for="user-bday" class="d-flex justify-content-start ps-3">Birth Date</label>
+																		<input type="date" name="user-bday" id="user-bday" class="form-control">
+																	</div>
+
+																	<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 py-2">
+																		<label for="user-age" class="d-flex justify-content-start ps-3">Age</label>
+																		<input type="number" name="user-age" id="user-age" class="form-control">
+																	</div>
+																</div>
+
+																<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 py-2">
+																	<label for="user-add" class="d-flex justify-content-start ps-3">Address</label>
+																	<textarea class="form-control" id="user-add" name="user-add" rows="4"></textarea>
+																</div>
+															</div>
+														</form>
+													</div>
+												</div>
+											</div>
+
+											<div class="modal-footer">
+												<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+										        <button type="submit" class="btn btn-primary">Save changes</button>
+											</div>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
