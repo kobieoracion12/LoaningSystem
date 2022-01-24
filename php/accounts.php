@@ -1,5 +1,6 @@
 <?php
 	include_once "session.php";
+	include_once "userdata.php";
 ?>
 
 <!DOCTYPE html>
@@ -73,7 +74,9 @@
 						<i class="fas fa-regular fa-circle-user bi me-2"></i>
 						<span class="d-none d-sm-inline mx-1 fw-bold">
 							<?php
-								echo $_SESSION["username"];
+								echo $_SESSION['first'];
+								echo " ";
+								echo $_SESSION['last'];
 							?>
 						</span>
 					</a>
@@ -109,7 +112,11 @@
 											<strong>First Name</strong></label>
 										<div class="card shadow-sm rounded-3" id="user-first">
 											<div class="card-body">
-												<h6 class="ps-4">First Name Here...</h6>
+												<h6 class="ps-4">
+													<?php
+														echo $_SESSION['first'];
+													?>
+												</h6>
 											</div>
 										</div>
 									</div>
@@ -119,7 +126,11 @@
 											<strong>Last Name</strong></label>
 										<div class="card shadow-sm rounded">
 											<div class="card-body">
-												 <h6 class="ps-4">Last Name Here...</h6>
+												 <h6 class="ps-4">
+												 	<?php
+														echo $_SESSION['last'];
+													?>
+												 </h6>
 											</div>
 										</div>
 									</div>
@@ -133,7 +144,11 @@
 											<strong>Email Address</strong></label>
 										<div class="card shadow-sm rounded-3" id="user-first">
 											<div class="card-body">
-												<h6 class="ps-4">Email Address Here...</h6>
+												<h6 class="ps-4">
+													<?php
+														echo $_SESSION['email'];
+													?>
+												</h6>
 											</div>
 										</div>
 									</div>
@@ -143,7 +158,11 @@
 											<strong>Mobile Number</strong></label>
 										<div class="card shadow-sm rounded">
 											<div class="card-body">
-												 <h6 class="ps-4">Mobile Number Here...</h6>
+												 <h6 class="ps-4">
+													<?php
+														echo $_SESSION['mobile'];
+													?>
+												</h6>
 											</div>
 										</div>
 									</div>
@@ -157,7 +176,11 @@
 											<strong>Birth Date</strong></label>
 										<div class="card shadow-sm rounded-3" id="user-first">
 											<div class="card-body">
-												<h6 class="ps-4">Birth Date Here...</h6>
+												<h6 class="ps-4">
+													<?php
+														echo $_SESSION['bday'];
+													?>
+												</h6>
 											</div>
 										</div>
 									</div>
@@ -167,7 +190,11 @@
 											<strong>Age</strong></label>
 										<div class="card shadow-sm rounded">
 											<div class="card-body">
-												 <h6 class="ps-4">Age Here...</h6>
+												 <h6 class="ps-4">
+													<?php
+														echo $_SESSION['age'];
+													?>
+												</h6>
 											</div>
 										</div>
 									</div>
@@ -179,7 +206,11 @@
 									<strong>Address</strong></label>
 								<div class="card shadow-sm rounded">
 									<div class="card-body">
-										<h6 class="ps-4 text-start">Address Here...</h6>
+										<h6 class="ps-4 text-start">
+											<?php
+												echo $_SESSION['address'];
+											?>
+										</h6>
 									</div>
 								</div>
 

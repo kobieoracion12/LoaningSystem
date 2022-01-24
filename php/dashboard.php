@@ -1,5 +1,6 @@
 <?php
 	include_once "session.php";
+	include_once "userdata.php";
 ?>
 
 <!DOCTYPE html>
@@ -73,7 +74,9 @@
 						<i class="fas fa-regular fa-circle-user bi me-2"></i>
 						<span class="d-none d-sm-inline mx-1 fw-bold">
 							<?php
-								echo $_SESSION["username"];
+								echo $_SESSION['first'];
+								echo " ";
+								echo $_SESSION['last'];
 							?>
 						</span>
 					</a>

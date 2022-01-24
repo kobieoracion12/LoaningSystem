@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 13, 2022 at 10:04 AM
+-- Generation Time: Jan 24, 2022 at 07:13 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -31,7 +31,7 @@ CREATE TABLE `accounts` (
   `acc_no` bigint(11) NOT NULL,
   `first_name` text NOT NULL,
   `last_name` text NOT NULL,
-  `email_add` varchar(19) NOT NULL,
+  `email_add` varchar(69) NOT NULL,
   `mobile_no` bigint(11) NOT NULL,
   `birth_date` date NOT NULL,
   `age` int(3) NOT NULL,
@@ -46,7 +46,7 @@ CREATE TABLE `accounts` (
 --
 
 INSERT INTO `accounts` (`acc_no`, `first_name`, `last_name`, `email_add`, `mobile_no`, `birth_date`, `age`, `address`, `valid_id`, `username`, `password`) VALUES
-(1, 'Kobie', 'Oracion', 'kobie.oracion12@gma', 9976616289, '2000-07-12', 21, '', '', 'admin', 'admin');
+(1, 'Kobie', 'Oracion', 'kobie.oracion12@gmail.com', 9976616289, '2000-07-12', 21, 'Luisiana, Laguna', '', 'admin', 'admin');
 
 --
 -- Indexes for dumped tables
