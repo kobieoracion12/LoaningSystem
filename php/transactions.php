@@ -137,7 +137,155 @@
 				</div>
 
 				<div class="row">
+					<div class="p-4 shadow-4 rounded-3 bg-white">
+						<div class="row">
+							<div class="col table-responsive-xxl">
+								<table class="table">
+									<tbody>
+										<tr>
+											<td>
+												<div class="row">
+													<div class="col-10 text-start p-3 ps-5">
+														<div class="row">
+															CM INTER-BANK FUND TRANSFER
+														</div>
 
+														<div class="row">
+															<small class="text-black-50">January 25, 2022</small>
+														</div>
+													</div>
+
+													<div class="col-2 p-3">
+														PHP 200.00
+													</div>
+												</div>
+											</td>
+										</tr>
+
+										<tr>
+											<td>
+												<div class="row">
+													<div class="col-10 text-start p-3 ps-5">
+														<div class="row">
+															POS LOCAL
+														</div>
+
+														<div class="row">
+															<small class="text-black-50">January 12, 2022</small>
+														</div>
+													</div>
+
+													<div class="col-2 p-3 text-danger">
+														-PHP 109.00
+													</div>
+												</div>
+											</td>
+										</tr>
+
+										<tr>
+											<td>
+												<div class="row">
+													<div class="col-10 text-start p-3 ps-5">
+														<div class="row">
+															DM INTER-BANK FUND TRANSFER
+														</div>
+
+														<div class="row">
+															<small class="text-black-50">January 7, 2022</small>
+														</div>
+													</div>
+
+													<div class="col-2 p-3">
+														PHP 20,300.00
+													</div>
+												</div>
+											</td>
+										</tr>
+
+										<tr>
+											<td>
+												<div class="row">
+													<div class="col-10 text-start p-3 ps-5">
+														<div class="row">
+															DM INTER-BANK FUND TRANSFER
+														</div>
+
+														<div class="row">
+															<small class="text-black-50">January 7, 2022</small>
+														</div>
+													</div>
+
+													<div class="col-2 p-3">
+														PHP 20,000.00
+													</div>
+												</div>
+											</td>
+										</tr>
+
+										<tr>
+											<td>
+												<div class="row">
+													<div class="col-10 text-start p-3 ps-5">
+														<div class="row">
+															SERVICE CHARGE
+														</div>
+
+														<div class="row">
+															<small class="text-black-50">January 7, 2022</small>
+														</div>
+													</div>
+
+													<div class="col-2 p-3 text-danger">
+														-PHP 25.00
+													</div>
+												</div>
+											</td>
+										</tr>
+
+										<tr>
+											<td>
+												<div class="row">
+													<div class="col-10 text-start p-3 ps-5">
+														<div class="row">
+															SERVICE CHARGE
+														</div>
+
+														<div class="row">
+															<small class="text-black-50">January 7, 2022</small>
+														</div>
+													</div>
+
+													<div class="col-2 p-3 text-danger">
+														-PHP 25.00
+													</div>
+												</div>
+											</td>
+										</tr>
+
+										<tr>
+											<td>
+												<div class="row">
+													<div class="col-10 text-start p-3 ps-5">
+														<div class="row">
+															POS LOCAL
+														</div>
+
+														<div class="row">
+															<small class="text-black-50">January 7, 2022</small>
+														</div>
+													</div>
+
+													<div class="col-2 p-3 text-danger">
+														-PHP 249.00
+													</div>
+												</div>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

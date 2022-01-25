@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 25, 2022 at 04:01 AM
+-- Generation Time: Jan 25, 2022 at 05:50 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -79,6 +79,30 @@ INSERT INTO `loan_information` (`loan_no`, `acc_no`, `loan_type`, `loan_status`,
 (2, 2, 'Ecommerce', 'Closed', 5000, 6, 4500, '2022-02-28', 'Any', '2022-01-01'),
 (3, 3, 'Counter', 'Due', 10000, 12, 1000, '2021-12-31', 'Ewallet', '2021-10-14');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `trans_record`
+--
+
+CREATE TABLE `trans_record` (
+  `trans_no` bigint(11) NOT NULL,
+  `acc_no` bigint(11) NOT NULL,
+  `trans_type` varchar(99) NOT NULL,
+  `trans_amount` bigint(99) NOT NULL,
+  `trans_date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `trans_record`
+--
+
+INSERT INTO `trans_record` (`trans_no`, `acc_no`, `trans_type`, `trans_amount`, `trans_date`) VALUES
+(1, 1, 'CM INTER-BANK FUND TRANSFER', 200, '2022-01-25'),
+(2, 1, 'POS LOCAL', -109, '2022-01-12'),
+(3, 1, 'DM INTER-BANK FUND TRANSFER', 20300, '2022-01-07'),
+(4, 1, 'DM INTER-BANK FUND TRANSFER', 20000, '2022-01-07');
+
 --
 -- Indexes for dumped tables
 --
@@ -98,6 +122,13 @@ ALTER TABLE `loan_information`
   ADD KEY `acc_no` (`acc_no`);
 
 --
+-- Indexes for table `trans_record`
+--
+ALTER TABLE `trans_record`
+  ADD PRIMARY KEY (`trans_no`),
+  ADD KEY `acc_no` (`acc_no`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -114,6 +145,12 @@ ALTER TABLE `loan_information`
   MODIFY `loan_no` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT for table `trans_record`
+--
+ALTER TABLE `trans_record`
+  MODIFY `trans_no` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- Constraints for dumped tables
 --
 
@@ -122,6 +159,12 @@ ALTER TABLE `loan_information`
 --
 ALTER TABLE `loan_information`
   ADD CONSTRAINT `loan_information_ibfk_1` FOREIGN KEY (`acc_no`) REFERENCES `accounts` (`acc_no`);
+
+--
+-- Constraints for table `trans_record`
+--
+ALTER TABLE `trans_record`
+  ADD CONSTRAINT `trans_record_ibfk_1` FOREIGN KEY (`acc_no`) REFERENCES `accounts` (`acc_no`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
