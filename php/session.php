@@ -5,6 +5,6 @@ if(isset($_SESSION['username'])) {
 	
 
 }else {
-	header("location: ../index.php?loginfirst");
+	header("location: ../index.php?Login");
 }
 ?>

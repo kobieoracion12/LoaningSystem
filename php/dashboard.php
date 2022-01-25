@@ -39,15 +39,50 @@
                             <i class="fas fa-regular fa-credit-card bi me-2"></i> <span class="ms-1 d-none d-sm-inline fw-bold">Installment</span> </a>
                         <ul class="collapse show nav flex-column ms-1 text-start" id="install" data-bs-parent="#menu">
                             <li class="w-100">
-                                <a href="new-installment.php" class="nav-link px-0"> <span class="d-none d-sm-inline">New Installment</span></a>
+                                <?php
+                                	$status = $_SESSION['status'];
+                                	if($status == 'Active' || $status == 'Due' || $status == 'Terminated') {
+                                		echo '
+                                		<span class="d-inline-block" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-content="Disabled popover">
+	                                		<a href="new-installment.php" class="nav-link px-0 disabled">
+			                                	<span class="d-none d-sm-inline">New Installment</span>
+			                                </a>
+		                                </span>
+                                		';
+                                	} else {
+                                		echo '
+                                		<a href="new-installment.php" class="nav-link px-0">
+		                                	<span class="d-none d-sm-inline">New Installment</span>
+		                                </a>';
+                                	}
+                                ?>
                             </li>
                             
                             <li>
-                                <a href="transcations.php" class="nav-link px-0"> <span class="d-none d-sm-inline">Transaction Record</span></a>
+                                <a href="transcations.php" class="nav-link px-0">
+                                	<span class="d-none d-sm-inline">Transaction Record</span>
+                                </a>
                             </li>
 
                             <li>
-                                <a href="paynow.php" class="nav-link px-0"> <span class="d-none d-sm-inline">Pay Now</span></a>
+                            	<?php 
+                            		$status = $_SESSION['status'];
+                                	if($status == 'Active' || $status == 'Due' || $status == 'Terminated') {
+                                		echo '
+                                			<a href="paynow.php" class="nav-link px-0">
+			                                	<span class="d-none d-sm-inline">Pay Now</span>
+			                                </a>
+                                		';
+                                	} else {
+                                		echo '
+                                			<a href="paynow.php" class="nav-link px-0 disabled">
+			                                	<span class="d-none d-sm-inline">Pay Now</span>
+			                                </a>
+                                		';
+                                	}
+
+                            	?>
+                                
                             </li>
                         </ul>
                     </li>
@@ -81,7 +116,6 @@
 						</span>
 					</a>
 					<ul class="dropdown-menu text-small shadow">
-						<li><a class="dropdown-item" href="#">New Installment...</a></li>
 						<li><a class="dropdown-item" href="#">Settings</a></li>
 						<li><a class="dropdown-item" href="#">Profile</a></li>
 						<li>

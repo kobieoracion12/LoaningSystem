@@ -21,15 +21,6 @@
 
           <div class="col">
             <form method="post" action="php/auth.php" style="padding: 15%">
-
-            <?php
-              if(isset($_GET['Invalid'])) {
-                echo '<div class="alert alert-danger" role="alert">
-                      Invalid username and password.
-                      </div>';
-              }
-            ?>
-
               <div class="mb-3 mt-3">
                 <h3 style="font-weight: bold">Login</h3><br><br>
                 
@@ -43,6 +34,21 @@
 
                 <button type="submit" value="Submit" class="btn btn-primary login-button btn-lg">Login</button>
               </div>
+
+              <?php
+              if(isset($_GET['Invalid'])) {
+                echo '<div class="alert alert-danger" role="alert">
+                      Invalid username and password.
+                      </div>';
+              }
+
+              if(isset($_GET['Login'])) {
+                echo '<div class="alert alert-danger" role="alert">
+                      Session broken. Login First.
+                      </div>';
+              }
+            ?>
+
             </form>
           </div>
         </div>
