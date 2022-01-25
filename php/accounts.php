@@ -28,7 +28,7 @@
 
 				<ul class="nav nav-pills flex-column mb-sm-auto mb-0 ms-2 align-items-start" id="menu">
 					<li class="nav-item nav-list">
-						<a href="#" class="nav-link align-middle px-0 text-wrap">
+						<a href="dashboard.php" class="nav-link align-middle px-0 text-wrap">
 							<i class="fas fa-regular fa-gauge bi me-2"></i>	
 							<span class="d-none d-sm-inline fw-bold">Dashboard</span>
 						</a>
@@ -59,7 +59,7 @@
                             </li>
                             
                             <li>
-                                <a href="transcations.php" class="nav-link px-0">
+                                <a href="transactions.php" class="nav-link px-0">
                                 	<span class="d-none d-sm-inline">Transaction Record</span>
                                 </a>
                             </li>
