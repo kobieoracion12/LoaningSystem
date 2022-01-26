@@ -24,6 +24,9 @@ $loan = mysqli_query($config, "SELECT * FROM loan_information WHERE acc_no = '$i
 while($loanrows = mysqli_fetch_array($loan)) {
 	$_SESSION['type'] = $loanrows['loan_type'];
 	$_SESSION['status'] = $loanrows['loan_status'];
+	$_SESSION['amount'] = $loanrows['loan_amount'];
+	$_SESSION['duration'] = $loanrows['loan_duration'];
+	$_SESSION['balance'] = $loanrows['loan_balance'];
 }
 
 

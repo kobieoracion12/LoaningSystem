@@ -8,7 +8,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Transcations</title>
+	<title>Pay Bill</title>
 	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../css/style-min.css">
 	<link rel="stylesheet" type="text/css" href="../css/fontawesome.css">
@@ -28,7 +28,7 @@
 
 				<ul class="nav nav-pills flex-column mb-sm-auto mb-0 ms-2 align-items-start" id="menu">
 					<li class="nav-item nav-list">
-						<a href="dashboard.php" class="nav-link align-middle px-0 text-wrap">
+						<a href="#" class="nav-link align-middle px-0 text-wrap">
 							<i class="fas fa-regular fa-gauge bi me-2"></i>	
 							<span class="d-none d-sm-inline fw-bold">Dashboard</span>
 						</a>
@@ -133,169 +133,133 @@
 				<div class="row">
 					<div class="col">
 						<br>
-						<h2 class="text-start text-white ps-3">Transaction Records</h2><br>
+						<h2 class="text-white text-start ps-3">Pay Bill</h2><br>
 					</div>
 				</div>
 
+				<!--Source Account-->
 				<div class="row">
-					<div class="p-4 shadow-4 rounded-3 bg-white">
-						<div class="row">
-							<div class="col table-responsive-xxl">
-								<table class="table">
-									<tbody>
-										<tr>
-											<td>
-												<div class="row">
-													<div class="col-10 text-start p-3 ps-5">
-														<div class="row">
-															CM INTER-BANK FUND TRANSFER
-														</div>
+					<div class="col-xxl-12 col-md-12 col-lg-12 col-sm-12 py-1">
+						<div class="p-4 bg-white shadow-4 rounded-3">
+							<div class="row">
+								<div class="col text-start">
+									<p class="mb-1">Source Account</p>
+								</div>
+							</div>
 
-														<div class="row">
-															<small class="text-black-50">January 25, 2022</small>
-														</div>
-													</div>
+							<div class="row">
+								<div class="col text-start"><br>
+									<h5 class="mb-1">
+										<?php
+											echo $_SESSION['user-id'];
+										?>
+									</h5>
+									<small>Account Number</small>
+								</div>
+							</div>
 
-													<div class="col-2 p-3">
-														PHP 200.00
-													</div>
-												</div>
-											</td>
-										</tr>
-
-										<tr>
-											<td>
-												<div class="row">
-													<div class="col-10 text-start p-3 ps-5">
-														<div class="row">
-															POS LOCAL
-														</div>
-
-														<div class="row">
-															<small class="text-black-50">January 12, 2022</small>
-														</div>
-													</div>
-
-													<div class="col-2 p-3 text-danger">
-														-PHP 109.00
-													</div>
-												</div>
-											</td>
-										</tr>
-
-										<tr>
-											<td>
-												<div class="row">
-													<div class="col-10 text-start p-3 ps-5">
-														<div class="row">
-															DM INTER-BANK FUND TRANSFER
-														</div>
-
-														<div class="row">
-															<small class="text-black-50">January 7, 2022</small>
-														</div>
-													</div>
-
-													<div class="col-2 p-3">
-														PHP 20,300.00
-													</div>
-												</div>
-											</td>
-										</tr>
-
-										<tr>
-											<td>
-												<div class="row">
-													<div class="col-10 text-start p-3 ps-5">
-														<div class="row">
-															DM INTER-BANK FUND TRANSFER
-														</div>
-
-														<div class="row">
-															<small class="text-black-50">January 7, 2022</small>
-														</div>
-													</div>
-
-													<div class="col-2 p-3">
-														PHP 20,000.00
-													</div>
-												</div>
-											</td>
-										</tr>
-
-										<tr>
-											<td>
-												<div class="row">
-													<div class="col-10 text-start p-3 ps-5">
-														<div class="row">
-															SERVICE CHARGE
-														</div>
-
-														<div class="row">
-															<small class="text-black-50">January 7, 2022</small>
-														</div>
-													</div>
-
-													<div class="col-2 p-3 text-danger">
-														-PHP 25.00
-													</div>
-												</div>
-											</td>
-										</tr>
-
-										<tr>
-											<td>
-												<div class="row">
-													<div class="col-10 text-start p-3 ps-5">
-														<div class="row">
-															SERVICE CHARGE
-														</div>
-
-														<div class="row">
-															<small class="text-black-50">January 7, 2022</small>
-														</div>
-													</div>
-
-													<div class="col-2 p-3 text-danger">
-														-PHP 25.00
-													</div>
-												</div>
-											</td>
-										</tr>
-
-										<tr>
-											<td>
-												<div class="row">
-													<div class="col-10 text-start p-3 ps-5">
-														<div class="row">
-															POS LOCAL
-														</div>
-
-														<div class="row">
-															<small class="text-black-50">January 7, 2022</small>
-														</div>
-													</div>
-
-													<div class="col-2 p-3 text-danger">
-														-PHP 249.00
-													</div>
-												</div>
-											</td>
-										</tr>
-									</tbody>
-								</table>
+							<div class="row">
+								<div class="col text-end"><br>
+									<small class="text-black-50">Available Balance</small>
+									<h4 class="mb-1">
+										PHP 
+										<?php
+											echo $_SESSION['balance'];
+										?>
+									</h4>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
+
+				<!--Payment Method-->
+				<div class="row">
+					<div class="col-xxl-12 col-md-12 col-lg-12 col-sm-12 py-2">
+						<div class="p-4 bg-white shadow-4 rounded-3">
+							<div class="row">
+								<div class="col text-start">
+									<p class="mb-1">Payment Method</p>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col">
+									<select class="form-select" aria-label="Biller Name">
+										<option selected>Select Payment Method</option>
+										<option value="bdo">BDO</option>
+										<option value="bpi">BPI</option>
+										<option value="cebuana">Cebuana Lhuillier Rural Bank, INC.</option>
+										<option value="gcash">GCASH Instapay</option>
+										<option value="landbank">LANDBANK</option>
+										<option value="shopee">ShopeePay</option>
+									</select>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!--Account Information-->
+				<div class="row">
+					<div class="col-xxl-12 col-md-12 col-lg-12 col-sm-12 py-2">
+						<div class="p-4 bg-white shadow-4 rounded-3">
+							<form>
+								<div class="row">
+									<div class="col text-start">
+										<p class="mb-1">Account Number</p>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col">
+										<input class="form-control" type="text" name="account_no" id="account_no">
+									</div>
+								</div>
+
+								<br>
+
+								<div class="row">
+									<div class="col text-start">
+										<p class="mb-1">Account Name</p>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col">
+										<input class="form-control" type="text" name="account_name" id="account_name">
+									</div>
+								</div>
+
+								<br>
+
+								<div class="row">
+									<div class="col text-start">
+										<p class="mb-1">Amount</p>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col">
+										<input class="form-control" type="text" name="amount_transfer" id="amount_transfer" placeholder="0.00">
+									</div>
+								</div>
+
+								<br><br>
+
+								<button type="submit" class="btn btn-success w-100">Pay Now</button>
+							</div>
+						</form>
+					</div>
+				</div>
+				
 			</div>
 		</div>
 	</div>
 </div>
 
-
-
 <script type="text/javascript" src="../js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript" src="../js/mdb.min.js"></script>
 </body>
 </html>
+

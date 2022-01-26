@@ -128,10 +128,11 @@
 		</div>
 
 		<!--Main Content-->
-		<div class="col py-3 d-flex justify-content-center align-items-center vh-100 overflow-auto">
+		<div class="col py-3 d-flex justify-content-center overflow-auto">
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col">
+						<br>
 						<h2 class="text-white text-start ps-3">Account Information</h2><br>
 					</div>
 				</div>
@@ -144,7 +145,7 @@
 								<div class="row text-start">
 									<div class="col-md-6">
 										<label for="user-first" class="d-flex justify-content-start ps-3">
-											<strong>First Name</strong></label>
+											First Name</label>
 										<div class="card shadow-sm rounded-3" id="user-first">
 											<div class="card-body">
 												<h6 class="ps-4">
@@ -158,7 +159,7 @@
 
 									<div class="col-md-6">
 										<label for="user-first" class="d-flex justify-content-start ps-3">
-											<strong>Last Name</strong></label>
+											Last Name</label>
 										<div class="card shadow-sm rounded">
 											<div class="card-body">
 												 <h6 class="ps-4">
@@ -176,7 +177,7 @@
 								<div class="row text-start">
 									<div class="col-md-6">
 										<label for="user-first" class="d-flex justify-content-start ps-3">
-											<strong>Email Address</strong></label>
+											Email Address</label>
 										<div class="card shadow-sm rounded-3" id="user-first">
 											<div class="card-body">
 												<h6 class="ps-4">
@@ -190,7 +191,7 @@
 
 									<div class="col-md-6">
 										<label for="user-first" class="d-flex justify-content-start ps-3">
-											<strong>Mobile Number</strong></label>
+											Mobile Number</label>
 										<div class="card shadow-sm rounded">
 											<div class="card-body">
 												 <h6 class="ps-4">
@@ -208,7 +209,7 @@
 								<div class="row text-start">
 									<div class="col-md-6">
 										<label for="user-first" class="d-flex justify-content-start ps-3">
-											<strong>Birth Date</strong></label>
+											Birth Date</label>
 										<div class="card shadow-sm rounded-3" id="user-first">
 											<div class="card-body">
 												<h6 class="ps-4">
@@ -222,7 +223,7 @@
 
 									<div class="col-md-6">
 										<label for="user-first" class="d-flex justify-content-start ps-3">
-											<strong>Age</strong></label>
+											Age</label>
 										<div class="card shadow-sm rounded">
 											<div class="card-body">
 												 <h6 class="ps-4">
@@ -238,7 +239,7 @@
 								<br>
 
 								<label for="user-first" class="d-flex justify-content-start ps-3">
-									<strong>Address</strong></label>
+									Address</label>
 								<div class="card shadow-sm rounded">
 									<div class="card-body">
 										<h6 class="ps-4 text-start">

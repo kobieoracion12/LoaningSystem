@@ -128,10 +128,11 @@
 		</div>
 
 		<!--Main Content-->
-		<div class="col py-3 d-flex justify-content-center align-items-center vh-100 overflow-auto">
+		<div class="col py-3 d-flex justify-content-center overflow-auto">
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col">
+						<br>
 						<h2 class="text-white text-start ps-3">Dashboard</h2><br>
 					</div>
 				</div>
