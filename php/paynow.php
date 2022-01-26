@@ -207,7 +207,7 @@
 							<form>
 								<div class="row">
 									<div class="col text-start">
-										<p class="mb-1">Account Number</p>
+										<p class="mb-1">Account Number/Referrence Number</p>
 									</div>
 								</div>
 
