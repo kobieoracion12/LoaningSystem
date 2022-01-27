@@ -267,7 +267,7 @@
 												<div class="container-fluid">
 													<br><h4>Edit Information</h4>
 													<div class="row">
-														<form class="form-control border-0 p-5" action="method" action="#">
+														<form class="form-control border-0 p-5" method="post" action="update_query.php">
 															<div class="col">
 																<div class="row">
 																	<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 py-2">
@@ -309,6 +309,9 @@
 																	<label for="user-add" class="d-flex justify-content-start ps-3">Address</label>
 																	<textarea class="form-control" id="user-add" name="user-add" rows="4"><?php echo $_SESSION['address']; ?></textarea>
 																</div>
+
+										        				<button type="submit" name="submit" class="btn btn-primary">Save changes</button>
+
 															</div>
 														</form>
 													</div>
@@ -317,7 +320,6 @@
 
 											<div class="modal-footer">
 												<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-										        <button type="submit" class="btn btn-primary">Save changes</button>
 											</div>
 										</div>
 									</div>
