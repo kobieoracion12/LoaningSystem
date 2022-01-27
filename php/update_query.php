@@ -14,7 +14,7 @@ require_once 'database.php';
     $age = $_POST['user-age'];
     $address = $_POST['user-add'];
 
-    $sql = "UPDATE accounts SET first_name = '$firstname' WHERE acc_no = '$id'";
+    $sql = "UPDATE accounts SET first_name = '$firstname', last_name ='$lastname', email_add = '$email', mobile_no ='$mobile', birth_date ='$birthdate', age='$age', address ='$address' WHERE acc_no = '$id'";
     $result = mysqli_query($config, $sql);
 
     if($result) {
@@ -27,16 +27,3 @@ require_once 'database.php';
 
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Shiut</title>
-</head>
-<body>
-<?php
-    echo $_SESSION['user-id'];
-?>
-</body>
-</html>
