@@ -272,42 +272,42 @@
 																<div class="row">
 																	<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 py-2">
 																		<label for="user-first" class="d-flex justify-content-start ps-3">First Name</label>
-																		<input type="text" name="user-first" id="user-first" class="form-control">
+																		<input type="text" name="user-first" id="user-first" class="form-control" value="<?php echo $_SESSION['first']; ?>">
 																	</div>
 
 																	<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 py-2">
 																		<label for="user-last" class="d-flex justify-content-start ps-3">Last Name</label>
-																		<input type="text" name="user-last" id="user-last" class="form-control">
+																		<input type="text" name="user-last" id="user-last" class="form-control" value="<?php echo $_SESSION['last']; ?>">
 																	</div>
 																</div>
 
 																<div class="row">
 																	<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 py-2">
 																		<label for="user-email" class="d-flex justify-content-start ps-3">Email Address</label>
-																		<input type="text" name="user-email" id="user-email" class="form-control">
+																		<input type="text" name="user-email" id="user-email" class="form-control" value="<?php echo $_SESSION['email']; ?>">
 																	</div>
 
 																	<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 py-2">
 																		<label for="user-mobile" class="d-flex justify-content-start ps-3">Mobile Number</label>
-																		<input type="number" name="user-mobile" id="user-mobile" class="form-control">
+																		<input type="number" name="user-mobile" id="user-mobile" class="form-control" value="<?php echo $_SESSION['mobile']; ?>">
 																	</div>
 																</div>
 
 																<div class="row">
 																	<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 py-2">
 																		<label for="user-bday" class="d-flex justify-content-start ps-3">Birth Date</label>
-																		<input type="date" name="user-bday" id="user-bday" class="form-control">
+																		<input type="date" name="user-bday" id="user-bday" class="form-control" value="<?php echo $_SESSION['bday']; ?>">
 																	</div>
 
 																	<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 py-2">
 																		<label for="user-age" class="d-flex justify-content-start ps-3">Age</label>
-																		<input type="number" name="user-age" id="user-age" class="form-control">
+																		<input type="number" name="user-age" id="user-age" class="form-control" value="<?php echo $_SESSION['age']; ?>">
 																	</div>
 																</div>
 
 																<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 py-2">
 																	<label for="user-add" class="d-flex justify-content-start ps-3">Address</label>
-																	<textarea class="form-control" id="user-add" name="user-add" rows="4"></textarea>
+																	<textarea class="form-control" id="user-add" name="user-add" rows="4"><?php echo $_SESSION['address']; ?></textarea>
 																</div>
 															</div>
 														</form>
