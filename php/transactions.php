@@ -128,6 +128,7 @@
 		</div>
 
 		<!--Main Content-->
+<!--
 		<div class="col py-3 d-flex justify-content-center overflow-auto">
 			<div class="container-fluid">
 				<div class="row">
@@ -292,8 +293,53 @@
 		</div>
 	</div>
 </div>
+-->
+<style type ="text/css">
+	table {
+		border-collapse: collapse;
+		width: 100%;
+		color: black;
+		background-color: white;
+		font-size: 20px;
+		text-align: left;
+	}
+	th {
+		color: white;
+		background-color: black;
+	}
+</style>
+<div class="col py-3 d-flex justify-content-center overflow-auto">
+<div class="container-fluid">
+<table>
+	<tr>
+		<th>Transaction Type</th>
+		<th>Account Number</th>
+		<th>Account Name</th>
+		<th>Amount Paid</th>
+	</tr>
+	<?php 
+	$conn = mysqli_connect("localhost", "root", "", "loaning_system");
+	if ($conn-> connect_error) {
+		die("Connection failed:" .$conn-> connect_error);
+	}
 
+	$sql = "SELECT trans_type, acc_no, acc_name, trans_amount from trans_record";
+	$result = $conn-> query($sql);
 
+	if ($result-> num_rows > 0) {
+		while ($row = $result-> fetch_assoc()) {
+			echo "<tr><td>". $row["trans_type"] . "</td><td>" . $row["acc_no"] . "</td><td>" . $row["acc_name"] . "</td><td>" . $row["trans_amount"] . "</td></tr>";
+		}
+		echo "</table>" . "</div>" . "</div>";
+	}
+
+	else {
+		echo "0 result";
+	}
+
+	$conn-> close();
+	?>
+</table>
 
 <script type="text/javascript" src="../js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript" src="../js/mdb.min.js"></script>

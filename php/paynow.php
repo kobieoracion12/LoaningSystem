@@ -126,7 +126,7 @@
 				</div>
 			</div>
 		</div>
-
+		<form action="transact.php" method="post" enctype="multipart/form-data">
 		<!--Main Content-->
 		<div class="col py-3 d-flex justify-content-center overflow-auto">
 			<div class="container-fluid">
@@ -185,7 +185,7 @@
 
 							<div class="row">
 								<div class="col">
-									<select class="form-select" aria-label="Biller Name">
+									<select name="payment_method" class="form-select" aria-label="Biller Name">
 										<option selected>Select Payment Method</option>
 										<option value="bdo">BDO</option>
 										<option value="bpi">BPI</option>
@@ -247,16 +247,29 @@
 
 								<br><br>
 
-								<button type="submit" class="btn btn-success w-100">Pay Now</button>
+								<button type="submit" name"submit" class="btn btn-success w-100">Pay Now</button>
 							</div>
+
+							<?php 
+								if(isset($_GET['msg'])) {
+
+									if($_GET['msg'] == "paymentsuccess") {
+										echo '<div class="alert alert-success" role="alert">
+										Payment successful!
+									</div>';
+									}
+
+								}
+							?>
+							
 						</form>
 					</div>
 				</div>
-				
 			</div>
 		</div>
 	</div>
 </div>
+
 
 <script type="text/javascript" src="../js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript" src="../js/mdb.min.js"></script>
