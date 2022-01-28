@@ -310,7 +310,7 @@
 																	<textarea class="form-control" id="user-add" name="user-add" rows="4"><?php echo $_SESSION['address']; ?></textarea>
 																</div>
 
-										        				<button type="submit" name="submit" class="btn btn-primary">Save changes</button>
+										        				<button type="submit" name="submit" class="btn-primary">Save changes</button>
 
 															</div>
 														</form>
@@ -319,7 +319,7 @@
 											</div>
 
 											<div class="modal-footer">
-												<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+												<button type="button" class="btn-secondary" data-bs-dismiss="modal">Close</button>
 											</div>
 										</div>
 									</div>
