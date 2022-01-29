@@ -18,9 +18,9 @@ require_once 'database.php';
     $result = mysqli_query($config, $sql);
 
     if($result) {
-        header ('location:accounts.php?success');
+        header ('location:accounts.php?Success');
     } else {
-        header ('location:accounts.php?gg');
+        header ('location:accounts.php?Error');
     }
     mysqli_close($config);
 }

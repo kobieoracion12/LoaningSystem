@@ -128,7 +128,6 @@
 		</div>
 
 		<!--Main Content-->
-<!--
 		<div class="col py-3 d-flex justify-content-center overflow-auto">
 			<div class="container-fluid">
 				<div class="row">
@@ -143,204 +142,56 @@
 						<div class="row">
 							<div class="col table-responsive-xxl">
 								<table class="table">
-									<tbody>
-										<tr>
-											<td>
-												<div class="row">
-													<div class="col-10 text-start p-3 ps-5">
-														<div class="row">
-															CM INTER-BANK FUND TRANSFER
-														</div>
+									<?php
+										$id = $_SESSION['user-id'];
 
-														<div class="row">
-															<small class="text-black-50">January 25, 2022</small>
-														</div>
-													</div>
+										$sql = "SELECT * FROM trans_record WHERE acc_no = '$id'";
+										$result = $config -> query($sql);
 
-													<div class="col-2 p-3">
-														PHP 200.00
-													</div>
-												</div>
-											</td>
-										</tr>
+										if($result -> num_rows > 0) {
+											while($row = $result -> fetch_assoc()) {
+												echo '
+													<tr>
+														<td>
+															<div class="row">
+																<div class="col-10 text-start p-3 ps-5">
+																	<div class="row">
+																		'.$row["trans_type"].'
+																	</div>
 
-										<tr>
-											<td>
-												<div class="row">
-													<div class="col-10 text-start p-3 ps-5">
-														<div class="row">
-															POS LOCAL
-														</div>
+																	<div class="row">
+																		<small class="text-black-50">'.date("F d, Y", strtotime($row["trans_date"])).'</small>
+																	</div>
+																</div>
 
-														<div class="row">
-															<small class="text-black-50">January 12, 2022</small>
-														</div>
-													</div>
-
-													<div class="col-2 p-3 text-danger">
-														-PHP 109.00
-													</div>
-												</div>
-											</td>
-										</tr>
-
-										<tr>
-											<td>
-												<div class="row">
-													<div class="col-10 text-start p-3 ps-5">
-														<div class="row">
-															DM INTER-BANK FUND TRANSFER
-														</div>
-
-														<div class="row">
-															<small class="text-black-50">January 7, 2022</small>
-														</div>
-													</div>
-
-													<div class="col-2 p-3">
-														PHP 20,300.00
-													</div>
-												</div>
-											</td>
-										</tr>
-
-										<tr>
-											<td>
-												<div class="row">
-													<div class="col-10 text-start p-3 ps-5">
-														<div class="row">
-															DM INTER-BANK FUND TRANSFER
-														</div>
-
-														<div class="row">
-															<small class="text-black-50">January 7, 2022</small>
-														</div>
-													</div>
-
-													<div class="col-2 p-3">
-														PHP 20,000.00
-													</div>
-												</div>
-											</td>
-										</tr>
-
-										<tr>
-											<td>
-												<div class="row">
-													<div class="col-10 text-start p-3 ps-5">
-														<div class="row">
-															SERVICE CHARGE
-														</div>
-
-														<div class="row">
-															<small class="text-black-50">January 7, 2022</small>
-														</div>
-													</div>
-
-													<div class="col-2 p-3 text-danger">
-														-PHP 25.00
-													</div>
-												</div>
-											</td>
-										</tr>
-
-										<tr>
-											<td>
-												<div class="row">
-													<div class="col-10 text-start p-3 ps-5">
-														<div class="row">
-															SERVICE CHARGE
-														</div>
-
-														<div class="row">
-															<small class="text-black-50">January 7, 2022</small>
-														</div>
-													</div>
-
-													<div class="col-2 p-3 text-danger">
-														-PHP 25.00
-													</div>
-												</div>
-											</td>
-										</tr>
-
-										<tr>
-											<td>
-												<div class="row">
-													<div class="col-10 text-start p-3 ps-5">
-														<div class="row">
-															POS LOCAL
-														</div>
-
-														<div class="row">
-															<small class="text-black-50">January 7, 2022</small>
-														</div>
-													</div>
-
-													<div class="col-2 p-3 text-danger">
-														-PHP 249.00
-													</div>
-												</div>
-											</td>
-										</tr>
-									</tbody>
+																<div class="col-2 p-3">
+																	PHP '.$row["trans_amount"].'
+																</div>
+															</div>
+														</td>
+													</tr>
+												';
+											}
+										} else {
+											echo '
+												<br>
+												<div class="alert alert-warning" role="alert">
+							                      No Records Found
+							                    </div>
+											';
+										}
+										mysqli_close($config);
+									?>
 								</table>
 							</div>
 						</div>
 					</div>
 				</div>
+
 			</div>
 		</div>
 	</div>
 </div>
--->
-<style type ="text/css">
-	table {
-		border-collapse: collapse;
-		width: 100%;
-		color: black;
-		background-color: white;
-		font-size: 20px;
-		text-align: left;
-	}
-	th {
-		color: white;
-		background-color: black;
-	}
-</style>
-<div class="col py-3 d-flex justify-content-center overflow-auto">
-<div class="container-fluid">
-<table>
-	<tr>
-		<th>Transaction Type</th>
-		<th>Account Number</th>
-		<th>Account Name</th>
-		<th>Amount Paid</th>
-	</tr>
-	<?php 
-	$conn = mysqli_connect("localhost", "root", "", "loaning_system");
-	if ($conn-> connect_error) {
-		die("Connection failed:" .$conn-> connect_error);
-	}
-
-	$sql = "SELECT trans_type, acc_no, acc_name, trans_amount from trans_record";
-	$result = $conn-> query($sql);
-
-	if ($result-> num_rows > 0) {
-		while ($row = $result-> fetch_assoc()) {
-			echo "<tr><td>". $row["trans_type"] . "</td><td>" . $row["acc_no"] . "</td><td>" . $row["acc_name"] . "</td><td>" . $row["trans_amount"] . "</td></tr>";
-		}
-		echo "</table>" . "</div>" . "</div>";
-	}
-
-	else {
-		echo "0 result";
-	}
-
-	$conn-> close();
-	?>
-</table>
-
 <script type="text/javascript" src="../js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript" src="../js/mdb.min.js"></script>
 </body>

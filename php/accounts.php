@@ -142,6 +142,21 @@
 					<div class="col">
 						<div class="p-4 shadow-4 rounded-3 bg-white">
 							<div class="container-fluid">
+								<?php
+					              if(isset($_GET['Success'])) {
+					                echo '<div class="alert alert-success" role="alert">
+					                      Information Updated
+					                      </div>';
+					              }
+
+					              if(isset($_GET['Error'])) {
+					                echo '<div class="alert alert-danger" role="alert">
+					                      Unable to Edit Information
+					                      </div>';
+					              }
+
+					              ?>
+					              <br>
 								<div class="row text-start">
 									<div class="col-md-6">
 										<label for="user-first" class="d-flex justify-content-start ps-3">
