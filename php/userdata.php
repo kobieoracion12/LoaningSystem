@@ -2,7 +2,6 @@
 include_once "database.php";
 
 $username = $_SESSION["username"];
-$id = $_SESSION['user-id'];
 
 $sql = mysqli_query($config, "SELECT * FROM accounts WHERE username = '$username'");
 
@@ -17,6 +16,8 @@ while($rows = mysqli_fetch_array($sql)) {
 	$_SESSION['address'] = $rows['address'];
 	$_SESSION['username'] = $rows['username'];
 }
+
+$id = $_SESSION['user-id'];
 
 $loan = mysqli_query($config, "SELECT * FROM loan_information WHERE acc_no = '$id'");
 
