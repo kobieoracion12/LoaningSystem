@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 25, 2022 at 05:50 AM
+-- Generation Time: Jan 29, 2022 at 05:50 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -47,7 +47,7 @@ CREATE TABLE `accounts` (
 --
 
 INSERT INTO `accounts` (`acc_no`, `first_name`, `last_name`, `email_add`, `mobile_no`, `birth_date`, `age`, `address`, `valid_id`, `username`, `password`, `user_type`) VALUES
-(1, 'Kobie', 'Oracion', 'kobie.oracion12@gmail.com', 9976616289, '2000-07-12', 21, 'Luisiana, Laguna', '', 'admin', 'admin', 'new'),
+(1, 'Kobie', 'Oracion', 'kobie.oracion12@gmail.com', 9976616289, '2000-07-12', 21, 'Barangay Zone IV Luisiana, Laguna', '', 'admin', 'admin', 'new'),
 (2, 'John Llyod', 'Araza', 'arazaako@gmail.com', 915221994, '2022-01-25', 21, 'Magdalena, Laguna', '', 'araza', 'araza', 'new'),
 (3, 'Neil Arthur', 'Pornela', 'neilarthurpornela@gmail.com', 915221994, '2022-01-24', 21, 'Sta.Cruz, Laguna', '', 'neil', 'neil', 'new');
 
@@ -60,7 +60,6 @@ INSERT INTO `accounts` (`acc_no`, `first_name`, `last_name`, `email_add`, `mobil
 CREATE TABLE `loan_information` (
   `loan_no` bigint(11) NOT NULL,
   `acc_no` bigint(11) NOT NULL,
-  `loan_type` enum('Ecommerce','Ewallet','Counter','Bank') NOT NULL,
   `loan_status` enum('Active','Closed','Due','Terminated') NOT NULL,
   `loan_amount` int(69) NOT NULL,
   `loan_duration` int(2) NOT NULL,
@@ -74,10 +73,38 @@ CREATE TABLE `loan_information` (
 -- Dumping data for table `loan_information`
 --
 
-INSERT INTO `loan_information` (`loan_no`, `acc_no`, `loan_type`, `loan_status`, `loan_amount`, `loan_duration`, `loan_balance`, `loan_due`, `payment_method`, `loan_date`) VALUES
-(1, 1, 'Bank', 'Active', 2000, 2, 2000, '2022-01-31', 'Bank', '2022-01-25'),
-(2, 2, 'Ecommerce', 'Closed', 5000, 6, 4500, '2022-02-28', 'Any', '2022-01-01'),
-(3, 3, 'Counter', 'Due', 10000, 12, 1000, '2021-12-31', 'Ewallet', '2021-10-14');
+INSERT INTO `loan_information` (`loan_no`, `acc_no`, `loan_status`, `loan_amount`, `loan_duration`, `loan_balance`, `loan_due`, `payment_method`, `loan_date`) VALUES
+(1, 1, 'Active', 2000, 2, 2000, '2022-01-31', 'Bank', '2022-01-25'),
+(2, 2, 'Closed', 0, 0, 0, '2022-02-28', 'Any', '2022-01-01'),
+(3, 3, 'Due', 10000, 12, 1000, '2021-12-31', 'Ewallet', '2021-10-14');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `loan_sched`
+--
+
+CREATE TABLE `loan_sched` (
+  `loan_no` bigint(11) NOT NULL,
+  `date_1` date NOT NULL,
+  `amount_1` bigint(20) NOT NULL,
+  `status_1` int(11) NOT NULL,
+  `date_2` date NOT NULL,
+  `amount_2` bigint(12) NOT NULL,
+  `status_2` int(11) NOT NULL,
+  `date_3` date NOT NULL,
+  `amount_3` bigint(12) NOT NULL,
+  `status_3` int(11) NOT NULL,
+  `date_4` date NOT NULL,
+  `amount_4` bigint(12) NOT NULL,
+  `status_4` int(11) NOT NULL,
+  `date_5` date NOT NULL,
+  `amount_5` bigint(12) NOT NULL,
+  `status_5` int(11) NOT NULL,
+  `date_6` date NOT NULL,
+  `amount_6` bigint(12) NOT NULL,
+  `status_6` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -119,7 +146,14 @@ ALTER TABLE `accounts`
 --
 ALTER TABLE `loan_information`
   ADD PRIMARY KEY (`loan_no`),
-  ADD KEY `acc_no` (`acc_no`);
+  ADD KEY `acc_no` (`acc_no`),
+  ADD KEY `loan_no` (`loan_no`);
+
+--
+-- Indexes for table `loan_sched`
+--
+ALTER TABLE `loan_sched`
+  ADD KEY `loan_no` (`loan_no`);
 
 --
 -- Indexes for table `trans_record`
@@ -139,12 +173,6 @@ ALTER TABLE `accounts`
   MODIFY `acc_no` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `loan_information`
---
-ALTER TABLE `loan_information`
-  MODIFY `loan_no` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
 -- AUTO_INCREMENT for table `trans_record`
 --
 ALTER TABLE `trans_record`
@@ -159,6 +187,12 @@ ALTER TABLE `trans_record`
 --
 ALTER TABLE `loan_information`
   ADD CONSTRAINT `loan_information_ibfk_1` FOREIGN KEY (`acc_no`) REFERENCES `accounts` (`acc_no`);
+
+--
+-- Constraints for table `loan_sched`
+--
+ALTER TABLE `loan_sched`
+  ADD CONSTRAINT `loan_no` FOREIGN KEY (`loan_no`) REFERENCES `loan_information` (`loan_no`);
 
 --
 -- Constraints for table `trans_record`
