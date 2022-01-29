@@ -221,7 +221,7 @@
 
 								<div class="row">
 									<div class="col text-start">
-										<p class="mb-1">Account Name</p>
+										<p class="mb-1">Account Name/Sender Name</p>
 									</div>
 								</div>
 
