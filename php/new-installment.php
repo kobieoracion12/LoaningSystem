@@ -153,7 +153,7 @@
 										<input class="form-control px-3" type="number" name="loan-amount" id="loan-amount" placeholder="0.00">
 										<small class="fw-lighter fst-italic px-3">PHP 2,000 Max for New Users</small><br>
 
-										<label class="px-2 py-2 pt-3" for="loan-type">Loan Type</label>
+										<label class="px-2 py-2 pt-3" for="loan-type">Installment Duration</label>
 										<select class="form-select" id="loan-type" name="loan-type">
 											<option selected></option>
 										 	<option value="2m">2 Months</option>
@@ -163,7 +163,7 @@
 										 	<option value="36m">36 Months</option>
 										</select>
 
-										<label class="px-2 py-2 pt-3" for="loan-duration">Installment Duration</label>
+										<label class="px-2 py-2 pt-3" for="loan-duration">Loan Type	</label>
 										<select class="form-select" id="loan-duration" name="loan-duration">
 											<option selected></option>
 										 	<option value="credit">Credit Card</option>

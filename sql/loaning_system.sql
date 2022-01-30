@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 29, 2022 at 05:50 AM
+-- Generation Time: Jan 30, 2022 at 08:33 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -54,29 +54,48 @@ INSERT INTO `accounts` (`acc_no`, `first_name`, `last_name`, `email_add`, `mobil
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `loan_destination`
+--
+
+CREATE TABLE `loan_destination` (
+  `acc_no` bigint(11) NOT NULL,
+  `ref_no` bigint(11) NOT NULL,
+  `loan_dest` enum('bank','gcash','palawan','paymaya') NOT NULL,
+  `bank_name` enum('aub','boc','bdo','bpi','citi','csb','landbank','metro','pnb','rcbc') DEFAULT NULL,
+  `interest_rate` enum('3%','4%','5%','') NOT NULL,
+  `overdue_penalty` varchar(4) NOT NULL,
+  `recv_name` varchar(99) NOT NULL,
+  `revc_no` int(10) NOT NULL,
+  `loan_status` enum('Pending','Approved','Released','Closed','Terminated') NOT NULL,
+  `date_req` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `loan_information`
 --
 
 CREATE TABLE `loan_information` (
   `loan_no` bigint(11) NOT NULL,
   `acc_no` bigint(11) NOT NULL,
-  `loan_status` enum('Active','Closed','Due','Terminated') NOT NULL,
   `loan_amount` int(69) NOT NULL,
-  `loan_duration` int(2) NOT NULL,
+  `loan_duration` enum('2','6','12','24','36') DEFAULT NULL,
   `loan_balance` int(6) NOT NULL,
   `loan_due` date NOT NULL,
-  `payment_method` enum('Bank','Ewallet','Counter','Any') NOT NULL,
-  `loan_date` date NOT NULL
+  `loan_type` enum('Student Loans','Mortgages','Personal Loans','Small Business','Home Equity','Credit Card') NOT NULL,
+  `loan_date` date NOT NULL,
+  `loan_status` enum('Active','Closed','Due','Terminated') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `loan_information`
 --
 
-INSERT INTO `loan_information` (`loan_no`, `acc_no`, `loan_status`, `loan_amount`, `loan_duration`, `loan_balance`, `loan_due`, `payment_method`, `loan_date`) VALUES
-(1, 1, 'Active', 2000, 2, 2000, '2022-01-31', 'Bank', '2022-01-25'),
-(2, 2, 'Closed', 0, 0, 0, '2022-02-28', 'Any', '2022-01-01'),
-(3, 3, 'Due', 10000, 12, 1000, '2021-12-31', 'Ewallet', '2021-10-14');
+INSERT INTO `loan_information` (`loan_no`, `acc_no`, `loan_amount`, `loan_duration`, `loan_balance`, `loan_due`, `loan_type`, `loan_date`, `loan_status`) VALUES
+(1, 1, 2000, '6', 2000, '2022-01-31', 'Personal Loans', '2022-01-25', 'Active'),
+(2, 2, 0, NULL, 0, '2022-02-28', 'Student Loans', '2022-01-01', 'Closed'),
+(3, 3, 10000, NULL, 1000, '2021-12-31', 'Small Business', '2021-10-14', 'Due');
 
 -- --------------------------------------------------------
 
@@ -142,6 +161,13 @@ ALTER TABLE `accounts`
   ADD UNIQUE KEY `username` (`username`);
 
 --
+-- Indexes for table `loan_destination`
+--
+ALTER TABLE `loan_destination`
+  ADD PRIMARY KEY (`ref_no`),
+  ADD KEY `loan_destination_ibfk_2` (`acc_no`);
+
+--
 -- Indexes for table `loan_information`
 --
 ALTER TABLE `loan_information`
@@ -173,6 +199,12 @@ ALTER TABLE `accounts`
   MODIFY `acc_no` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT for table `loan_destination`
+--
+ALTER TABLE `loan_destination`
+  MODIFY `ref_no` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20223300000;
+
+--
 -- AUTO_INCREMENT for table `trans_record`
 --
 ALTER TABLE `trans_record`
@@ -181,6 +213,12 @@ ALTER TABLE `trans_record`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `loan_destination`
+--
+ALTER TABLE `loan_destination`
+  ADD CONSTRAINT `loan_destination_ibfk_2` FOREIGN KEY (`acc_no`) REFERENCES `accounts` (`acc_no`);
 
 --
 -- Constraints for table `loan_information`
