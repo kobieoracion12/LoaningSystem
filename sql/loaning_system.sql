@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 30, 2022 at 08:33 AM
+-- Generation Time: Jan 30, 2022 at 08:44 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -60,6 +60,7 @@ INSERT INTO `accounts` (`acc_no`, `first_name`, `last_name`, `email_add`, `mobil
 CREATE TABLE `loan_destination` (
   `acc_no` bigint(11) NOT NULL,
   `ref_no` bigint(11) NOT NULL,
+  `loan_amount` int(6) NOT NULL,
   `loan_dest` enum('bank','gcash','palawan','paymaya') NOT NULL,
   `bank_name` enum('aub','boc','bdo','bpi','citi','csb','landbank','metro','pnb','rcbc') DEFAULT NULL,
   `interest_rate` enum('3%','4%','5%','') NOT NULL,
@@ -69,6 +70,13 @@ CREATE TABLE `loan_destination` (
   `loan_status` enum('Pending','Approved','Released','Closed','Terminated') NOT NULL,
   `date_req` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `loan_destination`
+--
+
+INSERT INTO `loan_destination` (`acc_no`, `ref_no`, `loan_amount`, `loan_dest`, `bank_name`, `interest_rate`, `overdue_penalty`, `recv_name`, `revc_no`, `loan_status`, `date_req`) VALUES
+(2, 20223300000, 2000, 'gcash', NULL, '3%', '5%', 'John Llyod Araza', 915221994, 'Pending', '2022-01-30 07:44:32');
 
 -- --------------------------------------------------------
 
@@ -202,7 +210,7 @@ ALTER TABLE `accounts`
 -- AUTO_INCREMENT for table `loan_destination`
 --
 ALTER TABLE `loan_destination`
-  MODIFY `ref_no` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20223300000;
+  MODIFY `ref_no` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20223300001;
 
 --
 -- AUTO_INCREMENT for table `trans_record`
