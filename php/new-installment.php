@@ -142,7 +142,7 @@
 				<div class="row">
 					<div class="col py-1">
 						<div class="p-4 bg-white shadow-4 rounded-3">
-							<form method="post" action="#">
+							<form action="proceed-installment.php" method="post" enctype="multipart/form-data">
 								<div class="row">
 
 									<!--Loan Information-->
@@ -153,8 +153,8 @@
 										<input class="form-control px-3" type="number" name="loan-amount" id="loan-amount" placeholder="0.00">
 										<small class="fw-lighter fst-italic px-3">PHP 2,000 Max for New Users</small><br>
 
-										<label class="px-2 py-2 pt-3" for="loan-type">Installment Duration</label>
-										<select class="form-select" id="loan-type" name="loan-type">
+										<label class="px-2 py-2 pt-3" for="loan-duration">Installment Duration</label>
+										<select class="form-select" id="loan-duration" name="loan-duration">
 											<option selected></option>
 										 	<option value="2m">2 Months</option>
 										 	<option value="6m">6 Months</option>
@@ -163,8 +163,8 @@
 										 	<option value="36m">36 Months</option>
 										</select>
 
-										<label class="px-2 py-2 pt-3" for="loan-duration">Loan Type	</label>
-										<select class="form-select" id="loan-duration" name="loan-duration">
+										<label class="px-2 py-2 pt-3" for="loan-type">Loan Type	</label>
+										<select class="form-select" id="loan-type" name="loan-type">
 											<option selected></option>
 										 	<option value="credit">Credit Card</option>
 										 	<option value="home">Home Equity</option>
@@ -179,7 +179,7 @@
 										<h5 class="ps-2">Account Information</h5>
 
 										<label class="px-2 py-2 pt-3" for="loan-dest">Loan Destination</label>
-										<select class="form-select" id="loan-dest">
+										<select class="form-select" id="loan-dest" name="loan-dest">
 											<option selected></option>
 											<option value="bank">Bank Transfer</option>
 										 	<option value="gcash">GCASH</option>
@@ -205,8 +205,8 @@
 
 										<!--Bank Transfer-->
 										<div id="show-bank" class="show-bank" style="display: none">
-											<label class="px-2 py-2" for="bank-options">Loan Amount</label>
-												<select class="form-select" id="bank-options">
+											<label class="px-2 py-2" for="bank-options">Bank Name</label>
+												<select class="form-select" id="bank-options" name="bank-options">
 												<option selected>Select Bank</option>
 												<option value="aub">Asia United Bank</option>
 											 	<option value="boc">Bank of China</option>
@@ -224,7 +224,7 @@
 												<label class="px-2 py-2" for="acc-num">Account Number</label>
 												<input class="form-control px-3" type="text" name="acc-num" id="acc-num">
 
-												<label class="px-2 py-2" for="acc-num">Reciever Name</label>
+												<label class="px-2 py-2" for="acc-num">Receiver Name</label>
 												<input class="form-control px-3" type="text" name="acc-name" id="acc-name">
 											</div>
 
@@ -270,7 +270,7 @@
 										<div id="show-paymaya" class="show-paymaya" style="display: none">
 											<div class="col">
 												<label class="px-2 py-2" for="paymaya-name">Receiver Name</label>
-												<input class="form-control px-3" type="text" name="palawan-name" id="palawan-name">
+												<input class="form-control px-3" type="text" name="paymaya-name" id="palawan-name">
 
 												<label class="px-2 py-2" for="paymaya-no">Account Number</label>
 												<input class="form-control px-3" type="text" name="paymaya-no" id="paymaya-no" placeholder="09xxxxxxxx">
