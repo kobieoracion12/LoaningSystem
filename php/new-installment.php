@@ -302,7 +302,7 @@
 											while($row = $result -> fetch_assoc()) {
 												echo '
 													<tr>
-													<th scope="row"></th>
+													<th scope="row">'.$row["acc_no"].'</th>
 													<td class="ps-4 text-start">
 														<h6>Years/Months: '.$row["loan_period"].'</h6>
 														<small class="fw-light">Interest: <strong>'.$row["interest_rate"].'</strong></small><br>
