@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 02, 2022 at 12:29 PM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.0.13
+-- Generation Time: Feb 02, 2022 at 04:53 PM
+-- Server version: 10.4.20-MariaDB
+-- PHP Version: 8.0.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -61,6 +61,7 @@ CREATE TABLE `loan_destination` (
   `acc_no` bigint(11) NOT NULL,
   `ref_no` bigint(11) NOT NULL,
   `loan_amount` int(6) NOT NULL,
+  `loan_period` enum('2 Months','6 Months','12 Months','24 Months','36 Months') NOT NULL,
   `loan_dest` enum('bank','gcash','palawan','paymaya') NOT NULL,
   `bank_name` enum('aub','boc','bdo','bpi','citi','csb','landbank','metro','pnb','rcbc') DEFAULT NULL,
   `interest_rate` enum('3%','4%','5%','') NOT NULL,
@@ -75,11 +76,15 @@ CREATE TABLE `loan_destination` (
 -- Dumping data for table `loan_destination`
 --
 
-INSERT INTO `loan_destination` (`acc_no`, `ref_no`, `loan_amount`, `loan_dest`, `bank_name`, `interest_rate`, `overdue_penalty`, `recv_name`, `recv_no`, `loan_status`, `date_req`) VALUES
-(2, 20223300000, 2000, 'gcash', NULL, '3%', '5%', '', 915221994, 'Pending', '2022-01-30 07:44:32'),
-(0, 20223300030, 1500, 'gcash', '', '3%', '5%', 'Array', 2147483647, 'Pending', '2022-02-01 16:39:43'),
-(0, 20223300033, 2000, 'gcash', '', '3%', '5%', 'Array', 2147483647, 'Pending', '2022-02-02 10:37:30'),
-(0, 20223300034, 50000, 'bank', 'metro', '3%', '5%', 'Array', 0, 'Pending', '2022-02-02 10:39:08');
+INSERT INTO `loan_destination` (`acc_no`, `ref_no`, `loan_amount`, `loan_period`, `loan_dest`, `bank_name`, `interest_rate`, `overdue_penalty`, `recv_name`, `recv_no`, `loan_status`, `date_req`) VALUES
+(2, 20223300000, 2000, '2 Months', 'gcash', NULL, '3%', '5%', '', 915221994, 'Pending', '2022-01-30 07:44:32'),
+(0, 20223300030, 1500, '2 Months', 'gcash', '', '3%', '5%', 'Array', 2147483647, 'Pending', '2022-02-01 16:39:43'),
+(0, 20223300033, 2000, '2 Months', 'gcash', '', '3%', '5%', 'Array', 2147483647, 'Pending', '2022-02-02 10:37:30'),
+(0, 20223300034, 50000, '2 Months', 'bank', 'metro', '3%', '5%', 'Array', 0, 'Pending', '2022-02-02 10:39:08'),
+(0, 20223300035, 5000, '2 Months', 'palawan', '', '3%', '5%', 'Array', 0, 'Pending', '2022-02-02 14:21:17'),
+(2, 20223300036, 10000, '2 Months', 'paymaya', '', '3%', '5%', 'Array', 0, 'Pending', '2022-02-02 15:50:29'),
+(2, 20223300037, 12000, '2 Months', 'paymaya', '', '3%', '5%', 'Array', 0, 'Pending', '2022-02-02 15:36:20'),
+(0, 20223300038, 40000, '2 Months', 'paymaya', '', '3%', '5%', 'Array', 0, 'Pending', '2022-02-02 15:50:03');
 
 -- --------------------------------------------------------
 
@@ -213,7 +218,7 @@ ALTER TABLE `accounts`
 -- AUTO_INCREMENT for table `loan_destination`
 --
 ALTER TABLE `loan_destination`
-  MODIFY `ref_no` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20223300035;
+  MODIFY `ref_no` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20223300039;
 
 --
 -- AUTO_INCREMENT for table `trans_record`
