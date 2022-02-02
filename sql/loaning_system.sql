@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 30, 2022 at 08:44 AM
+-- Generation Time: Feb 02, 2022 at 12:29 PM
 -- Server version: 10.4.22-MariaDB
--- PHP Version: 7.4.27
+-- PHP Version: 8.0.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -66,7 +66,7 @@ CREATE TABLE `loan_destination` (
   `interest_rate` enum('3%','4%','5%','') NOT NULL,
   `overdue_penalty` varchar(4) NOT NULL,
   `recv_name` varchar(99) NOT NULL,
-  `revc_no` int(10) NOT NULL,
+  `recv_no` int(10) NOT NULL,
   `loan_status` enum('Pending','Approved','Released','Closed','Terminated') NOT NULL,
   `date_req` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -75,8 +75,11 @@ CREATE TABLE `loan_destination` (
 -- Dumping data for table `loan_destination`
 --
 
-INSERT INTO `loan_destination` (`acc_no`, `ref_no`, `loan_amount`, `loan_dest`, `bank_name`, `interest_rate`, `overdue_penalty`, `recv_name`, `revc_no`, `loan_status`, `date_req`) VALUES
-(2, 20223300000, 2000, 'gcash', NULL, '3%', '5%', 'John Llyod Araza', 915221994, 'Pending', '2022-01-30 07:44:32');
+INSERT INTO `loan_destination` (`acc_no`, `ref_no`, `loan_amount`, `loan_dest`, `bank_name`, `interest_rate`, `overdue_penalty`, `recv_name`, `recv_no`, `loan_status`, `date_req`) VALUES
+(2, 20223300000, 2000, 'gcash', NULL, '3%', '5%', '', 915221994, 'Pending', '2022-01-30 07:44:32'),
+(0, 20223300030, 1500, 'gcash', '', '3%', '5%', 'Array', 2147483647, 'Pending', '2022-02-01 16:39:43'),
+(0, 20223300033, 2000, 'gcash', '', '3%', '5%', 'Array', 2147483647, 'Pending', '2022-02-02 10:37:30'),
+(0, 20223300034, 50000, 'bank', 'metro', '3%', '5%', 'Array', 0, 'Pending', '2022-02-02 10:39:08');
 
 -- --------------------------------------------------------
 
@@ -210,7 +213,7 @@ ALTER TABLE `accounts`
 -- AUTO_INCREMENT for table `loan_destination`
 --
 ALTER TABLE `loan_destination`
-  MODIFY `ref_no` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20223300001;
+  MODIFY `ref_no` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20223300035;
 
 --
 -- AUTO_INCREMENT for table `trans_record`
@@ -221,12 +224,6 @@ ALTER TABLE `trans_record`
 --
 -- Constraints for dumped tables
 --
-
---
--- Constraints for table `loan_destination`
---
-ALTER TABLE `loan_destination`
-  ADD CONSTRAINT `loan_destination_ibfk_2` FOREIGN KEY (`acc_no`) REFERENCES `accounts` (`acc_no`);
 
 --
 -- Constraints for table `loan_information`
