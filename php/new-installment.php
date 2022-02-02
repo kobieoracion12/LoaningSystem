@@ -292,44 +292,38 @@
 											</thead>
 
 											<tbody>
-												<tr>
-													<th scope="row">1</th>
-													<td class="ps-4 text-start">
-														<h6>Years/Months: <strong>36 Months</strong></h6>
-														<small class="fw-light">Interest: <strong>5%</strong></small><br>
-														<small class="fw-light">Overdue Penalty: <strong>3%</strong></small>
-													</td>
+												<?php
+										$id = $_SESSION['user-id'];
 
+										$sql = "SELECT * FROM loan_destination WHERE acc_no = '$id'";
+										$result = $config -> query($sql);
+
+										if($result -> num_rows > 0) {
+											while($row = $result -> fetch_assoc()) {
+												echo '
+													<tr>
+													<th scope="row"></th>
+													<td class="ps-4 text-start">
+														<h6>Years/Months: '.$row["loan_period"].'</h6>
+														<small class="fw-light">Interest: <strong>'.$row["interest_rate"].'</strong></small><br>
+														<small class="fw-light">Overdue Penalty: <strong>'.$row["overdue_penalty"].'</strong></small>
+													</td>
 													<td class="table-warning">
-														Pending Approval	
-													</td>
-												</tr>
-
-												<tr>
-													<th scope="row">2</th>
-													<td class="ps-4 text-start">
-														<h6>Years/Months: <strong>12 Months</strong></h6>
-														<small class="fw-light">Interest: <strong>5%</strong></small><br>
-														<small class="fw-light">Overdue Penalty: <strong>3%</strong></small>
+														'.$row["loan_status"].'	
 													</td>
 
-													<td class="table-danger">
-														Due
-													</td>
-												</tr>
-
-												<tr>
-													<th scope="row">1</th>
-													<td class="ps-4 text-start">
-														<h6>Years/Months: <strong>24 Months</strong></h6>
-														<small class="fw-light">Interest: <strong>5%</strong></small><br>
-														<small class="fw-light">Overdue Penalty: <strong>3%</strong></small>
-													</td>
-
-													<td class="table-success">
-														Closed	
-													</td>
-												</tr>
+												';
+											}
+										} else {
+											echo '
+												<br>
+												<div class="alert alert-warning" role="alert">
+							                      No Records Found
+							                    </div>
+											';
+										}
+										mysqli_close($config);
+									?>
 											</tbody>
 										</table>
 									</div>
