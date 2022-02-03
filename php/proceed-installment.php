@@ -2,6 +2,7 @@
 require_once("database.php");
 
 $loan_amount = $_POST['loan-amount'];
+$loan_period = $_POST['loan-duration'];
 $loan_dest = $_POST['loan-dest'];
 $bank_name = $_POST['bank-options'];
 $overdue_penalty = '5%';
@@ -21,8 +22,8 @@ if($conn->connect_error){
 }
 
 else{
-    $stmt = $conn->prepare("INSERT INTO loan_destination (loan_amount, loan_dest, bank_name, overdue_penalty, recv_name, recv_no) VALUES (?,?,?,?,?,?)");
-    $stmt->bind_param("issssi",$loan_amount, $loan_dest, $bank_name, $overdue_penalty, $recv_name, $recv_no);
+    $stmt = $conn->prepare("INSERT INTO loan_destination (loan_amount, loan_period, loan_dest, bank_name, overdue_penalty, recv_name, recv_no) VALUES (?,?,?,?,?,?,?)");
+    $stmt->bind_param("isssssi",$loan_amount, $loan_period, $loan_dest, $bank_name, $overdue_penalty, $recv_name, $recv_no);
     $stmt->execute();
     header('location: new-installment.php?msg=installmentsuccess');
 	exit();
