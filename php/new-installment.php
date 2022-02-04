@@ -142,7 +142,7 @@
 				<div class="row">
 					<div class="col py-1">
 						<div class="p-4 bg-white shadow-4 rounded-3">
-							<form action="new-loan.php" method="post" enctype="multipart/form-data">
+							<form action="proceed-installment.php" method="post" enctype="multipart/form-data">
 								<div class="row">
 
 									<!--Loan Information-->
