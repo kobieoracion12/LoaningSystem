@@ -1,5 +1,6 @@
 <?php
 require_once("database.php");
+require_once("session.php");
 
 $loan_amount = $_POST['loan-amount'];
 $loan_period = $_POST['loan-duration'];
@@ -13,7 +14,7 @@ $recv_name = array(
     'paymaya-name'=>$_POST['paymaya-name']
 );
 $recv_no = $_POST['gcash-no'];
-
+$id = $_SESSION['user-id'];
 
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 $conn = new mysqli('localhost','root','','loaning_system');
@@ -22,7 +23,7 @@ if($conn->connect_error){
 }
 
 else{
-    $stmt = $conn->prepare("INSERT INTO loan_destination (loan_amount, loan_period, loan_dest, bank_name, overdue_penalty, recv_name, recv_no) VALUES (?,?,?,?,?,?,?)");
+    $stmt = $conn->prepare("INSERT INTO loan_destination (loan_amount, loan_period, loan_dest, bank_name, overdue_penalty, recv_name, recv_no) VALUES (?,?,?,?,?,?,?) WHERE acc_no = '$id'");
     $stmt->bind_param("isssssi",$loan_amount, $loan_period, $loan_dest, $bank_name, $overdue_penalty, $recv_name, $recv_no);
     $stmt->execute();
     header('location: new-installment.php?msg=installmentsuccess');

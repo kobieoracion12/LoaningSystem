@@ -142,7 +142,7 @@
 				<div class="row">
 					<div class="col py-1">
 						<div class="p-4 bg-white shadow-4 rounded-3">
-							<form action="proceed-installment.php" method="post" enctype="multipart/form-data">
+							<form action="new-loan.php" method="post" enctype="multipart/form-data">
 								<div class="row">
 
 									<!--Loan Information-->
@@ -221,10 +221,10 @@
 											</select><br>
 
 											<div class="col">
-												<label class="px-2 py-2" for="acc-num">Account Number</label>
-												<input class="form-control px-3" type="text" name="acc-num" id="acc-num">
+												<label class="px-2 py-2" for="acc-no">Account Number</label>
+												<input class="form-control px-3" type="text" name="acc-no" id="acc-no">
 
-												<label class="px-2 py-2" for="acc-num">Receiver Name</label>
+												<label class="px-2 py-2" for="acc-name">Receiver Name</label>
 												<input class="form-control px-3" type="text" name="acc-name" id="acc-name">
 											</div>
 
