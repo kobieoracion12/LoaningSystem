@@ -81,3 +81,8 @@ body {
 .main-content {
 	text-align: left;
 }
+
+.background-3 {
+	background-color: #162D58;
+	color: white;
+}

@@ -28,6 +28,7 @@ switch($loan_amount) {
         break;
 }
 
+
 #Name 
 switch($loan_dest) {
     case 'bank':

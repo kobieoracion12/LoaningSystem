@@ -147,6 +147,14 @@
 
 									<!--Loan Information-->
 									<div class="col-xxl-4 col-lg-4 col-md-12 col-sm-12 text-start overflow-auto">
+										<?php
+							              if(isset($_GET['installmentsuccess'])) {
+							                echo '<div class="alert alert-success alert-dismissible fade show text-center" role="alert">
+							                      	Loan request submitted!
+							                      	<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+							                      </div>';
+							              }
+							             ?>
 										<h5 class="ps-2">Loan Information</h5>
 
 										<label class="px-2 py-2" for="loan-amount">Loan Amount</label>
@@ -156,22 +164,22 @@
 										<label class="px-2 py-2 pt-3" for="loan-duration">Installment Duration</label>
 										<select class="form-select" id="loan-duration" name="loan-duration">
 											<option selected></option>
-										 	<option value="2m">2 Months</option>
-										 	<option value="6m">6 Months</option>
-										 	<option value="12m">12 Months</option>
-										 	<option value="24m">24 Months</option>
-										 	<option value="36m">36 Months</option>
+										 	<option value="2">2 Months</option>
+										 	<option value="6">6 Months</option>
+										 	<option value="12">12 Months</option>
+										 	<option value="24">24 Months</option>
+										 	<option value="36">36 Months</option>
 										</select>
 
 										<label class="px-2 py-2 pt-3" for="loan-type">Loan Type	</label>
 										<select class="form-select" id="loan-type" name="loan-type">
 											<option selected></option>
-										 	<option value="credit">Credit Card</option>
-										 	<option value="home">Home Equity</option>
-											<option value="mortgage">Mortgages</option>
-											<option value="personal">Personal Loans</option>
-											<option value="small">Small Business</option>
-											<option value="student">Student Loans</option>
+										 	<option value="Credit Card">Credit Card</option>
+										 	<option value="Home Equity">Home Equity</option>
+											<option value="Mortgage">Mortgages</option>
+											<option value="Personal Loans">Personal Loans</option>
+											<option value="Small Business">Small Business</option>
+											<option value="Student Loans">Student Loans</option>
 										</select>
 
 										<br><hr><br>
@@ -181,24 +189,24 @@
 										<label class="px-2 py-2 pt-3" for="loan-dest">Loan Destination</label>
 										<select class="form-select" id="loan-dest" name="loan-dest">
 											<option selected></option>
-											<option value="bank">Bank Transfer</option>
-										 	<option value="gcash">GCASH</option>
-											<option value="palawan">Palawan Pera Padala</option>
-										 	<option value="paymaya">PayMaya</option>
+											<option value="Bank Transfer">Bank Transfer</option>
+										 	<option value="GCash">GCash</option>
+											<option value="Palawan Pera Padala">Palawan Pera Padala</option>
+										 	<option value="PayMaya">PayMaya</option>
 										</select><br>
 
 										<script type="text/javascript">
 											document.getElementById('loan-dest').addEventListener('change', function() {
-												var style = this.value == 'bank' ? 'block' : 'none';
+												var style = this.value == 'Bank Transfer' ? 'block' : 'none';
 												document.getElementById('show-bank').style.display = style;
 
-												var style = this.value == 'gcash' ? 'block' : 'none';
+												var style = this.value == 'GCash' ? 'block' : 'none';
 												document.getElementById('show-gcash').style.display = style;
 
-												var style = this.value == 'palawan' ? 'block' : 'none';
+												var style = this.value == 'Palawan Pera Padala' ? 'block' : 'none';
 												document.getElementById('show-palawan').style.display = style;
 
-												var style = this.value == 'paymaya' ? 'block' : 'none';
+												var style = this.value == 'PayMaya' ? 'block' : 'none';
 												document.getElementById('show-paymaya').style.display = style;
 											});
 										</script>
@@ -208,15 +216,15 @@
 											<label class="px-2 py-2" for="bank-options">Bank Name</label>
 												<select class="form-select" id="bank-options" name="bank-options">
 												<option selected>Select Bank</option>
-												<option value="aub">Asia United Bank</option>
-											 	<option value="boc">Bank of China</option>
-												<option value="bdo">BDO</option>
-												<option value="bpi">BPI</option>
-											 	<option value="citi">CitiBank</option>
-												<option value="csb">City Savings Bank</option>
-												<option value="landbank">Landbank</option>
-												<option value="metro">MetroBank</option>
-												<option value="pnb">Philippine National Bank</option>
+												<option value="Asia United Bank">Asia United Bank</option>
+											 	<option value="Bank of China">Bank of China</option>
+												<option value="BDO">BDO</option>
+												<option value="BPI">BPI</option>
+											 	<option value="CitiBank">CitiBank</option>
+												<option value="City Savings Bank">City Savings Bank</option>
+												<option value="Landbank">Landbank</option>
+												<option value="MetroBank">MetroBank</option>
+												<option value="Philippine National Bank">Philippine National Bank</option>
 												<option value="rcbc">RCBC</option>
 											</select><br>
 
@@ -284,7 +292,7 @@
 
 									<!--Loan Status-->
 									<div class="col-xxl-8 col-lg-8 col-md-12 col-sm-12">
-										<table class="table table-hover table-responsive align-middle table-bordered">
+										<table id="trans-table" class="table table-hover table-responsive align-middle table-bordered">
 											<thead>
 												<th scope="col">#</th>
 												<th scope="col">Plan</th>
@@ -293,47 +301,46 @@
 
 											<tbody>
 												<?php
-										$id = $_SESSION['user-id'];
+													$id = $_SESSION['user-id'];
 
-										$sql = "SELECT * FROM loan_destination WHERE acc_no = '$id'";
-										$result = $config -> query($sql);
+													$sql = "SELECT * FROM loan_destination WHERE acc_no = '$id'";
+													$result = $config -> query($sql);
 
-										if($result -> num_rows > 0) {
-											while($row = $result -> fetch_assoc()) {
-												echo '
-													<tr>
-													<th scope="row">'.$row["acc_no"].'</th>
-													<td class="ps-4 text-start">
-														<h6>Years/Months: '.$row["loan_period"].'</h6>
-														<small class="fw-light">Interest: <strong>'.$row["interest_rate"].'</strong></small><br>
-														<small class="fw-light">Overdue Penalty: <strong>'.$row["overdue_penalty"].'</strong></small>
-													</td>
-													<td class="table-warning">
-														'.$row["loan_status"].'	
-													</td>
+													if($result -> num_rows > 0) {
+														while($row = $result -> fetch_assoc()) {
+															echo '
+																<tr>
+																<th scope="row">'.$row["acc_no"].'</th>
+																<td class="ps-4 text-start">
+																	<h6>Years/Months: '.$row["loan_period"].' Months</h6>
+																	<small class="fw-light">Interest: <strong>'.$row["interest_rate"].'</strong></small><br>
+																	<small class="fw-light">Overdue Penalty: <strong>'.$row["overdue_penalty"].'</strong></small>
+																</td>
+																<td class="table-warning">
+																	'.$row["loan_status"].'	
+																</td>
 
-												';
-											}
-										} else {
-											echo '
-												<br>
-												<div class="alert alert-warning" role="alert">
-							                      No Records Found
-							                    </div>
-											';
-										}
-										mysqli_close($config);
-									?>
+															';
+														}
+													} else {
+														echo '
+															<br>
+															<div class="alert alert-warning" role="alert">
+										                      No Records Found
+										                    </div>
+														';
+													}
+													mysqli_close($config);
+												?>
 											</tbody>
 										</table>
+
 									</div>
 								</div>
 							</form>
 						</div>
 					</div>
 				</div>
-
-
 			</div>
 		</div>
 	</div>
