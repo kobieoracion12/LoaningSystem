@@ -128,14 +128,14 @@
 		</div>
 
 		<!--Main Content-->
-		<div class="col d-flex justify-content-center overflow-auto">
-			<div class="container-fluid">
-				
+		<div class="col d-flex justify-content-center overflow-hidden g-0">
+			<div class="container-fluid g-0">
+
 				<!--Carousel-->
 				<div class="row">
 					<div class="col">
 						<div id="welcome-carousel" class="carousel slide" data-bs-ride="carousel">
-							<div class="carousel-indicators">
+							<div class="carousel-indicators" role="listbox" style="width:auto;">
 								<button type="button" data-bs-target="#welcome-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
 
 								<button type="button" data-bs-target="#welcome-carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -143,11 +143,10 @@
 								<button type="button" data-bs-target="#welcome-carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
 
 								<button type="button" data-bs-target="#welcome-carousel" data-bs-slide-to="3" aria-label="Slide 3"></button>
-
 								<button type="button" data-bs-target="#welcome-carousel" data-bs-slide-to="4" aria-label="Slide 3"></button>
 							</div>
 
-							<div class="carousel-inner" role="listbox" style="width:100%; height: 500px !important;">
+							<div class="carousel-inner" role="listbox">
 								<div class="carousel-item active">
 									<img src="../img/car-pl.jpg" class="d-block w-100">
 								</div>
@@ -174,56 +173,31 @@
 
 				<!--Text Middle-->
 				<div class="row">
-					<div class="col-xxl-4 col-lg-4 col-md-12 col-sm-12 bg-white p-5">
-						<h4 class="pt-5 text-primary"><strong>
-							Loans up to PHP 10,000!<br>
-							as soon as next day
-						</strong></h4>
-						<small>No impact on anything</small>
-					</div>
+					<div class="col-xxl-4 col-lg-4 col-md-12 col-sm-12 bg-light p-5">
+							<h4 class="pt-5 text-primary"><strong>
+								Loans up to PHP 10,000!<br>
+								as soon as next day
+							</strong></h4>
+							<small>No impact on anything</small>
+						</div>
 
-					<div class="col-xxl-4 col-lg-4 col-md-12 col-sm-12 bg-white p-5">
-						<h4 class="pt-5 text-primary"><strong>
-							Get Personal<br>
-							Loan Offers
-						</strong></h4>
-						<small>No impact on anything</small>
-					</div>
+						<div class="col-xxl-4 col-lg-4 col-md-12 col-sm-12 bg-light p-5">
+							<h4 class="pt-5 text-primary"><strong>
+								Get Personal<br>
+								Loan Offers
+							</strong></h4>
+							<small>No impact on anything</small>
+						</div>
 
-					<div class="col-xxl-4 col-lg-4 col-md-12 col-sm-12 bg-white p-5">
-						<h4 class="pt-5 text-primary"><strong>
-							Low Interest Rates<br>
-							Starting at 3% APR
-						</strong></h4>
-						<small>No impact on anything</small>
-					</div>
+						<div class="col-xxl-4 col-lg-4 col-md-12 col-sm-12 bg-light p-5">
+							<h4 class="pt-5 text-primary"><strong>
+								Low Interest Rates<br>
+								Starting at 3% APR
+							</strong></h4>
+							<small>No impact on anything</small>
+						</div>
 				</div>
 
-				<div class="row">
-					<div class="col-xxl-4 col-lg-4 col-md-12 col-sm-12 bg-white p-5">
-						<h4 class="pt-5 text-primary"><strong>
-							Loans up to PHP 10,000!<br>
-							as soon as next day
-						</strong></h4>
-						<small>No impact on anything</small>
-					</div>
-
-					<div class="col-xxl-4 col-lg-4 col-md-12 col-sm-12 bg-white p-5">
-						<h4 class="pt-5 text-primary"><strong>
-							Get Personal<br>
-							Loan Offers
-						</strong></h4>
-						<small>No impact on anything</small>
-					</div>
-
-					<div class="col-xxl-4 col-lg-4 col-md-12 col-sm-12 bg-white p-5">
-						<h4 class="pt-5 text-primary"><strong>
-							Low Interest Rates<br>
-							Starting at 3% APR
-						</strong></h4>
-						<small>No impact on anything</small>
-					</div>
-				</div>
 			</div>
 		</div>
 	</div>
