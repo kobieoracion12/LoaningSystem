@@ -22,7 +22,7 @@
 		<!--Navigation Sidebar-->
 		<div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-white shadow">
 			<div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-3 min-vh-100">
-				<span class="fs-5 d-none d-sm-inline fw-bold">Menu</span>
+				<span class="fs-5 d-none d-sm-inline fw-bold">Admin</span>
 
 				<hr>
 
@@ -34,68 +34,29 @@
 						</a>
 					</li>
 
-					 <li class="nav-item nav-list">
-                        <a href="#install" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                            <i class="fas fa-regular fa-credit-card bi me-2"></i> <span class="ms-1 d-none d-sm-inline fw-bold">Installment</span> </a>
-                        <ul class="collapse show nav flex-column ms-1 text-start" id="install" data-bs-parent="#menu">
-                            <li class="w-100">
-                                <?php
-                                	$status = $_SESSION['status'];
-                                	if($status == 'Active' || $status == 'Due' || $status == 'Terminated') {
-                                		echo '
-                                		<span class="d-inline-block" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-content="Disabled popover">
-	                                		<a href="new-installment.php" class="nav-link px-0 disabled">
-			                                	<span class="d-none d-sm-inline">New Installment</span>
-			                                </a>
-		                                </span>
-                                		';
-                                	} else {
-                                		echo '
-                                		<a href="new-installment.php" class="nav-link px-0">
-		                                	<span class="d-none d-sm-inline">New Installment</span>
-		                                </a>';
-                                	}
-                                ?>
-                            </li>
-                            
-                            <li>
-                                <a href="transactions.php" class="nav-link px-0">
-                                	<span class="d-none d-sm-inline">Transaction Record</span>
-                                </a>
-                            </li>
-
-                            <li>
-                            	<?php 
-                            		$status = $_SESSION['status'];
-                                	if($status == 'Active' || $status == 'Due' || $status == 'Terminated') {
-                                		echo '
-                                			<a href="paynow.php" class="nav-link px-0">
-			                                	<span class="d-none d-sm-inline">Pay Now</span>
-			                                </a>
-                                		';
-                                	} else {
-                                		echo '
-                                			<a href="paynow.php" class="nav-link px-0 disabled">
-			                                	<span class="d-none d-sm-inline">Pay Now</span>
-			                                </a>
-                                		';
-                                	}
-
-                            	?>
-                                
-                            </li>
-                        </ul>
-                    </li>
-
 					<li class="nav-item nav-list">
-						<a href="accounts.php" class="nav-link align-middle px-0">
+						<a href="manage-accounts.php" class="nav-link align-middle px-0">
 							<i class="fas fa-regular fa-user bi me-2"></i>	
 							<span class="d-none d-sm-inline fw-bold">Accounts</span>
 						</a>
 					</li>
 
 					<li class="nav-item nav-list">
-						<a href="settings.php" class="nav-link align-middle px-0">
+						<a href="manage-clients.php" class="nav-link align-middle px-0">
+							<i class="fas fa-regular fa-user-group bi me-2"></i>	
+							<span class="d-none d-sm-inline fw-bold">Manage Clients</span>
+						</a>
+					</li>
+
+					<li class="nav-item nav-list">
+						<a href="loan-management.php" class="nav-link align-middle px-0">
+							<i class="fas fa-regular fa-hand-holding-dollar bi me-2"></i>	
+							<span class="d-none d-sm-inline fw-bold">Loan Management</span>
+						</a>
+					</li>
+
+					<li class="nav-item nav-list">
+						<a href="admin-settings.php" class="nav-link align-middle px-0">
 							<i class="fas fa-regular fa-gear bi me-2"></i>	
 							<span class="d-none d-sm-inline fw-bold">Settings</span>
 						</a>

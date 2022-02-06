@@ -23,7 +23,7 @@ if($result -> $count) {
 if($count == 1) {
 	session_start();
 	$_SESSION['username'] = $user_name;
-	header("location: dashboard.php");
+	header("location: home.php");
 	exit;
 }
 else {

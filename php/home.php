@@ -28,9 +28,9 @@
 
 				<ul class="nav nav-pills flex-column mb-sm-auto mb-0 ms-2 align-items-start" id="menu">
 					<li class="nav-item nav-list">
-						<a href="dashboard.php" class="nav-link align-middle px-0 text-wrap">
-							<i class="fas fa-regular fa-gauge bi me-2"></i>	
-							<span class="d-none d-sm-inline fw-bold">Dashboard</span>
+						<a href="home.php" class="nav-link align-middle px-0 text-wrap">
+							<i class="fas fa-regular fa-home bi me-2"></i>	
+							<span class="d-none d-sm-inline fw-bold">Home</span>
 						</a>
 					</li>
 
@@ -128,76 +128,56 @@
 		</div>
 
 		<!--Main Content-->
-		<div class="col d-flex justify-content-center overflow-hidden g-0">
-			<div class="container-fluid g-0">
+		<div class="col d-flex justify-content-center overflow-auto pt-5">
+			<div class="container-fluid">
 
-				<!--Carousel-->
+				<!--Header-->
 				<div class="row">
-					<div class="col">
-						<div id="welcome-carousel" class="carousel slide" data-bs-ride="carousel">
-							<div class="carousel-indicators" role="listbox" style="width:auto;">
-								<button type="button" data-bs-target="#welcome-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
 
-								<button type="button" data-bs-target="#welcome-carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+					<!--Left Side-->
+					<div class="col-xxl-8 col-lg-8 col-md-12 col-sm-12 d-flex align-items-stretch">
+						<div class="card">
+							<div class="card-body m-4 text-start">
+								<div class="row">
+									<div class="col">
+										<p>Welcome to your Personal Homepage</p>
+									</div>
+								</div>
 
-								<button type="button" data-bs-target="#welcome-carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+								<div class="row">
+									<div class="col">
+										<h4>Track your expenses and enjoy feature for managing payment easily!</h4>
+									</div>
+								</div>
 
-								<button type="button" data-bs-target="#welcome-carousel" data-bs-slide-to="3" aria-label="Slide 3"></button>
-								<button type="button" data-bs-target="#welcome-carousel" data-bs-slide-to="4" aria-label="Slide 3"></button>
+								<div class="row mt-3">
+									<div class="col">
+										<input class="btn btn-warning text-white" type="button" value="Choose Plan">
+									</div>
+								</div>
 							</div>
+						</div>
+					</div>
 
-							<div class="carousel-inner" role="listbox">
-								<div class="carousel-item active">
-									<img src="../img/car-pl.jpg" class="d-block w-100">
+					<!--Right Side-->
+					<div class="col-xxl-4 col-lg-4 col-md-12 col-sm-12 d-flex align-items-stretch">
+						<div class="card">
+							<div class="card-body m-4 text-start">
+								<div class="row">
+									<div class="col">
+										<p>Statistic</p>
+									</div>
 								</div>
 
-								<div class="carousel-item">
-									<img src="../img/car-cc.jpg" class="d-block w-100">
-								</div>
-
-								<div class="carousel-item">
-									<img src="../img/car-he.jpg" class="d-block w-100">
-								</div>
-
-								<div class="carousel-item">
-									<img src="../img/car-sb.jpg" class="d-block w-100">
-								</div>
-
-								<div class="carousel-item">
-									<img src="../img/car-sl.jpg" class="d-block w-100">
+								<div class="row">
+									<div class="col">
+										<h4>Track your expenses and enjoy feature for managing payment easily!</h4>
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-
-				<!--Text Middle-->
-				<div class="row">
-					<div class="col-xxl-4 col-lg-4 col-md-12 col-sm-12 bg-light p-5">
-							<h4 class="pt-5 text-primary"><strong>
-								Loans up to PHP 10,000!<br>
-								as soon as next day
-							</strong></h4>
-							<small>No impact on anything</small>
-						</div>
-
-						<div class="col-xxl-4 col-lg-4 col-md-12 col-sm-12 bg-light p-5">
-							<h4 class="pt-5 text-primary"><strong>
-								Get Personal<br>
-								Loan Offers
-							</strong></h4>
-							<small>No impact on anything</small>
-						</div>
-
-						<div class="col-xxl-4 col-lg-4 col-md-12 col-sm-12 bg-light p-5">
-							<h4 class="pt-5 text-primary"><strong>
-								Low Interest Rates<br>
-								Starting at 3% APR
-							</strong></h4>
-							<small>No impact on anything</small>
-						</div>
-				</div>
-
 			</div>
 		</div>
 	</div>

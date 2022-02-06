@@ -28,9 +28,9 @@
 
 				<ul class="nav nav-pills flex-column mb-sm-auto mb-0 ms-2 align-items-start" id="menu">
 					<li class="nav-item nav-list">
-						<a href="dashboard.php" class="nav-link align-middle px-0 text-wrap">
-							<i class="fas fa-regular fa-gauge bi me-2"></i>	
-							<span class="d-none d-sm-inline fw-bold">Dashboard</span>
+						<a href="home.php" class="nav-link align-middle px-0 text-wrap">
+							<i class="fas fa-regular fa-home bi me-2"></i>	
+							<span class="d-none d-sm-inline fw-bold">Home</span>
 						</a>
 					</li>
 

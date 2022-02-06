@@ -19,7 +19,7 @@
 
 <div class="container-fluid">
 	<div class="row flex-nowrap">
-		<!--Navigation Sidebar-->
+<!--Navigation Sidebar-->
 		<div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-white shadow">
 			<div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-3 min-vh-100">
 				<span class="fs-5 d-none d-sm-inline fw-bold">Menu</span>
@@ -28,9 +28,9 @@
 
 				<ul class="nav nav-pills flex-column mb-sm-auto mb-0 ms-2 align-items-start" id="menu">
 					<li class="nav-item nav-list">
-						<a href="dashboard.php" class="nav-link align-middle px-0 text-wrap">
-							<i class="fas fa-regular fa-gauge bi me-2"></i>	
-							<span class="d-none d-sm-inline fw-bold">Dashboard</span>
+						<a href="home.php" class="nav-link align-middle px-0 text-wrap">
+							<i class="fas fa-regular fa-home bi me-2"></i>	
+							<span class="d-none d-sm-inline fw-bold">Home</span>
 						</a>
 					</li>
 
