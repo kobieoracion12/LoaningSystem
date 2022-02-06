@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 03, 2022 at 09:48 AM
+-- Generation Time: Feb 06, 2022 at 02:33 PM
 -- Server version: 10.4.22-MariaDB
--- PHP Version: 8.0.13
+-- PHP Version: 7.4.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -39,17 +39,17 @@ CREATE TABLE `accounts` (
   `valid_id` mediumblob NOT NULL,
   `username` varchar(11) NOT NULL,
   `password` varchar(15) NOT NULL,
-  `user_type` enum('new','repeat','loyal','admin') NOT NULL
+  `acc_priv` enum('Admin','User') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `accounts`
 --
 
-INSERT INTO `accounts` (`acc_no`, `first_name`, `last_name`, `email_add`, `mobile_no`, `birth_date`, `age`, `address`, `valid_id`, `username`, `password`, `user_type`) VALUES
-(1, 'Kobie', 'Oracion', 'kobie.oracion12@gmail.com', 9976616289, '2000-07-12', 21, 'Barangay Zone IV Luisiana, Laguna', '', 'admin', 'admin', 'new'),
-(2, 'John Llyod', 'Araza', 'arazaako@gmail.com', 915221994, '2022-01-25', 21, 'Magdalena, Laguna', '', 'araza', 'araza', 'new'),
-(3, 'Neil Arthur', 'Pornela', 'neilarthurpornela@gmail.com', 915221994, '2022-01-24', 21, 'Sta.Cruz, Laguna', '', 'neil', 'neil', 'new');
+INSERT INTO `accounts` (`acc_no`, `first_name`, `last_name`, `email_add`, `mobile_no`, `birth_date`, `age`, `address`, `valid_id`, `username`, `password`, `acc_priv`) VALUES
+(1, 'Kobie', 'Oracion', 'kobie.oracion12@gmail.com', 9976616289, '2000-07-12', 21, 'Barangay Zone IV Luisiana, Laguna', '', 'admin', 'admin', 'Admin'),
+(2, 'John Llyod', 'Araza', 'arazaako@gmail.com', 915221994, '2022-01-25', 21, 'Magdalena, Laguna', '', 'araza', 'araza', 'User'),
+(3, 'Neil Pogi', 'Pornela', 'neilarthurpornela@gmail.com', 915221994, '2022-01-24', 21, 'Sta.Cruz, Laguna', '', 'neil', 'neil', 'User');
 
 -- --------------------------------------------------------
 
@@ -61,9 +61,10 @@ CREATE TABLE `loan_destination` (
   `acc_no` bigint(11) NOT NULL,
   `ref_no` bigint(11) NOT NULL,
   `loan_amount` int(6) NOT NULL,
-  `loan_period` varchar(10) NOT NULL,
-  `loan_dest` enum('bank','gcash','palawan','paymaya') NOT NULL,
-  `bank_name` enum('aub','boc','bdo','bpi','citi','csb','landbank','metro','pnb','rcbc') DEFAULT NULL,
+  `loan_period` enum('2','6','12','24','36') NOT NULL,
+  `loan_type` enum('Credit Card','Home Equity','Mortgages','Personal Loans','Small Business','Student Loans') NOT NULL,
+  `loan_dest` enum('Bank Transfer','GCash','Palawan Pera Padala','PayMaya') NOT NULL,
+  `bank_name` enum('Asia United Bank','Bank of China','BDO','BPI','CitiBank','City Savings Bank','Landbank','MetroBank','Philippine National Bank','RCBC') DEFAULT NULL,
   `interest_rate` enum('3%','4%','5%','') NOT NULL,
   `overdue_penalty` varchar(4) NOT NULL,
   `recv_name` varchar(99) NOT NULL,
@@ -76,12 +77,17 @@ CREATE TABLE `loan_destination` (
 -- Dumping data for table `loan_destination`
 --
 
-INSERT INTO `loan_destination` (`acc_no`, `ref_no`, `loan_amount`, `loan_period`, `loan_dest`, `bank_name`, `interest_rate`, `overdue_penalty`, `recv_name`, `recv_no`, `loan_status`, `date_req`) VALUES
-(2, 20223300000, 2000, '', 'gcash', NULL, '3%', '5%', '', 915221994, 'Pending', '2022-01-30 07:44:32'),
-(0, 20223300030, 1500, '', 'gcash', '', '3%', '5%', 'Array', 2147483647, 'Pending', '2022-02-01 16:39:43'),
-(0, 20223300033, 2000, '', 'gcash', '', '3%', '5%', 'Array', 2147483647, 'Pending', '2022-02-02 10:37:30'),
-(0, 20223300034, 50000, '', 'bank', 'metro', '3%', '5%', 'Array', 0, 'Pending', '2022-02-02 10:39:08'),
-(0, 20223300035, 12000, '24m', 'bank', 'boc', '3%', '5%', 'Array', 0, 'Pending', '2022-02-03 08:46:35');
+INSERT INTO `loan_destination` (`acc_no`, `ref_no`, `loan_amount`, `loan_period`, `loan_type`, `loan_dest`, `bank_name`, `interest_rate`, `overdue_penalty`, `recv_name`, `recv_no`, `loan_status`, `date_req`) VALUES
+(2, 20223300000, 2000, '6', 'Credit Card', 'GCash', NULL, '3%', '5%', '', 915221994, 'Pending', '2022-02-04 09:49:21'),
+(2, 20223300040, 3000, '36', 'Credit Card', 'Bank Transfer', 'Philippine National Bank', '3%', '5%', '', 0, 'Pending', '2022-02-04 09:33:18'),
+(2, 20223300041, 4000, '12', 'Credit Card', 'GCash', '', '4%', '5%', '', 915221994, 'Pending', '2022-02-04 09:33:53'),
+(2, 20223300042, 4000, '12', 'Credit Card', 'GCash', '', '4%', '5%', '', 915221994, 'Pending', '2022-02-04 09:35:26'),
+(2, 20223300043, 5000, '6', 'Credit Card', 'PayMaya', '', '4%', '5%', 'Kobie Oracion', 0, 'Pending', '2022-02-04 09:36:10'),
+(2, 20223300044, 5000, '36', 'Credit Card', 'GCash', NULL, '4%', '5%', '0915221994', 0, 'Pending', '2022-02-04 09:40:06'),
+(2, 20223300045, 3000, '6', 'Credit Card', 'GCash', NULL, '3%', '5%', 'Kobie Oracion', 915221994, 'Pending', '2022-02-04 09:40:56'),
+(2, 20223300046, 5000, '6', 'Mortgages', 'PayMaya', NULL, '4%', '5%', 'Kobie Oracion', 915221994, 'Pending', '2022-02-04 09:47:41'),
+(2, 20223300047, 10000, '36', 'Student Loans', 'GCash', NULL, '5%', '5%', 'Neil Pornela', 2147483647, 'Pending', '2022-02-04 10:24:38'),
+(2, 20223300048, 10000, '24', 'Student Loans', 'GCash', NULL, '5%', '5%', 'John Llyod Araza', 912312312, 'Pending', '2022-02-04 10:44:45');
 
 -- --------------------------------------------------------
 
@@ -215,7 +221,7 @@ ALTER TABLE `accounts`
 -- AUTO_INCREMENT for table `loan_destination`
 --
 ALTER TABLE `loan_destination`
-  MODIFY `ref_no` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20223300036;
+  MODIFY `ref_no` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20223300049;
 
 --
 -- AUTO_INCREMENT for table `trans_record`
