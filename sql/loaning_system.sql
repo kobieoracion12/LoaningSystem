@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 06, 2022 at 02:33 PM
+-- Generation Time: Feb 07, 2022 at 03:09 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -39,17 +39,19 @@ CREATE TABLE `accounts` (
   `valid_id` mediumblob NOT NULL,
   `username` varchar(11) NOT NULL,
   `password` varchar(15) NOT NULL,
-  `acc_priv` enum('Admin','User') NOT NULL
+  `acc_priv` enum('Admin','User') NOT NULL,
+  `date_registered` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `accounts`
 --
 
-INSERT INTO `accounts` (`acc_no`, `first_name`, `last_name`, `email_add`, `mobile_no`, `birth_date`, `age`, `address`, `valid_id`, `username`, `password`, `acc_priv`) VALUES
-(1, 'Kobie', 'Oracion', 'kobie.oracion12@gmail.com', 9976616289, '2000-07-12', 21, 'Barangay Zone IV Luisiana, Laguna', '', 'admin', 'admin', 'Admin'),
-(2, 'John Llyod', 'Araza', 'arazaako@gmail.com', 915221994, '2022-01-25', 21, 'Magdalena, Laguna', '', 'araza', 'araza', 'User'),
-(3, 'Neil Pogi', 'Pornela', 'neilarthurpornela@gmail.com', 915221994, '2022-01-24', 21, 'Sta.Cruz, Laguna', '', 'neil', 'neil', 'User');
+INSERT INTO `accounts` (`acc_no`, `first_name`, `last_name`, `email_add`, `mobile_no`, `birth_date`, `age`, `address`, `valid_id`, `username`, `password`, `acc_priv`, `date_registered`) VALUES
+(1, 'Kobie', 'Oracion', 'kobie.oracion12@gmail.com', 9976616289, '2000-07-12', 21, 'Barangay Zone IV Luisiana, Laguna', '', 'admin', 'admin', 'Admin', '2022-02-07 10:04:15'),
+(2, 'John Llyod', 'Araza', 'arazaako@gmail.com', 915221994, '2022-01-25', 21, 'Magdalena, Laguna', '', 'araza', 'araza', 'User', '2022-02-07 10:04:24'),
+(3, 'Neil Pogi', 'Pornela', 'neilarthurpornela@gmail.com', 915221994, '2022-01-24', 21, 'Sta.Cruz, Laguna', '', 'neil', 'neil', 'User', '2022-02-07 10:04:26'),
+(4, 'Nikko', 'Sorano', 'nikkosorano@gmail.com', 912381374, '2022-02-07', 21, 'Cavinti, Laguna', '', 'nikko', 'nikko', 'Admin', '2022-02-07 10:04:30');
 
 -- --------------------------------------------------------
 
@@ -215,7 +217,7 @@ ALTER TABLE `trans_record`
 -- AUTO_INCREMENT for table `accounts`
 --
 ALTER TABLE `accounts`
-  MODIFY `acc_no` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `acc_no` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `loan_destination`
