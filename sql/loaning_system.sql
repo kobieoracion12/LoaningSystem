@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 07, 2022 at 03:09 AM
+-- Generation Time: Feb 07, 2022 at 03:20 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -71,7 +71,7 @@ CREATE TABLE `loan_destination` (
   `overdue_penalty` varchar(4) NOT NULL,
   `recv_name` varchar(99) NOT NULL,
   `recv_no` int(10) NOT NULL,
-  `loan_status` enum('Pending','Approved','Released','Closed','Terminated') NOT NULL,
+  `loan_status` enum('Pending','Approved','Released','Closed','Terminated','Declined') NOT NULL,
   `date_req` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
