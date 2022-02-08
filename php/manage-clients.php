@@ -181,6 +181,10 @@
 										<div class="container-fluid">
 											<h4>Account Information</h4><br>
 											<div class="row">
+												<script type="text/javascript">
+													if (true) {}
+
+												</script>
 												<form class="form-control border-0" method="post" action="edit_user.php">
 													<div class="col">
 														<div class="row">
@@ -237,23 +241,14 @@
 														<hr>
 
 														<div class="row">
-															<div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 py-2">
+															<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 py-2">
 																<label for="user-name" class="d-flex justify-content-start ps-3">Username</label>
 																<input type="text" name="user-name" id="user-name" class="form-control" >
 															</div>
 
-															<div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 py-2">
+															<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 py-2">
 																<label for="user-pass" class="d-flex justify-content-start ps-3">Password</label>
 																<input type="password" name="user-pass" id="user-pass" class="form-control" >
-															</div>
-
-															<div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 py-2">
-																<label for="user-priv" class="d-flex justify-content-start ps-3">Privilege</label>
-																<select class = "form-select"id="user-priv" name="user-priv" required>
-																	<option>Admin</option>
-																	<option>User</option>
-																</select>
-																 	
 															</div>
 														</div>
 
@@ -268,7 +263,7 @@
 															<div class="col">
 																<br><br>
 																<input class="btn btn-primary w-25" type="submit" name="save-changes" value="Save">
-																<input class="btn btn-danger w-25" type="button" name="delete-account" value="Delete">
+																
 																
 															</div>
 														</div>
