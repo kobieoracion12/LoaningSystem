@@ -1,6 +1,7 @@
 <?php
 	include_once "session.php";
 	include_once "userdata.php";
+	include_once "database.php";
 ?>
 
 <!DOCTYPE html>
@@ -108,23 +109,48 @@
 											<th scope="col">#</th>
 											<th scope="col">First Name</th>
 											<th scope="col">Last Name</th>
+											<th scope="col" style="display: none;">Email Address</th>
+											<th scope="col" style="display: none;">Mobile number</th>
+											<th scope="col" style="display: none;">Birthdate</th>
+											<th scope="col" style="display: none;">Age</th>
+											<th scope="col" style="display: none;">Address</th>
 											<th scope="col">Username</th>
+											<th scope="col" style="display: none;">Password</th>
 											<th scope="col">Privilege</th>
+											<th scope="col" style="display: none;">Date Registered</th>
 											<th scope="col">Action</th>
 										</tr>
 									</thead>
 
 									<tbody>
 										<tr>
-											<th scope="row">1</th>
-											<td>Kobie</td>
-											<td>Oracion</td>
-											<td>admin</td>
-											<td>Admin</td>
+											<?php 
+										$records = mysqli_query($config," select * from accounts" );
+
+										 while($data = mysqli_fetch_array ($records) )
+										 {
+
+
+										?>
+
+										<tr>
+											<td scope="row"><?php  echo $data ['acc_no']?></td>
+											<td><?php  echo $data ['first_name']?></td>
+											<td><?php  echo $data ['last_name']?></td>
+											<td style="display: none;"><?php  echo $data ['email_add']?></td>
+											<td style="display: none;"><?php  echo $data ['mobile_no']?></td>
+											<td style="display: none;"><?php  echo $data ['birth_date']?></td>
+											<td style="display: none;"><?php  echo $data ['age']?></td>
+											<td style="display: none;"><?php  echo $data ['address']?></td>
+											<td><?php  echo $data ['username']?></td>
+											<td style="display: none;" ><?php echo $data ['password']?></td>
+											<td> <?php  echo $data ['acc_priv']?></td>
+											<td style="display: none;" ><?php echo $data ['date_registered']?></td>
+
 											<td>
 												<div class="d-flex flex-row justify-content-center">
 									                 <div>
-									                	<input class="btn btn-primary" type="button" name="edit-user" value="Edit"  value="More Info" data-bs-toggle="modal" data-bs-target="#showUserData">
+									                	<input class="btn btn-primary editbtn" type="button" name="edit-user" value="Edit"   data-bs-toggle="modal" data-bs-target="#showUserData">
 									                </div>
 
 									                <div class="ps-2">
@@ -136,6 +162,9 @@
 									            </div>
 											</td>
 										</tr>
+										<?php 
+									}
+										?>
 									</tbody>
 								</table>
 							</div>
@@ -152,48 +181,49 @@
 										<div class="container-fluid">
 											<h4>Account Information</h4><br>
 											<div class="row">
-												<form class="form-control border-0" method="post" action="#">
+												<form class="form-control border-0" method="post" action="edit_user.php">
 													<div class="col">
 														<div class="row">
 															<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 py-2">
 																<label for="acc-no" class="d-flex justify-content-start ps-3">Account Number</label>
-																<input type="text" name="acc-no" id="acc-no" class="form-control" value="" readonly>
+																<input type="hidden" name="acc-no" id="acc-no" class="form-control">
 															</div>
 														</div>
 
 														<div class="row">
 															<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 py-2">
 																<label for="fname" class="d-flex justify-content-start ps-3">First Name</label>
-																<input type="text" name="fname" id="fname" class="form-control" value="">
+																<input type="text" name="fname" id="fname" class="form-control"  >
+																
 															</div>
 
 															<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 py-2">
 																<label for="lname" class="d-flex justify-content-start ps-3">Last Name</label>
-																<input type="text" name="lname" id="lname" class="form-control" value="">
+																<input type="text" name="lname" id="lname" class="form-control" >
 															</div>
 														</div>
 
 														<div class="row">
 															<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 py-2">
 																<label for="email-add" class="d-flex justify-content-start ps-3">Email Address</label>
-																<input type="text" name="email-add" id="email-add" class="form-control" value="">
+																<input type="text" name="email-add" id="email-add" class="form-control" >
 															</div>
 
 															<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 py-2">
 																<label for="mobile-no" class="d-flex justify-content-start ps-3">Mobile Number</label>
-																<input type="text" name="mobile-no" id="mobile-no" class="form-control" value="">
+																<input type="text" name="mobile-no" id="mobile-no" class="form-control" >
 															</div>
 														</div>
 
 														<div class="row">
 															<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 py-2">
 																<label for="birth-date" class="d-flex justify-content-start ps-3">Birth Date</label>
-																<input type="date" name="birth-date" id="birth-date" class="form-control" value="">
+																<input type="date" name="birth-date" id="birth-date" class="form-control" >
 															</div>
 
 															<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 py-2">
 																<label for="age" class="d-flex justify-content-start ps-3">Age</label>
-																<input type="text" name="age" id="age" class="form-control" value="">
+																<input type="text" name="age" id="age" class="form-control" >
 															</div>
 														</div>
 
@@ -209,40 +239,41 @@
 														<div class="row">
 															<div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 py-2">
 																<label for="user-name" class="d-flex justify-content-start ps-3">Username</label>
-																<input type="text" name="user-name" id="user-name" class="form-control" value="">
+																<input type="text" name="user-name" id="user-name" class="form-control" >
 															</div>
 
 															<div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 py-2">
 																<label for="user-pass" class="d-flex justify-content-start ps-3">Password</label>
-																<input type="text" name="user-pass" id="user-pass" class="form-control" value="ENCRYPTED DAPAT">
+																<input type="password" name="user-pass" id="user-pass" class="form-control" >
 															</div>
 
 															<div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 py-2">
 																<label for="user-priv" class="d-flex justify-content-start ps-3">Privilege</label>
-																<select class="form-select" id="user-priv" name="user-priv">
-																	<option selected></option>
-																 	<option value="Admin">Admin</option>
-																 	<option value="User">User</option>
+																<select class = "form-select"id="user-priv" name="user-priv" required>
+																	<option>Admin</option>
+																	<option>User</option>
 																</select>
+																 	
 															</div>
 														</div>
 
 														<div class="row">
 															<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 py-2">
 																<label for="date-registered" class="d-flex justify-content-start ps-3">Registered Date</label>
-																<input type="date" name="date-registered" id="date-registered" class="form-control" value="" readonly>
+																<input type="text" name="date-registered" id="date-registered" class="form-control" value="" readonly>
 															</div>
 														</div>
 
 														<div class="row">
 															<div class="col">
 																<br><br>
-																<input class="btn btn-primary w-25" type="button" name="save-changes" value="Save">
+																<input class="btn btn-primary w-25" type="submit" name="save-changes" value="Save">
 																<input class="btn btn-danger w-25" type="button" name="delete-account" value="Delete">
 																
 															</div>
 														</div>
 													</div>
+
 												</form>
 											</div>
 										</div>
@@ -260,6 +291,38 @@
 		</div>
 	</div>
 </div>
+<script src='https://code.jquery.com/jquery-3.3.1.slim.min.js'></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.editbtn').on('click',function(){
+			$('#showUserData').modal('show');
+
+			$tr =$(this).closest('tr');
+
+			var data = $tr.children("td").map(function(){
+				return $(this).text();
+
+			}).get();
+
+			console.log(data);
+
+			$('#acc-no').val(data[0]);
+			$('#fname').val(data[1]);
+			$('#lname').val(data[2])
+			$('#email-add').val(data[3]);
+			$('#mobile-no').val(data[4]);
+			$('#birth-date').val(data[5]);
+			$('#age').val(data[6]);
+			$('#user-address').val(data[7]);
+			$('#user-name').val(data[8]);
+			$('#user-pass').val(data[9]);
+			$('#user-priv').val(data[10]);
+			$('#date-registered').val(data[11]);
+
+		})
+	});
+
+</script>
 
 <script type="text/javascript" src="../js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript" src="../js/mdb.min.js"></script>
