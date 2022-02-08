@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 07, 2022 at 03:20 AM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 7.4.27
+-- Generation Time: Feb 08, 2022 at 02:34 PM
+-- Server version: 10.4.20-MariaDB
+-- PHP Version: 8.0.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -239,7 +239,7 @@ ALTER TABLE `trans_record`
 -- Constraints for table `loan_information`
 --
 ALTER TABLE `loan_information`
-  ADD CONSTRAINT `loan_information_ibfk_1` FOREIGN KEY (`acc_no`) REFERENCES `accounts` (`acc_no`);
+  ADD CONSTRAINT `loan_information_ibfk_1` FOREIGN KEY (`acc_no`) REFERENCES `accounts` (`acc_no`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `loan_sched`
@@ -251,7 +251,7 @@ ALTER TABLE `loan_sched`
 -- Constraints for table `trans_record`
 --
 ALTER TABLE `trans_record`
-  ADD CONSTRAINT `trans_record_ibfk_1` FOREIGN KEY (`acc_no`) REFERENCES `accounts` (`acc_no`);
+  ADD CONSTRAINT `trans_record_ibfk_1` FOREIGN KEY (`acc_no`) REFERENCES `accounts` (`acc_no`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
