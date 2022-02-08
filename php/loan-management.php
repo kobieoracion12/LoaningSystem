@@ -1,6 +1,7 @@
 <?php
 	include_once "session.php";
 	include_once "userdata.php";
+	include_once "database.php";
 ?>
 
 <!DOCTYPE html>
@@ -106,25 +107,50 @@
 									<thead>
 										<tr>
 											<th scope="col">#</th>
-											<th scope="col">First Name</th>
-											<th scope="col">Last Name</th>
+											<th scope="col" style="display: none;">Reference Number</th>
+											<th scope="col">Full Name</th>
 											<th scope="col">Loan Amount</th>
 											<th scope="col">Payment Duration</th>
+											<th scope="col" style="display: none;">Loan Type</th>
+											<th scope="col" style="display: none;">Loan Destination</th>
+											<th scope="col" style="display: none;">Bank Name</th>
+											<th scope="col" style="display: none;">Interest Rate</th>
+											<th scope="col" style="display: none;">Overdue Penalty</th>
+											<th scope="col" style="display: none;">Receiver Number</th>
+											<th scope="col" style="display: none;">Date Requested</th>
+											<th scope="col" style="display: none;">Loan Status</th>
 											<th scope="col">Action</th>
 										</tr>
 									</thead>
 
 									<tbody>
 										<tr>
-											<th scope="row">1</th>
-											<td>Kobie</td>
-											<td>Oracion</td>
-											<td>10000</td>
-											<td>36 Months</td>
+											<?php 
+										$records = mysqli_query($config," select * from loan_destination" );
+
+										 while($data = mysqli_fetch_array ($records) )
+										 {
+
+
+										?>
+										<tr>
+											<td scope="row"><?php  echo $data ['acc_no']?></td>
+											<td><?php  echo $data ['recv_name']?></td>
+											<td><?php  echo $data ['loan_amount']?></td>
+											<td><?php  echo $data ['loan_period']?></td>
+											<td style="display: none;"><?php  echo $data ['loan_type']?></td>
+											<td style="display: none;"><?php  echo $data ['loan_dest']?></td>
+											<td style="display: none;"><?php  echo $data ['bank_name']?></td>
+											<td style="display: none;"><?php  echo $data ['interest_rate']?></td>
+											<td style="display: none;"><?php  echo $data ['overdue_penalty']?></td>
+											<td style="display: none;"><?php  echo $data ['recv_no']?></td>
+											<td style="display: none;"><?php  echo $data ['date_req']?></td>
+											<td style="display: none;"><?php  echo $data ['loan_status']?></td>
+											
 											<td>
 												<div class="d-flex flex-row justify-content-center">
 													<div>
-									                	<input class="btn btn-primary text-white" type="button" name="delete-data" value="More Info" data-bs-toggle="modal" data-bs-target="#showUserData">
+									                	<input class="btn btn-primary text-white editbtn" type="button" name="more-info" value="More Info" data-bs-toggle="modal" data-bs-target="#showUserData">
 									                </div>
 
 									                <div class="ps-2">
@@ -133,6 +159,9 @@
 									            </div>
 											</td>
 										</tr>
+										<?php 
+									}
+										?>
 									</tbody>
 								</table>
 							</div>
@@ -149,19 +178,23 @@
 										<div class="container-fluid">
 											<h4>Loan Request Information</h4><br>
 											<div class="row">
-												<form class="form-control border-0" method="post" action="#">
+											<script type="text/javascript">
+													if (true) {}
+
+												</script>
+												<form class="form-control border-0" method="post" action="status-update.php">
 													<div class="col">
 														<div class="row">
 															<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 py-2">
 																<label for="ref-no" class="d-flex justify-content-start ps-3">Referrence Number</label>
-																<input type="text" name="ref-no" id="ref-no" class="form-control" value="" readonly>
+																<input type="text" name="ref-no" id="ref-no" class="form-control" readonly>
 															</div>
 														</div>
 
 														<div class="row">
 															<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 py-2">
 																<label for="loan-amount" class="d-flex justify-content-start ps-3">Loan Amount</label>
-																<input type="text" name="loan-amount" id="loan-amount" class="form-control" value="" readonly>
+																<input type="text" name="loan-amount" id="loan-amount" class="form-control" readonly>
 															</div>
 
 															<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 py-2">
@@ -173,31 +206,31 @@
 														<div class="row">
 															<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 py-2">
 																<label for="loan-type" class="d-flex justify-content-start ps-3">Loan Type</label>
-																<input type="text" name="loan-type" id="loan-type" class="form-control" value="" readonly>
+																<input type="text" name="loan-type" id="loan-type" class="form-control" readonly>
 															</div>
 
 															<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 py-2">
 																<label for="loan-destination" class="d-flex justify-content-start ps-3">Loan Destination</label>
-																<input type="text" name="loan-destination" id="loan-destination" class="form-control" value="" readonly>
+																<input type="text" name="loan-destination" id="loan-destination" class="form-control" readonly>
 															</div>
 														</div>
 
 														<div class="row">
 															<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 py-2">
-																<label for="bank_name" class="d-flex justify-content-start ps-3">Bank Name</label>
-																<input type="text" name="bank_name" id="bank_name" class="form-control" value="" readonly>
+																<label for="bank-name" class="d-flex justify-content-start ps-3">Bank Name</label>
+																<input type="text" name="bank-name" id="bank-name" class="form-control" readonly>
 															</div>
 														</div>
 
 														<div class="row">
 															<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 py-2">
 																<label for="interest-rate" class="d-flex justify-content-start ps-3">Interest Rate(%)</label>
-																<input type="text" name="interest-rate" id="interest-rate" class="form-control" value="" readonly>
+																<input type="text" name="interest-rate" id="interest-rate" class="form-control" readonly>
 															</div>
 
 															<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 py-2">
 																<label for="overdue-penalty" class="d-flex justify-content-start ps-3">Overdue Penalty(%)</label>
-																<input type="text" name="overdue-penalty" id="overdue-penalty" class="form-control" value="" readonly>
+																<input type="text" name="overdue-penalty" id="overdue-penalty" class="form-control" readonly>
 															</div>
 														</div>
 
@@ -206,27 +239,27 @@
 														<div class="row">
 															<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 py-2">
 																<label for="receiver-name" class="d-flex justify-content-start ps-3">Receiver Name</label>
-																<input type="text" name="receiver-name" id="receiver-name" class="form-control" value="" readonly>
+																<input type="text" name="receiver-name" id="receiver-name" class="form-control" readonly>
 															</div>
 
 															<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 py-2">
 																<label for="receiver-no" class="d-flex justify-content-start ps-3">Receiver Number/Account Number</label>
-																<input type="text" name="receiver-no" id="receiver-no" class="form-control" value="" readonly>
+																<input type="text" name="receiver-no" id="receiver-no" class="form-control" readonly>
 															</div>
 														</div>
 
 														<div class="row">
 															<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 py-2">
 																<label for="date-requested" class="d-flex justify-content-start ps-3">Date Requested</label>
-																<input type="date" name="date-requested" id="date-requested" class="form-control" value="" readonly>
+																<input type="date" name="date-requested" id="date-requested" class="form-control" readonly>
 															</div>
 														</div>
 
 														<div class="row">
 															<div class="col">
 																<br><br>
-																<input class="btn btn-success w-25" type="button" name="approve-loan" value="Approve">
-																<input class="btn btn-danger w-25" type="button" name="decline-loan" value="Decline">
+																<input class="btn btn-success w-25" type="submit" name="approve-loan" value="Approve">
+																<input class="btn btn-danger w-25" type="submit" name="decline-loan" value="Decline">
 																
 															</div>
 														</div>
@@ -248,6 +281,36 @@
 		</div>
 	</div>
 </div>
+<script src='https://code.jquery.com/jquery-3.3.1.slim.min.js'></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.editbtn').on('click',function(){
+			$('#showUserData').modal('show');
+
+			$tr =$(this).closest('tr');
+
+			var data = $tr.children("td").map(function(){
+				return $(this).text();
+
+			}).get();
+
+			console.log(data);
+
+			$('#ref-no').val(data[0]);
+			$('#receiver-name').val(data[1]);
+			$('#loan-amount').val(data[2]);
+			$('#loan-duration').val(data[3]);
+			$('#loan-type').val(data[4]);
+			$('#loan-destination').val(data[5]);
+			$('#bank-name').val(data[6]);
+			$('#interest-rate').val(data[7]);
+			$('#overdue-penalty').val(data[8]);
+			$('#receiver-no').val(data[9]);
+			$('#date-requested').val(data[10]);
+		})
+	});
+
+</script>	
 
 <script type="text/javascript" src="../js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript" src="../js/mdb.min.js"></script>
