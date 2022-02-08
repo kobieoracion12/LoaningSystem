@@ -154,7 +154,7 @@
 									                </div>
 
 									                <div class="ps-2">
-									                	<input class="btn btn-danger" type="button" name="delete-user" value="Delete">
+									                	<input class="btn btn-danger deletebtn" type="button" name="delete-user" value="Delete"data-bs-toggle="modal" data-bs-target="#deletemodal">
 									                </div>
 
 									                <div class="ps-2">
@@ -286,6 +286,25 @@
 		</div>
 	</div>
 </div>
+<div class="modal fade" id="deletemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<form class="form-control border-0" method="post" action="delete_user.php">
+				<input type="hidden" name="delete_id" id="delete_id">
+				<h4> Do you want to delete this user?</h4>
+				<div class="modal-footer">
+					<input class="btn btn-danger" type="button"  data-bs-dismiss="modal" aria-label="Close" value="NO"> 
+					<input type="submit" name="deletedata" class="btn btn-primary" value="YES">
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+
 <script src='https://code.jquery.com/jquery-3.3.1.slim.min.js'></script>
 <script type="text/javascript">
 	$(document).ready(function(){
@@ -318,6 +337,30 @@
 	});
 
 </script>
+<script type="text/javascript">
+    $(document).ready(function(){
+      $('.deletebtn').on('click', function(){
+
+        $('#deletemodal').modal('show');
+
+
+        $tr = $(this).closest('tr');
+
+        var data =  $tr.children("td").map(function(){
+          return $(this).text();
+
+
+        }).get();
+
+        console.log(data);
+
+
+        $('#delete_id').val(data[0]);
+
+
+      })
+    });
+  </script>
 
 <script type="text/javascript" src="../js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript" src="../js/mdb.min.js"></script>
