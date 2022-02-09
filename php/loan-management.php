@@ -106,7 +106,7 @@
 								<table class="table table-hover align-middle">
 									<thead>
 										<tr>
-											<th scope="col">#</th>
+											<th scope="col">Referrence #</th>
 											<th scope="col" style="display: none;">Reference Number</th>
 											<th scope="col">Full Name</th>
 											<th scope="col">Loan Amount</th>
@@ -216,7 +216,7 @@
 														<div class="row">
 															<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 py-2">
 																<label for="ref-no" class="d-flex justify-content-start ps-3">Referrence Number</label>
-																<input type="text" name="ref-no" id="ref-no" class="form-control" value="" disabled>
+																<input type="text" name="ref-no" id="ref-no" class="form-control" readonly>
 															</div>
 														</div>
 

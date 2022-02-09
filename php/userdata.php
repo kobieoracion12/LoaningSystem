@@ -16,6 +16,7 @@ while($rows = mysqli_fetch_array($sql)) {
 	$_SESSION['address'] = $rows['address'];
 	$_SESSION['username'] = $rows['username'];
 	$_SESSION['priv'] = $rows['acc_priv'];
+	$_SESSION['stats'] = $rows['acc_status'];
 }
 
 $id = $_SESSION['user-id'];

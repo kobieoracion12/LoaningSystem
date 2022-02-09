@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 08, 2022 at 02:34 PM
--- Server version: 10.4.20-MariaDB
--- PHP Version: 8.0.8
+-- Generation Time: Feb 09, 2022 at 03:46 PM
+-- Server version: 10.4.19-MariaDB
+-- PHP Version: 7.3.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -39,6 +39,7 @@ CREATE TABLE `accounts` (
   `valid_id` mediumblob NOT NULL,
   `username` varchar(11) NOT NULL,
   `password` varchar(15) NOT NULL,
+  `acc_status` enum('New','Repeat','Loyal','Terminated') NOT NULL,
   `acc_priv` enum('Admin','User') NOT NULL,
   `date_registered` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -47,11 +48,13 @@ CREATE TABLE `accounts` (
 -- Dumping data for table `accounts`
 --
 
-INSERT INTO `accounts` (`acc_no`, `first_name`, `last_name`, `email_add`, `mobile_no`, `birth_date`, `age`, `address`, `valid_id`, `username`, `password`, `acc_priv`, `date_registered`) VALUES
-(1, 'Kobie', 'Oracion', 'kobie.oracion12@gmail.com', 9976616289, '2000-07-12', 21, 'Barangay Zone IV Luisiana, Laguna', '', 'admin', 'admin', 'Admin', '2022-02-07 10:04:15'),
-(2, 'John Llyod', 'Araza', 'arazaako@gmail.com', 915221994, '2022-01-25', 21, 'Magdalena, Laguna', '', 'araza', 'araza', 'User', '2022-02-07 10:04:24'),
-(3, 'Neil Pogi', 'Pornela', 'neilarthurpornela@gmail.com', 915221994, '2022-01-24', 21, 'Sta.Cruz, Laguna', '', 'neil', 'neil', 'User', '2022-02-07 10:04:26'),
-(4, 'Nikko', 'Sorano', 'nikkosorano@gmail.com', 912381374, '2022-02-07', 21, 'Cavinti, Laguna', '', 'nikko', 'nikko', 'Admin', '2022-02-07 10:04:30');
+INSERT INTO `accounts` (`acc_no`, `first_name`, `last_name`, `email_add`, `mobile_no`, `birth_date`, `age`, `address`, `valid_id`, `username`, `password`, `acc_status`, `acc_priv`, `date_registered`) VALUES
+(1, 'Kobie', 'Oracion', 'kobie.oracion12@gmail.com', 9976616289, '2000-07-12', 21, 'Barangay Zone IV Luisiana, Laguna', '', 'admin', 'admin', 'New', 'Admin', '2022-02-07 10:04:15'),
+(2, 'John Llyod', 'Araza', 'arazaako@gmail.com', 915221994, '2022-01-25', 21, 'Magdalena, Laguna', '', 'araza', 'araza', 'New', 'User', '2022-02-07 10:04:24'),
+(3, 'Neil Pogi', 'Pornela', 'neilarthurpornela@gmail.com', 915221994, '2022-01-24', 21, 'Sta.Cruz, Laguna', '', 'neil', 'neil', 'New', 'User', '2022-02-07 10:04:26'),
+(4, 'Nikko', 'Sorano', 'nikkosorano@gmail.com', 912381374, '2022-02-07', 21, 'Cavinti, Laguna', '', 'nikko', 'nikko', 'New', 'Admin', '2022-02-07 10:04:30'),
+(6, 'ralph', 'pogi', 'ralph@gmail.com', 9123456789, '2022-02-08', 54, '24 Mabini Street', 0x75706c6f6164732f3234367830772e6a7067, 'ralph', 'ralph', 'New', 'User', NULL),
+(7, 'Jireh', 'Lim', 'jirehpogs@gmail.com', 9123456789, '2022-02-23', 69, '24 Mabini Street', 0x75706c6f6164732f3234367830772e6a7067, 'jireh', 'jireh', 'New', '', NULL);
 
 -- --------------------------------------------------------
 
@@ -217,7 +220,7 @@ ALTER TABLE `trans_record`
 -- AUTO_INCREMENT for table `accounts`
 --
 ALTER TABLE `accounts`
-  MODIFY `acc_no` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `acc_no` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `loan_destination`

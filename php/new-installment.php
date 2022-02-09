@@ -20,7 +20,7 @@
 
 <div class="container-fluid">
 	<div class="row flex-nowrap">
-<!--Navigation Sidebar-->
+	<!--Navigation Sidebar-->
 		<div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-white shadow">
 			<div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-3 min-vh-100">
 				<span class="fs-5 d-none d-sm-inline fw-bold">Menu</span>
@@ -41,8 +41,8 @@
                         <ul class="collapse show nav flex-column ms-1 text-start" id="install" data-bs-parent="#menu">
                             <li class="w-100">
                                 <?php
-                                	$status = $_SESSION['status'];
-                                	if($status == 'Active' || $status == 'Due' || $status == 'Terminated') {
+                                	$status = $_SESSION['stats'];
+                                	if($status == 'New' || $status == 'Repeat' || $status == 'Loyal' || $status == 'Terminated') {
                                 		echo '
                                 		<span class="d-inline-block" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-content="Disabled popover">
 	                                		<a href="new-installment.php" class="nav-link px-0 disabled">
@@ -67,8 +67,8 @@
 
                             <li>
                             	<?php 
-                            		$status = $_SESSION['status'];
-                                	if($status == 'Active' || $status == 'Due' || $status == 'Terminated') {
+                            		$status = $_SESSION['stats'];
+                                	if($status == 'New' || $status == 'Repeat' || $status == 'Loyal' || $status == 'Terminated') {
                                 		echo '
                                 			<a href="paynow.php" class="nav-link px-0">
 			                                	<span class="d-none d-sm-inline">Pay Now</span>
@@ -316,11 +316,41 @@
 																	<small class="fw-light">Interest: <strong>'.$row["interest_rate"].'</strong></small><br>
 																	<small class="fw-light">Overdue Penalty: <strong>'.$row["overdue_penalty"].'</strong></small>
 																</td>
-																<td class="table-warning">
-																	'.$row["loan_status"].'	
-																</td>
-
 															';
+
+															$status = $row["loan_status"];
+															if($status == 'Approved') {
+																echo '
+																	<td class="table-success fw-bold text-success">
+																	'.$status.'	
+																	</td>
+																';
+															}
+
+															elseif($status == 'Declined') {
+																echo '
+																	<td class="table-danger fw-bold text-danger">
+																	'.$status.'	
+																	</td>
+																';
+															}
+
+															elseif($status == 'Pending') {
+																echo '
+																	<td class="table-secondary fw-bold text-secondary">
+																	'.$status.'	
+																	</td>
+																';
+															}
+
+															elseif($status == 'Terminated') {
+																echo '
+																	<td class="table-warning fw-bold text-warning">
+																	'.$status.'	
+																	</td>
+																';
+															}
+															
 														}
 													} else {
 														echo '

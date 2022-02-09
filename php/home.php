@@ -40,8 +40,8 @@
                         <ul class="collapse show nav flex-column ms-1 text-start" id="install" data-bs-parent="#menu">
                             <li class="w-100">
                                 <?php
-                                	$status = $_SESSION['status'];
-                                	if($status == 'Active' || $status == 'Due' || $status == 'Terminated') {
+                                	$status = $_SESSION['stats'];
+                                	if($status == 'New' || $status == 'Repeat' || $status == 'Loyal' || $status == 'Terminated') {
                                 		echo '
                                 		<span class="d-inline-block" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-content="Disabled popover">
 	                                		<a href="new-installment.php" class="nav-link px-0 disabled">
@@ -66,8 +66,8 @@
 
                             <li>
                             	<?php 
-                            		$status = $_SESSION['status'];
-                                	if($status == 'Active' || $status == 'Due' || $status == 'Terminated') {
+                            		$status = $_SESSION['stats'];
+                                	if($status == 'New' || $status == 'Repeat' || $status == 'Loyal' || $status == 'Terminated') {
                                 		echo '
                                 			<a href="paynow.php" class="nav-link px-0">
 			                                	<span class="d-none d-sm-inline">Pay Now</span>

@@ -98,54 +98,166 @@
 					</div>
 				</div>
 
+				<!--Cards-->
 				<div class="row">
-						<?php
-							$id = $_SESSION['user-id'];
+					<?php
+						$id = $_SESSION['user-id'];
 
-							$sql = "SELECT * FROM accounts";
-							$result = $config -> query($sql);
+						$sql = "SELECT * FROM accounts";
+						$result = $config -> query($sql);
 
-							if($result -> num_rows > 0) {
-								while($row = $result -> fetch_assoc()) {
-									echo '
-										<div class="col-xxl-4 col-lg-4 col-md-12 col-sm-12 mt-2">
-											<a class="text-decoration-none" href="#" data-bs-toggle="modal" data-bs-target="#editInformation" data-value='.$row["acc_no"].'>
-												<div class="card">
-													<div class="card-body shadow">
-														<div class="row">
-															<div class="col-4">
-																<img class="rounded-circle mx-auto d-block" src="../img/kobie.jpg" width="100px" height="100px">
-															</div>
+						if($result -> num_rows > 0) {
+							while($row = $result -> fetch_assoc()) {
 
-															<div class="col-8 text-start text-dark g-0 ps-3">
-																<div class="container d-flex h-100">
-																	<div class="row justify-content-center align-self-center">
-																		<h6><strong>'.$row["first_name"].' '.$row["last_name"].'</strong></h6>
-																		<small>@'.$row["username"].'</small>
-																		<small>'.$row["acc_priv"].'</small>
-																	</div>
+								$id = ['acc_no'];
+								echo '
+									<div class="col-xxl-4 col-lg-4 col-md-12 col-sm-12 mt-2">
+										<a class="text-decoration-none editbtn" href="#" data-bs-toggle="modal" data-bs-target="#showAccount">
+											<div class="card">
+												<div class="card-body shadow">
+
+													<div class="row">
+														<div class="col-4">
+															<img class="rounded-circle mx-auto d-block" src="../img/kobie.jpg" width="100px" height="100px">
+														</div>
+
+														<div class="col-8 text-start text-dark g-0 ps-3">
+															<div class="container d-flex h-100">
+																<div class="row justify-content-center align-self-center">
+																	<h6><strong>'.$row["first_name"].' '.$row["last_name"].'</strong></h6>
+																	<small>@'.$row["username"].'</small>
+																	<small>'.$row["acc_priv"].'</small>
 																</div>
 															</div>
 														</div>
 													</div>
 												</div>
-											</a>
-										</div>
-									';
-								} 
-								
-							} else {
-								echo '
-									<br>
-									div class="alert alert-warning" role="alert">
-							            No Records Found
-							        </div>
-								';
-							}
-							mysqli_close($config);
-						?>
+											</div>
+										</a>
+									</div>
 
-						
+									<div class="modal fade" id="showAccount" name="showAccount" aria-labelledby="editInformationLabel" aria-hidden="true">
+										<div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-xl">
+											<div class="modal-content">
+												<div class="modal-header">
+													 
+												</div>
+
+												<div class="modal-body">
+													<div class="container-fluid">
+													
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								';
+							} 
+							
+						} else {
+							echo '
+								<br>
+								div class="alert alert-warning" role="alert">
+						            No Records Found
+						        </div>
+							';
+						}
+						mysqli_close($config);
+					?>			
+				</div>
+
+				<br>
+
+				<div class="row">
+					<div class="col-12">
+						<div class="card">
+							<div class="card-body">
+								<div class="row">
+									<div class="col-lg-4 col-md-4 col-sm-12">
+										<img src="../img/kobie.jpg" class="img-fluid" max-width="400px">
+									</div>
+
+									<div class="col-xxl-8 col-lg-8 col-md-8 col-sm-12 text-start mt-3">
+										<div class="row">
+												<h3>Full Name Here</h3>
+												<h6>Email Address Here</h6>
+												<small>@Username Here</small>
+										</div>
+
+										<div class="row">
+											<div class="col-12 pt-4">
+												<ul class="nav nav-tabs" id="personal-tab" role="tablist">
+													<li class="nav-item" role="presentation">
+														<button class="nav-link active" id="personal-info" data-bs-toggle="tab" data-bs-target="#info" type="button" role="tab" aria-controls="info" aria-selected="true">
+														<i class="fas fa-home me-1"></i>
+														Personal Info
+														</button>
+													</li>
+
+													<li class="nav-item" role="presentation">
+														<button class="nav-link" id="personal-acc" data-bs-toggle="tab" data-bs-target="#acc" type="button" role="tab" aria-controls="acc" aria-selected="true">
+														<i class="fas fa-home me-1"></i>
+														Account
+														</button>
+													</li>
+												</ul>
+											</div>
+
+											<div class="tab-content col-xxl-8 col-md-8 col-sm-12 ms-4 mt-3" id="myTabContent">
+											  <div class="tab-pane fade show text-start active" id="info" role="tabpanel" aria-labelledby="home-tab">
+											  	<h4>Personal Information</h4>
+
+											  	<div class="row ms-3">
+											  		<div class="col-xxl-4 col-lg-4 col-md-12 col-sm-12 pt-3">
+												  		<h6>Full Name:</h6>
+											  		</div>
+
+											  		<div class="col-xxl-8 col-lg-8 col-md-12 col-sm-12 pt-3">
+												  		<p>Kobie Oracion</p>
+											  		</div>
+											  	</div>
+
+											  	<div class="row ms-3">
+											  		<div class="col-xxl-4 col-lg-4 col-md-12 col-sm-12 pt-3">
+												  		<h6>Email Address:</h6>
+											  		</div>
+
+											  		<div class="col-xxl-8 col-lg-8 col-md-12 col-sm-12 pt-3">
+												  		<p>kobie.oracion12@gmail.com</p>
+											  		</div>
+											  	</div>
+
+											  	<div class="row ms-3">
+											  		<div class="col-xxl-4 col-lg-4 col-md-12 col-sm-12 pt-3">
+												  		<h6>Mobile Number:</h6>
+											  		</div>
+
+											  		<div class="col-xxl-8 col-lg-8 col-md-12 col-sm-12 pt-3">
+												  		<p>09976616289</p>
+											  		</div>
+											  	</div>
+
+											  	<div class="row ms-3">
+											  		<div class="col-xxl-4 col-lg-4 col-md-12 col-sm-12 pt-3">
+												  		<h6>Birth Date:</h6>
+											  		</div>
+
+											  		<div class="col-xxl-8 col-lg-8 col-md-12 col-sm-12 pt-3">
+												  		<p>July 12, 2000</p>
+											  		</div>
+											  	</div>
+
+											  </div>
+
+											  <div class="tab-pane fade" id="acc" role="tabpanel" aria-labelledby="profile-tab"></div>
+											</div>
+
+											
+
+										</div>
+									</div>
+								</div>
+						</div>
 					</div>
 				</div>
 			</div>
