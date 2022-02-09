@@ -216,7 +216,7 @@
 														<div class="row">
 															<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 py-2">
 																<label for="ref-no" class="d-flex justify-content-start ps-3">Referrence Number</label>
-																<input type="text" name="ref-no" id="ref-no" class="form-control" value="" disabled>
+																<input type="text" name="ref-no" id="ref-no" class="form-control" readonly>
 															</div>
 														</div>
 
