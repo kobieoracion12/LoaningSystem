@@ -14,7 +14,8 @@ if (isset($_POST['deletedata'])) {
       echo "Error deleting record: " . $config->error;
     }
 
-    $config->close();
-      }
+}
+
+$config->close();
 
 ?>

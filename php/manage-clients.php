@@ -241,14 +241,23 @@
 														<hr>
 
 														<div class="row">
-															<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 py-2">
+															<div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 py-2">
 																<label for="user-name" class="d-flex justify-content-start ps-3">Username</label>
 																<input type="text" name="user-name" id="user-name" class="form-control" >
 															</div>
 
-															<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 py-2">
+															<div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 py-2">
 																<label for="user-pass" class="d-flex justify-content-start ps-3">Password</label>
 																<input type="password" name="user-pass" id="user-pass" class="form-control" >
+															</div>
+
+															<div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 py-2">
+																<label for="user-priv" class="d-flex justify-content-start ps-3">Privilege</label>
+																<select class="form-select" name="acc_priv" id="acc_priv">
+																	<option></option>
+																	<option>Admin</option>
+																	<option>User</option>
+																</select>
 															</div>
 														</div>
 
@@ -296,7 +305,7 @@
 				<input type="hidden" name="delete_id" id="delete_id">
 				<h4> Do you want to delete this user?</h4>
 				<div class="modal-footer">
-					<input class="btn btn-danger" type="button"  data-bs-dismiss="modal" aria-label="Close" value="NO"> 
+					<input class="btn btn-danger" type="button" data-bs-dismiss="modal" aria-labelledby="Close" value="NO"> 
 					<input type="submit" name="deletedata" class="btn btn-primary" value="YES">
 				</div>
 			</form>

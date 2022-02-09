@@ -111,14 +111,7 @@
 											<th scope="col">Full Name</th>
 											<th scope="col">Loan Amount</th>
 											<th scope="col">Payment Duration</th>
-											<th scope="col" style="display: none;">Loan Type</th>
-											<th scope="col" style="display: none;">Loan Destination</th>
-											<th scope="col" style="display: none;">Bank Name</th>
-											<th scope="col" style="display: none;">Interest Rate</th>
-											<th scope="col" style="display: none;">Overdue Penalty</th>
-											<th scope="col" style="display: none;">Receiver Number</th>
-											<th scope="col" style="display: none;">Date Requested</th>
-											<th scope="col" style="display: none;">Loan Status</th>
+											<th scope="col">Loan Status</th>
 											<th scope="col">Action</th>
 										</tr>
 									</thead>
@@ -126,35 +119,70 @@
 									<tbody>
 										<tr>
 											<?php 
-										$records = mysqli_query($config," select * from loan_destination" );
+												$records = mysqli_query($config," select * from loan_destination" );
 
-										 while($data = mysqli_fetch_array ($records) )
-										 {
+												 while($data = mysqli_fetch_array ($records) )
+												 {
 
 
-										?>
+											?>
 										<tr>
 											<td scope="row"><?php  echo $data ['ref_no']?></td>
 											<td><?php  echo $data ['recv_name']?></td>
 											<td><?php  echo $data ['loan_amount']?></td>
 											<td><?php  echo $data ['loan_period']?></td>
-											<td style="display: none;"><?php  echo $data ['loan_type']?></td>
-											<td style="display: none;"><?php  echo $data ['loan_dest']?></td>
-											<td style="display: none;"><?php  echo $data ['bank_name']?></td>
-											<td style="display: none;"><?php  echo $data ['interest_rate']?></td>
-											<td style="display: none;"><?php  echo $data ['overdue_penalty']?></td>
-											<td style="display: none;"><?php  echo $data ['recv_no']?></td>
-											<td style="display: none;"><?php  echo $data ['date_req']?></td>
-											<td style="display: none;"><?php  echo $data ['loan_status']?></td>
-											
+											<td>
+												<?php
+				                                	$status = $data ['loan_status'];
+				                                	
+				                                	if($status == 'Approved') {
+				                                		echo '
+				                                		<div class="fw-bold text-success">
+				                                		'.$status.'
+				                                		</div>
+				                                		';
+				                                	}
+
+				                                	elseif($status == 'Pending') {
+				                                		echo '
+				                                		<div class="fw-bold text-secondary">
+				                                		'.$status.'
+				                                		</div>
+				                                		';
+				                                	}
+
+				                                	elseif($status == 'Declined') {
+				                                		echo '
+				                                		<div class="fw-bold text-danger">
+				                                		'.$status.'
+				                                		</div>
+				                                		';
+				                                	}
+
+				                                	elseif($status == 'Terminated') {
+				                                		echo '
+				                                		<div class="fw-bold text-warning">
+				                                		'.$status.'
+				                                		</div>
+				                                		';
+				                                	}
+
+				                                	else {
+				                                		echo '
+				                                		Error
+				                                		';
+				                                	}
+				                                ?>
+											</td>
+
 											<td>
 												<div class="d-flex flex-row justify-content-center">
 													<div>
-									                	<input class="btn btn-primary text-white editbtn" type="button" name="more-info" value="More Info" data-bs-toggle="modal" data-bs-target="#showUserData">
+									                	<input class="btn btn-primary text-white editbtn" type="button" name="more-info" value="Info" data-bs-toggle="modal" data-bs-target="#showUserData">
 									                </div>
 
 									                <div class="ps-2">
-									                	<input class="btn btn-danger" type="button" name="delete-data" value="Delete">
+									                	<input class="btn btn-danger" type="button" name="delete-data" value="Delete" formaction="">
 									                </div>
 									            </div>
 											</td>
@@ -182,14 +210,17 @@
 													if (true) {}
 
 												</script>
-												<form class="form-control border-0" method="post" action="status-update.php">
+												<form class="form-control border-0" method="post">
 													<div class="col">
+
 														<div class="row">
 															<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 py-2">
 																<label for="ref-no" class="d-flex justify-content-start ps-3">Referrence Number</label>
-																<input type="text" name="ref-no" id="ref-no" class="form-control" readonly>
+																<input type="text" name="ref-no" id="ref-no" class="form-control" value="" disabled>
 															</div>
 														</div>
+
+
 
 														<div class="row">
 															<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 py-2">
@@ -255,12 +286,14 @@
 															</div>
 														</div>
 
+														
+
 														<div class="row">
 															<div class="col">
 																<br><br>
-																<input class="btn btn-success w-25" type="submit" name="approve-loan" value="Approve">
-																<input class="btn btn-danger w-25" type="submit" name="decline-loan" value="Decline">
-																
+																<input class="btn btn-success w-25" type="submit" name="approve-loan" value="Approve" formaction="update-status.php">
+																<input class="btn btn-danger w-25" type="submit" name="decline-loan" value="Decline" formaction="update-status.php">
+																<input class="btn btn-warning w-25" type="submit" name="terminate-loan" value="Terminate" formaction="update-status.php">
 															</div>
 														</div>
 													</div>
@@ -294,7 +327,7 @@
 
 			}).get();
 
-			console.log(data);
+			console.log(data);6
 
 			$('#ref-no').val(data[0]);
 			$('#receiver-name').val(data[1]);
@@ -309,7 +342,6 @@
 			$('#date-requested').val(data[10]);
 		})
 	});
-
 </script>	
 
 <script type="text/javascript" src="../js/bootstrap.bundle.min.js"></script>
