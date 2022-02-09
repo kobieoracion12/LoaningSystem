@@ -32,7 +32,7 @@
 
                 <p style="font-weight: bold">Don't have an account? <a href="php/sign-up.php" style="text-decoration: none">Sign up Here!</a></p><br>
 
-                <button type="submit" value="Submit" class="btn btn-primary login-button btn-lg">Login</button>
+                <button type="submit" name="login_btn" value="Submit" class="btn btn-primary login-button btn-lg">Login</button>
               </div>
 
               <?php
