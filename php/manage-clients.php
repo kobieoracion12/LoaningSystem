@@ -241,23 +241,14 @@
 														<hr>
 
 														<div class="row">
-															<div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 py-2">
+															<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 py-2">
 																<label for="user-name" class="d-flex justify-content-start ps-3">Username</label>
 																<input type="text" name="user-name" id="user-name" class="form-control" >
 															</div>
 
-															<div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 py-2">
+															<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 py-2">
 																<label for="user-pass" class="d-flex justify-content-start ps-3">Password</label>
 																<input type="password" name="user-pass" id="user-pass" class="form-control" >
-															</div>
-
-															<div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 py-2">
-																<label for="user-priv" class="d-flex justify-content-start ps-3">Privilege</label>
-																<select class="form-select" name="acc_priv" id="acc_priv">
-																	<option></option>
-																	<option>Admin</option>
-																	<option>User</option>
-																</select>
 															</div>
 														</div>
 
@@ -315,6 +306,7 @@
 
 
 <script src='https://code.jquery.com/jquery-3.3.1.slim.min.js'></script>
+
 <script type="text/javascript">
 	$(document).ready(function(){
 		$('.editbtn').on('click',function(){
@@ -346,6 +338,7 @@
 	});
 
 </script>
+
 <script type="text/javascript">
     $(document).ready(function(){
       $('.deletebtn').on('click', function(){

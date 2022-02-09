@@ -106,7 +106,7 @@
 								<table class="table table-hover align-middle">
 									<thead>
 										<tr>
-											<th scope="col">#</th>
+											<th scope="col">Referrence #</th>
 											<th scope="col" style="display: none;">Reference Number</th>
 											<th scope="col">Full Name</th>
 											<th scope="col">Loan Amount</th>

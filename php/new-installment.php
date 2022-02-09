@@ -20,7 +20,7 @@
 
 <div class="container-fluid">
 	<div class="row flex-nowrap">
-<!--Navigation Sidebar-->
+	<!--Navigation Sidebar-->
 		<div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-white shadow">
 			<div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-3 min-vh-100">
 				<span class="fs-5 d-none d-sm-inline fw-bold">Menu</span>
@@ -316,11 +316,41 @@
 																	<small class="fw-light">Interest: <strong>'.$row["interest_rate"].'</strong></small><br>
 																	<small class="fw-light">Overdue Penalty: <strong>'.$row["overdue_penalty"].'</strong></small>
 																</td>
-																<td class="table-warning">
-																	'.$row["loan_status"].'	
-																</td>
-
 															';
+
+															$status = $row["loan_status"];
+															if($status == 'Approved') {
+																echo '
+																	<td class="table-success fw-bold text-success">
+																	'.$status.'	
+																	</td>
+																';
+															}
+
+															elseif($status == 'Declined') {
+																echo '
+																	<td class="table-danger fw-bold text-danger">
+																	'.$status.'	
+																	</td>
+																';
+															}
+
+															elseif($status == 'Pending') {
+																echo '
+																	<td class="table-secondary fw-bold text-secondary">
+																	'.$status.'	
+																	</td>
+																';
+															}
+
+															elseif($status == 'Terminated') {
+																echo '
+																	<td class="table-warning fw-bold text-warning">
+																	'.$status.'	
+																	</td>
+																';
+															}
+															
 														}
 													} else {
 														echo '
