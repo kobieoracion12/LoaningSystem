@@ -134,7 +134,7 @@
 
 										?>
 										<tr>
-											<td scope="row"><?php  echo $data ['acc_no']?></td>
+											<td scope="row"><?php  echo $data ['ref_no']?></td>
 											<td><?php  echo $data ['recv_name']?></td>
 											<td><?php  echo $data ['loan_amount']?></td>
 											<td><?php  echo $data ['loan_period']?></td>
