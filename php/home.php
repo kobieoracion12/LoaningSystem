@@ -14,6 +14,7 @@
 	<link rel="stylesheet" type="text/css" href="../css/fontawesome.css">
 	<link rel="stylesheet" type="text/css" href="../css/brands.css">
 	<link rel="stylesheet" type="text/css" href="../css/solid.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 </head>
 <body>
 
@@ -174,6 +175,48 @@
 										<h4>Track your expenses and enjoy feature for managing payment easily!</h4>
 									</div>
 								</div>
+							</div>
+						</div>
+					</div>
+					<p></p>
+					<div class=" "style="width:800px; margin:0 auto">
+						<div class="row">
+							<div class="col" >
+								<div class="card">
+									<div class="card-body" >
+										<canvas id="myChart" style="width:100%; height:400px;"></canvas>
+
+												<script>
+												var xValues = ["Kobie", "Raplh", "Jireh", "Neil", "Youth"];
+												var yValues = [55, 49, 44, 24, 15];
+												var barColors = [
+												  "#b91d47",
+												  "#00aba9",
+												  "#2b5797",
+												  "#e8c3b9",
+												  "#1e7145"
+												];
+
+												new Chart("myChart", {
+												  type: "doughnut",
+												  data: {
+												    labels: xValues,
+												    datasets: [{
+												      backgroundColor: barColors,
+												      data: yValues
+												    }]
+												  },
+												  options: {
+												    title: {
+												      display: true,
+												      text: "Sinu mas Pogi?"
+												    }
+												  }
+												});
+												</script>
+
+									</div>
+								</div>	
 							</div>
 						</div>
 					</div>
