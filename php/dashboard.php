@@ -155,21 +155,25 @@
 								$result2 =  mysqli_query($conn,"SELECT COUNT(*) as loan_type FROM loan_destination WHERE loan_type ='Mortgages'");
 
 								$result3 =  mysqli_query($conn,"SELECT COUNT(*) as loan_type FROM loan_destination WHERE loan_type ='Credit Card'");
+								
 
 								while($row=mysqli_fetch_array($result))
 								{
 									$loan_type=$row['loan_type'];
+									
 								}
-
 								while($row=mysqli_fetch_array($result2))
 								{
 									$loan_type2=$row['loan_type'];
+									
 								}
-
 								while($row=mysqli_fetch_array($result3))
 								{
 									$loan_type3=$row['loan_type'];
+									
 								}
+
+
 								?>
 
 								<div>
@@ -185,7 +189,7 @@
 										'Mortgages'
 									],
 									datasets: [{
-										data: <?php echo json_encode($loan_type, $loan_type2, $loan_type3)?>,
+										data: [<?php echo json_encode($loan_type)?>,<?php echo json_encode($loan_type2)?>,<?php echo json_encode($loan_type3)?>],
 										backgroundColor: [
 										'rgb(255, 99, 132)',
 										'rgb(54, 162, 235)',
