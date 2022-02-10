@@ -8,6 +8,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 	<title>Dashboard</title>
 	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../css/style-min.css">
@@ -136,7 +137,7 @@
 							<div class="card-body m-4">
 								<div class="row">
 									<div class="col-10">
-										<h6>Latest Payments</h6>
+										<h6>Loan Types</h6>
 									</div>
 
 									<div class="col-2 text-end text-decoration-none">
@@ -146,9 +147,64 @@
 									</div>
 								</div>
 
+								<?php
+								$conn = new mysqli('localhost','root','','loaning_system');
+
+								$result =  mysqli_query($conn,"SELECT COUNT(*) as loan_type FROM loan_destination WHERE loan_type ='Student Loans'");
+
+								$result2 =  mysqli_query($conn,"SELECT COUNT(*) as loan_type FROM loan_destination WHERE loan_type ='Mortgages'");
+
+								$result3 =  mysqli_query($conn,"SELECT COUNT(*) as loan_type FROM loan_destination WHERE loan_type ='Credit Card'");
+
+								while($row=mysqli_fetch_array($result))
+								{
+									$loan_type=$row['loan_type'];
+								}
+
+								while($row=mysqli_fetch_array($result2))
+								{
+									$loan_type2=$row['loan_type'];
+								}
+
+								while($row=mysqli_fetch_array($result3))
+								{
+									$loan_type3=$row['loan_type'];
+								}
+								?>
+
+								<div>
+								<canvas id="pieChart"></canvas>
+								</div>
 								<div class="row">
 									<div class="col chart-container m-4">
-										Pie Chart Here
+									<script>
+									const piedata = {
+									labels: [
+										'Student Loans',
+										'Credit Card',
+										'Mortgages'
+									],
+									datasets: [{
+										data: <?php echo json_encode($loan_type, $loan_type2, $loan_type3)?>,
+										backgroundColor: [
+										'rgb(255, 99, 132)',
+										'rgb(54, 162, 235)',
+										'rgb(255, 205, 86)'
+										],
+										hoverOffset: 4
+									}]
+									};
+									const config2 = {
+									type: 'pie',
+									data: piedata,
+									};
+									</script>
+									<script>
+									const pieChart = new Chart(
+										document.getElementById('pieChart'),
+										config2
+									);
+									</script>
 									</div>
 								</div>
 							</div>
@@ -171,9 +227,75 @@
 									</div>
 								</div>
 
+								<?php
+									$conn = new mysqli('localhost','root','','loaning_system');
+									$query = $conn->query("SELECT * FROM accounts");
+
+
+									foreach($query as $data){
+										$date = $data['date_registered'];
+										$user = $data['acc_no'];
+									}
+								?>
+
+								<div>
+								<canvas id="myChart"></canvas>
+								</div>
 								<div class="row">
 									<div class="col chart-container m-4">
-										Line Chart Here
+									<script>
+										const labels = [
+															'February',
+															'March',
+															'April',
+															'May',
+															'June',
+														];
+										const data = {
+										labels: labels,
+										datasets: [{
+											label: 'Users',
+											data: <?php echo json_encode($user)?>,
+											backgroundColor: [
+											'rgba(255, 99, 132, 0.2)',
+											'rgba(255, 159, 64, 0.2)',
+											'rgba(255, 205, 86, 0.2)',
+											'rgba(75, 192, 192, 0.2)',
+											'rgba(54, 162, 235, 0.2)',
+											'rgba(153, 102, 255, 0.2)',
+											'rgba(201, 203, 207, 0.2)'
+											],
+											borderColor: [
+											'rgb(255, 99, 132)',
+											'rgb(255, 159, 64)',
+											'rgb(255, 205, 86)',
+											'rgb(75, 192, 192)',
+											'rgb(54, 162, 235)',
+											'rgb(153, 102, 255)',
+											'rgb(201, 203, 207)'
+											],
+											borderWidth: 1
+										}]
+										};
+
+										const config = {
+										type: 'bar',
+										data: data,
+										options: {
+											scales: {
+											y: {
+												beginAtZero: true
+											}
+											}
+										},
+										};
+									</script>
+									<script>
+										const myChart = new Chart(
+											document.getElementById('myChart'),
+											config
+										);
+									</script>
 									</div>
 								</div>
 
