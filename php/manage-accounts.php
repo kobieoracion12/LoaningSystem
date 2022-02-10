@@ -89,6 +89,7 @@
 		</div>
 
 		<!--Main Content-->
+			<!--Main Content-->
 		<div class="col py-3 d-flex justify-content-center overflow-auto">
 			<div class="container-fluid">
 				<div class="row">
@@ -98,69 +99,91 @@
 					</div>
 				</div>
 
-				<!--Cards-->
+
+				<!--Table-->
 				<div class="row">
-					<?php
-						$id = $_SESSION['user-id'];
+					<div class="col ">
+						<div class="card">
+							<div class="card-body rounded-3 m-4 table-responsive-sm">
+								<table class="table table-hover align-middle">
+									<thead>
+										<tr>
+											<th scope="col">Profile</th>
+											<th scope="col">Account #</th>
+											<th scope="col">First Name</th>
+											<th scope="col">Last Name</th>
+											<th scope="col" >Email Address</th>
+											<th scope="col" style="display: none;">Mobile number</th>
+											<th scope="col" style="display: none;">Birthdate</th>
+											<th scope="col" style="display: none;">Age</th>
+											<th scope="col" style="display: none;">Address</th>
+											<th scope="col">Username</th>
+											<th scope="col" style="display: none;">Password</th>
+											<th scope="col"style="display: none;">Privilege</th>
+											<th scope="col" style="display: none;">Date Registered</th>
+											<th scope="col">VIEW</th>
+										</tr>
+									</thead>
 
-						$sql = "SELECT * FROM accounts";
-						$result = $config -> query($sql);
+									<tbody>
+										<tr>
+											<?php 
+										$records = mysqli_query($config," select * from accounts" );
 
-						if($result -> num_rows > 0) {
-							while($row = $result -> fetch_assoc()) {
+										 while($data = mysqli_fetch_array ($records) )
+										 {
 
-								$id = ['acc_no'];
-								echo '
-									<div class="col-xxl-4 col-lg-4 col-md-12 col-sm-12 mt-2">
-										<a class="text-decoration-none editModal" href="#" data-bs-toggle="modal" data-bs-target="#showAccount">
-											<div class="card">
-												<div class="card-body shadow">
 
-													<div class="row">
-														<div class="col-4">
-															<img class="rounded-circle mx-auto d-block" src="data:image/jpg;charset=utf8;base64,'.base64_encode($row['profile_pic']).'" width="100px" height="100px">
-														</div>
+										?>
 
-														<div class="col-8 text-start text-dark g-0 ps-3">
-															<div class="container d-flex h-100">
-																<div class="row justify-content-center align-self-center">
-																	<h6><strong>'.$row["first_name"].' '.$row["last_name"].'</strong></h6>
-																	<small>@'.$row["username"].'</small>
-																	<small>'.$row["acc_no"].'</small>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</a>
-									</div>
-								';
-							} 
-							
-						} else {
-							echo '
-								<br>
-								div class="alert alert-warning" role="alert">
-						            No Records Found
-						        </div>
-							';
-						}
-						mysqli_close($config);
-					?>			
-				</div>
+										<tr>
+											<td><img src="<?php echo "../img/".$row['profile_pic'];?>" height="70"  width="60" alt="Image" class="rounded-circle"></td>
+											<td scope="row"><?php  echo $data ['acc_no']?></td>
+											<td><?php  echo $data ['first_name']?></td>
+											<td><?php  echo $data ['last_name']?></td>
+											<td ><?php  echo $data ['email_add']?></td>
+											<td style="display: none;"><?php  echo $data ['mobile_no']?></td>
+											<td style="display: none;"><?php  echo $data ['birth_date']?></td>
+											<td style="display: none;"><?php  echo $data ['age']?></td>
+											<td style="display: none;"><?php  echo $data ['address']?></td>
+											<td><?php  echo $data ['username']?></td>
+											<td style="display: none;" ><?php echo $data ['password']?></td>
+											<td style="display: none;" ><?php echo $data ['acc_status']?></td>
+											<td style="display: none;"> <?php  echo $data ['acc_priv']?></td>
+											<td style="display: none;" ><?php echo $data ['date_registered']?></td>
 
-				<div class="modal fade" id="showAccount" name="showAccount" aria-labelledby="editInformationLabel" aria-hidden="true">
-					<div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-xl">
-						<div class="modal-content">
-							<div class="modal-header">
-								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+											<td>
+												<div class="d-flex flex-row justify-content-center">
+									                 <div>
+									                	<input class="btn btn-primary viewbtn" type="button" name="edit-user" value="View"   data-bs-toggle="modal" data-bs-target="#showAccount">
+									                </div>
+
+									                <div class="ps-2">
+									                </div>
+									            </div>
+											</td>
+										</tr>
+										<?php 
+									}
+										?>
+									</tbody>
+								</table>
 							</div>
+						</div>
+
+
+						<!--Edit Modal-->
+						<div class="modal fade" id="showAccount" name="showAccount" aria-labelledby="editInformationLabel" aria-hidden="true">
+							<div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-xl">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+									</div>
 
 							<div class="modal-body">
 								<div class="container-fluid">
-								<div class="row">
-									<div class="col-lg-4 col-md-4 col-sm-12 text-start">
+									<div class="row">
+										<div class="col-lg-4 col-md-4 col-sm-12 text-start">
 										<img src="../img/profile.jpg" class="img-fluid" max-width="400px">
 										<form action="upload-profile.php" method="post" enctype="multipart/form-data"><br>
 											<input class="form-control" type="file" name="image"><br>
@@ -169,12 +192,7 @@
 									</div>
 
 									<div class="col-xxl-8 col-lg-8 col-md-8 col-sm-12 text-start mt-3">
-										<div class="row">
-												<h3>Full Name Here</h3>
-												<h6>Email Address Here</h6>
-												<small>@Username Here</small>
-										</div>
-
+								
 										<div class="row">
 											<div class="col-12 pt-4">
 												<ul class="nav nav-pills" id="personal-tab" role="tablist">
@@ -200,12 +218,19 @@
 
 												<div class="row ms-1">
 													<div class="col-xxl-6 col-lg-6 col-md-12 col-sm-12 pt-3">
-														<h6>Full Name:</h6>
+														<h6 style="font-weight:700;"> First Name:</h6>
 													</div>
 
-													<div class="col-xxl-8 col-lg-8 col-md-12 col-sm-12 pt-3">
-														<p>Kobie Oracion</p>
+													<div class="col-xxl-6 col-lg-6 col-md-12 col-sm-12 pt-3" style="margin-left: -5em;">
+														<input id ="fname" style ="border:none;box-shadow:none; font-weight: 700;" disabled>
 													</div>
+													<div class="col-xxl-6 col-lg-6 col-md-12 col-sm-12 pt-3" >
+														<h6> Last Name:</h6>
+													</div>
+													<div class="col-xxl-8 col-lg-8 col-md-12 col-sm-12 pt-3"  style="margin-left: -5em;">
+														<input id ="lname" style ="border:none;box-shadow:none; font-weight: 700;" disabled>
+													</div>
+
 												</div>
 
 												<div class="row ms-1">
@@ -214,7 +239,7 @@
 													</div>
 
 													<div class="col-xxl-8 col-lg-8 col-md-12 col-sm-12 pt-3">
-														<p>kobie.oracion12@gmail.com</p>
+														<input id ="email-add" style ="border:none;box-shadow:none; font-weight: 700;" disabled>
 													</div>
 												</div>
 
@@ -224,7 +249,7 @@
 													</div>
 
 													<div class="col-xxl-8 col-lg-8 col-md-12 col-sm-12 pt-3">
-														<p>09976616289</p>
+														<input id ="mobile-no" style ="border:none;box-shadow:none; font-weight: 700;" disabled>
 													</div>
 												</div>
 
@@ -234,7 +259,7 @@
 													</div>
 
 													<div class="col-xxl-8 col-lg-8 col-md-12 col-sm-12 pt-3">
-														<p>July 12, 2000</p>
+														<input id ="birth-date" style ="border:none;box-shadow:none; font-weight: 700;" disabled>
 													</div>
 												</div>
 
@@ -244,7 +269,7 @@
 													</div>
 
 													<div class="col-xxl-8 col-lg-8 col-md-12 col-sm-12 pt-3">
-														<p>Luisiana, Laguna</p>
+														<input id ="user-address" style ="border:none;box-shadow:none; font-weight: 700;" disabled>
 													</div>
 												</div>
 
@@ -259,7 +284,7 @@
 													</div>
 
 													<div class="col-xxl-8 col-lg-8 col-md-12 col-sm-12 pt-3">
-														<p>admin</p>
+														<input id ="user-name" style ="border:none;box-shadow:none; font-weight: 700;" disabled>
 													</div>
 												</div>
 
@@ -269,7 +294,7 @@
 													</div>
 
 													<div class="col-xxl-8 col-lg-8 col-md-12 col-sm-12 pt-3">
-														<p>New</p>
+														<input id ="status" style ="border:none;box-shadow:none; font-weight: 700;" disabled>
 													</div>
 												</div>
 
@@ -279,7 +304,7 @@
 													</div>
 
 													<div class="col-xxl-8 col-lg-8 col-md-12 col-sm-12 pt-3">
-														<p>Admin</p>
+														<input id ="acc-priv" style ="border:none;box-shadow:none; font-weight: 700;" disabled>
 													</div>
 												</div>
 
@@ -304,10 +329,48 @@
 						</div>
 					</div>
 				</div>
+						
+					</div>
+				</div>
 			</div>
 		</div>
+	
 	</div>
 </div>
+<script src='https://code.jquery.com/jquery-3.3.1.slim.min.js'></script>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.viewbtn').on('click',function(){
+			$('#showAccount').modal('show');
+
+			$tr =$(this).closest('tr');
+
+			var data = $tr.children("td").map(function(){
+				return $(this).text();
+
+			}).get();
+
+			console.log(data);
+			$('#profile-pic').val(data[0]);
+			$('#acc-no').val(data[1]);
+			$('#fname').val(data[2]);
+			$('#lname').val(data[3])
+			$('#email-add').val(data[4]);
+			$('#mobile-no').val(data[5]);
+			$('#birth-date').val(data[6]);
+			$('#age').val(data[7]);
+			$('#user-address').val(data[8]);
+			$('#user-name').val(data[9]);
+			$('#user-pass').val(data[10]);
+			$('#status').val(data[11]);
+			$('#acc-priv').val(data[12]);
+			$('#date-registered').val(data[13]);
+
+		})
+	});
+
+</script>
 
 <script type="text/javascript" src="../js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript" src="../js/mdb.min.js"></script>
