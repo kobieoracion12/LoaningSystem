@@ -132,13 +132,13 @@
 
 										 while($data = mysqli_fetch_array ($records) )
 										 {
+										 	
+										 	echo '
+										 	<td><img class="rounded-circle mx-auto d-block" src="data:image/jpg;charset=utf8;base64,'.base64_encode($data['profile_pic']).'" width="100px" height="100px"></td>'
 
 
 										?>
-
-										<tr>
-											<td><img src="<?php echo "../img/".$row['profile_pic'];?>" height="70"  width="60" alt="Image" class="rounded-circle"></td>
-											<td scope="row"><?php  echo $data ['acc_no']?></td>
+										<td scope="row"><?php  echo $data ['acc_no']?></td>
 											<td><?php  echo $data ['first_name']?></td>
 											<td><?php  echo $data ['last_name']?></td>
 											<td ><?php  echo $data ['email_add']?></td>
@@ -162,10 +162,13 @@
 									                </div>
 									            </div>
 											</td>
+
+										<tr>
 										</tr>
 										<?php 
 									}
 										?>
+									</tr>
 									</tbody>
 								</table>
 							</div>
@@ -179,7 +182,7 @@
 									<div class="modal-header">
 										<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 									</div>
-
+									
 							<div class="modal-body">
 								<div class="container-fluid">
 									<div class="row">
@@ -227,7 +230,7 @@
 													<div class="col-xxl-6 col-lg-6 col-md-12 col-sm-12 pt-3" >
 														<h6> Last Name:</h6>
 													</div>
-													<div class="col-xxl-8 col-lg-8 col-md-12 col-sm-12 pt-3"  style="margin-left: -5em;">
+													<div class="col-xxl-4 col-lg-4 col-md-12 col-sm-12 pt-3"  style="margin-left: -5em;">
 														<input id ="lname" style ="border:none;box-shadow:none; font-weight: 700;" disabled>
 													</div>
 

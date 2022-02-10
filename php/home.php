@@ -184,32 +184,60 @@
 							<div class="col" >
 								<div class="card">
 									<div class="card-body" >
-										<canvas id="myChart" style="width:100%; height:400px;"></canvas>
+										<?php
+								$conn = new mysqli('localhost','root','','loaning_system');
 
-												<script>
-												var xValues = ["Kobie", "Raplh", "Jireh", "Neil", "Youth"];
-												var yValues = [55, 49, 44, 24, 15];
-												var barColors = [
-												  "#b91d47",
-												  "#00aba9",
-												  "#2b5797",
-												  "#e8c3b9",
-												  "#1e7145"
-												];
+								$result =  mysqli_query($conn,"SELECT COUNT(*) as loan_type FROM loan_destination WHERE loan_type ='Student Loans'");
+
+								$result2 =  mysqli_query($conn,"SELECT COUNT(*) as loan_type FROM loan_destination WHERE loan_type ='Mortgages'");
+
+								$result3 =  mysqli_query($conn,"SELECT COUNT(*) as loan_type FROM loan_destination WHERE loan_type ='Credit Card'");
+								
+
+								while($row=mysqli_fetch_array($result))
+								{
+									$loan_type=$row['loan_type'];
+									
+								}
+								while($row=mysqli_fetch_array($result2))
+								{
+									$loan_type2=$row['loan_type'];
+									
+								}
+								while($row=mysqli_fetch_array($result3))
+								{
+									$loan_type3=$row['loan_type'];
+									
+								}
+
+
+								?>
+								<div>
+									<canvas id="myChart" style="width:100%; height:400px;"></canvas>
+								</div>
+										<script>
+												var xValues = ["Student Loans",
+																"Credit Card",
+																"Mortgages"];
 
 												new Chart("myChart", {
 												  type: "doughnut",
 												  data: {
 												    labels: xValues,
-												    datasets: [{
-												      backgroundColor: barColors,
-												      data: yValues
-												    }]
+												    datasets:  [{
+										data: [<?php echo json_encode($loan_type)?>,<?php echo json_encode($loan_type2)?>,<?php echo json_encode($loan_type3)?>],
+										backgroundColor: [
+										'rgb(255, 99, 132)',
+										'rgb(54, 162, 235)',
+										'rgb(255, 205, 86)'
+										],
+										hoverOffset: 4
+									}]
 												  },
 												  options: {
 												    title: {
 												      display: true,
-												      text: "Sinu mas Pogi?"
+												      text: "TOTAL OF LOANS"
 												    }
 												  }
 												});
