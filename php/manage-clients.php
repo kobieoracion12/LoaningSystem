@@ -99,6 +99,8 @@
 					</div>
 				</div>
 
+
+				<!--Table-->
 				<div class="row">
 					<div class="col ">
 						<div class="card">
@@ -170,6 +172,8 @@
 							</div>
 						</div>
 
+
+						<!--Edit Modal-->
 						<div class="modal fade" id="showUserData" tabindex="-1" aria-labelledby="showUserData" aria-hidden="true">
 							<div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-xl">
 								<div class="modal-content">
@@ -255,7 +259,7 @@
 														<div class="row">
 															<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 py-2">
 																<label for="date-registered" class="d-flex justify-content-start ps-3">Registered Date</label>
-																<input type="text" name="date-registered" id="date-registered" class="form-control" value="" readonly>
+																<input type="date" name="date-registered" id="date-registered" class="form-control" value="" readonly>
 															</div>
 														</div>
 
@@ -275,34 +279,39 @@
 									</div>
 
 									<div class="modal-footer">
-										<input class="btn btn-secondary" type="button" data-bs-dismiss="modal" value="Close">
+										<button type="button" class="btn btn-secondary" data-bs-dismiss="modal" value="Close">
 									</div>
 								</div>
 							</div>
 						</div>
+
+						<!--Delete Modal-->
+						<div class="modal fade" id="deletemodal" tabindex="-1" role="dialog" aria-labelledby="deletemodal" aria-hidden="true">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+									</div>
+									<form class="form-control border-0" method="post" action="delete_user.php">
+										<input type="hidden" name="delete_id" id="delete_id">
+										<h4> Do you want to delete this user?</h4>
+										<div class="modal-footer">
+											<input class="btn btn-danger" type="button" data-bs-dismiss="modal" aria-labelledby="Close" value="NO"> 
+											<input type="submit" name="deletedata" class="btn btn-primary" value="YES">
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+						
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
-<div class="modal fade" id="deletemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-	<div class="modal-dialog" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-			</div>
-			<form class="form-control border-0" method="post" action="delete_user.php">
-				<input type="hidden" name="delete_id" id="delete_id">
-				<h4> Do you want to delete this user?</h4>
-				<div class="modal-footer">
-					<input class="btn btn-danger" type="button" data-bs-dismiss="modal" aria-labelledby="Close" value="NO"> 
-					<input type="submit" name="deletedata" class="btn btn-primary" value="YES">
-				</div>
-			</form>
-		</div>
-	</div>
-</div>
+
+
 
 
 <script src='https://code.jquery.com/jquery-3.3.1.slim.min.js'></script>
@@ -331,7 +340,6 @@
 			$('#user-address').val(data[7]);
 			$('#user-name').val(data[8]);
 			$('#user-pass').val(data[9]);
-			$('#user-priv').val(data[10]);
 			$('#date-registered').val(data[11]);
 
 		})

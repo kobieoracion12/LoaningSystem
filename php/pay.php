@@ -19,8 +19,8 @@
 
 <div class="container-fluid">
 	<div class="row flex-nowrap">
-<!--Navigation Sidebar-->
-		<div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-white shadow">
+	<!--Navigation Sidebar-->
+	<div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-white shadow">
 			<div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-3 min-vh-100">
 				<span class="fs-5 d-none d-sm-inline fw-bold">Menu</span>
 
@@ -40,8 +40,8 @@
                         <ul class="collapse show nav flex-column ms-1 text-start" id="install" data-bs-parent="#menu">
                             <li class="w-100">
                                 <?php
-                                	$status = $_SESSION['status'];
-                                	if($status == 'Active' || $status == 'Due' || $status == 'Terminated') {
+                                	$status = $_SESSION['stats'];
+                                	if($status == 'Terminated') {
                                 		echo '
                                 		<span class="d-inline-block" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-content="Disabled popover">
 	                                		<a href="new-installment.php" class="nav-link px-0 disabled">
@@ -66,8 +66,8 @@
 
                             <li>
                             	<?php 
-                            		$status = $_SESSION['status'];
-                                	if($status == 'Active' || $status == 'Due' || $status == 'Terminated') {
+                            		$status = $_SESSION['stats'];
+                                	if($status == 'New' || $status == 'Repeat' || $status == 'Loyal' || $status == 'Terminated') {
                                 		echo '
                                 			<a href="paynow.php" class="nav-link px-0">
 			                                	<span class="d-none d-sm-inline">Pay Now</span>
@@ -126,7 +126,7 @@
 				</div>
 			</div>
 		</div>
-
+		
 		<!--Main Content-->
 		<div class="col py-3 d-flex justify-content-center overflow-auto">
 			<div class="container-fluid">

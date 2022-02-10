@@ -20,8 +20,9 @@
 
 <div class="container-fluid">
 	<div class="row flex-nowrap">
+	<div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-white shadow">
 	<!--Navigation Sidebar-->
-		<div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-white shadow">
+
 			<div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-3 min-vh-100">
 				<span class="fs-5 d-none d-sm-inline fw-bold">Menu</span>
 
@@ -42,7 +43,7 @@
                             <li class="w-100">
                                 <?php
                                 	$status = $_SESSION['stats'];
-                                	if($status == 'New' || $status == 'Repeat' || $status == 'Loyal' || $status == 'Terminated') {
+                                	if($status == 'Terminated') {
                                 		echo '
                                 		<span class="d-inline-block" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-content="Disabled popover">
 	                                		<a href="new-installment.php" class="nav-link px-0 disabled">

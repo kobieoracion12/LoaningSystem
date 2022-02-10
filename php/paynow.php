@@ -19,8 +19,8 @@
 
 <div class="container-fluid">
 	<div class="row flex-nowrap">
-<!--Navigation Sidebar-->
 		<div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-white shadow">
+			<!--Navigation Sidebar-->
 			<div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-3 min-vh-100">
 				<span class="fs-5 d-none d-sm-inline fw-bold">Menu</span>
 
@@ -34,58 +34,58 @@
 						</a>
 					</li>
 
-					 <li class="nav-item nav-list">
-                        <a href="#install" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                            <i class="fas fa-regular fa-credit-card bi me-2"></i> <span class="ms-1 d-none d-sm-inline fw-bold">Installment</span> </a>
-                        <ul class="collapse show nav flex-column ms-1 text-start" id="install" data-bs-parent="#menu">
-                            <li class="w-100">
-                                <?php
-                                	$status = $_SESSION['stats'];
-                                	if($status == 'New' || $status == 'Repeat' || $status == 'Loyal' || $status == 'Terminated') {
-                                		echo '
-                                		<span class="d-inline-block" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-content="Disabled popover">
-	                                		<a href="new-installment.php" class="nav-link px-0 disabled">
-			                                	<span class="d-none d-sm-inline">New Installment</span>
-			                                </a>
-		                                </span>
-                                		';
-                                	} else {
-                                		echo '
-                                		<a href="new-installment.php" class="nav-link px-0">
-		                                	<span class="d-none d-sm-inline">New Installment</span>
-		                                </a>';
-                                	}
-                                ?>
-                            </li>
-                            
-                            <li>
-                                <a href="transactions.php" class="nav-link px-0">
-                                	<span class="d-none d-sm-inline">Transaction Record</span>
-                                </a>
-                            </li>
+						<li class="nav-item nav-list">
+						<a href="#install" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+							<i class="fas fa-regular fa-credit-card bi me-2"></i> <span class="ms-1 d-none d-sm-inline fw-bold">Installment</span> </a>
+						<ul class="collapse show nav flex-column ms-1 text-start" id="install" data-bs-parent="#menu">
+							<li class="w-100">
+								<?php
+									$status = $_SESSION['stats'];
+									if($status == 'Terminated') {
+										echo '
+										<span class="d-inline-block" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-content="Disabled popover">
+											<a href="new-installment.php" class="nav-link px-0 disabled">
+												<span class="d-none d-sm-inline">New Installment</span>
+											</a>
+										</span>
+										';
+									} else {
+										echo '
+										<a href="new-installment.php" class="nav-link px-0">
+											<span class="d-none d-sm-inline">New Installment</span>
+										</a>';
+									}
+								?>
+							</li>
+							
+							<li>
+								<a href="transactions.php" class="nav-link px-0">
+									<span class="d-none d-sm-inline">Transaction Record</span>
+								</a>
+							</li>
 
-                            <li>
-                            	<?php 
-                            		$status = $_SESSION['stats'];
-                                	if($status == 'New' || $status == 'Repeat' || $status == 'Loyal' || $status == 'Terminated') {
-                                		echo '
-                                			<a href="paynow.php" class="nav-link px-0">
-			                                	<span class="d-none d-sm-inline">Pay Now</span>
-			                                </a>
-                                		';
-                                	} else {
-                                		echo '
-                                			<a href="paynow.php" class="nav-link px-0 disabled">
-			                                	<span class="d-none d-sm-inline">Pay Now</span>
-			                                </a>
-                                		';
-                                	}
+							<li>
+								<?php 
+									$status = $_SESSION['stats'];
+									if($status == 'New' || $status == 'Repeat' || $status == 'Loyal' || $status == 'Terminated') {
+										echo '
+											<a href="paynow.php" class="nav-link px-0">
+												<span class="d-none d-sm-inline">Pay Now</span>
+											</a>
+										';
+									} else {
+										echo '
+											<a href="paynow.php" class="nav-link px-0 disabled">
+												<span class="d-none d-sm-inline">Pay Now</span>
+											</a>
+										';
+									}
 
-                            	?>
-                                
-                            </li>
-                        </ul>
-                    </li>
+								?>
+								
+							</li>
+						</ul>
+					</li>
 
 					<li class="nav-item nav-list">
 						<a href="accounts.php" class="nav-link align-middle px-0">
@@ -119,16 +119,16 @@
 						<li><a class="dropdown-item" href="#">Settings</a></li>
 						<li><a class="dropdown-item" href="#">Profile</a></li>
 						<li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="logout.php">Sign out</a></li>
+							<hr class="dropdown-divider">
+						</li>
+						<li><a class="dropdown-item" href="logout.php">Sign out</a></li>
 					</ul>
 				</div>
 			</div>
 		</div>
 
-		<!--Main Content-->
-		<div class="col py-3 d-flex justify-content-center overflow-auto">
+	<!--Main Content-->
+	<div class="col py-3 d-flex justify-content-center overflow-auto">
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col">
@@ -162,7 +162,21 @@
 								<div class="col text-end"><br>
 									<small class="text-black-50">Remaining Balance</small>
 									<h4 class="mb-1">
-										000000
+										<?php
+											$id = $_SESSION['user-id'];
+
+											$sql = "SELECT SUM(loan_amount) FROM loan_destination WHERE acc_no = '$id'";
+											$result = mysqli_query($config, $sql);
+
+											$row = mysqli_fetch_row($result);
+											$count = $row[0];
+
+											if($count > 0) {
+												echo '
+													'.$row[0].'
+												';
+											}
+										?>
 									</h4>
 								</div>
 							</div>
@@ -264,7 +278,7 @@
 				</form>
 			</div>
 		</div>
-	</div>
+	
 </div>
 
 <script type="text/javascript" src="../js/bootstrap.bundle.min.js"></script>

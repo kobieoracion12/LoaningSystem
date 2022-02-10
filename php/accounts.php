@@ -41,7 +41,7 @@
                             <li class="w-100">
                                 <?php
                                 	$status = $_SESSION['stats'];
-                                	if($status == 'New' || $status == 'Repeat' || $status == 'Loyal' || $status == 'Terminated') {
+                                	if($status == 'Terminated') {
                                 		echo '
                                 		<span class="d-inline-block" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-content="Disabled popover">
 	                                		<a href="new-installment.php" class="nav-link px-0 disabled">
