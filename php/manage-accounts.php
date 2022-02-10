@@ -112,13 +112,13 @@
 								$id = ['acc_no'];
 								echo '
 									<div class="col-xxl-4 col-lg-4 col-md-12 col-sm-12 mt-2">
-										<a class="text-decoration-none editbtn" href="#" data-bs-toggle="modal" data-bs-target="#showAccount">
+										<a class="text-decoration-none editModal" href="#" data-bs-toggle="modal" data-bs-target="#showAccount">
 											<div class="card">
 												<div class="card-body shadow">
 
 													<div class="row">
 														<div class="col-4">
-															<img class="rounded-circle mx-auto d-block" src="../img/kobie.jpg" width="100px" height="100px">
+															<img class="rounded-circle mx-auto d-block" src="data:image/jpg;charset=utf8;base64,'.base64_encode($row['profile_pic']).'" width="100px" height="100px">
 														</div>
 
 														<div class="col-8 text-start text-dark g-0 ps-3">
@@ -126,7 +126,7 @@
 																<div class="row justify-content-center align-self-center">
 																	<h6><strong>'.$row["first_name"].' '.$row["last_name"].'</strong></h6>
 																	<small>@'.$row["username"].'</small>
-																	<small>'.$row["acc_priv"].'</small>
+																	<small>'.$row["acc_no"].'</small>
 																</div>
 															</div>
 														</div>
@@ -134,22 +134,6 @@
 												</div>
 											</div>
 										</a>
-									</div>
-
-									<div class="modal fade" id="showAccount" name="showAccount" aria-labelledby="editInformationLabel" aria-hidden="true">
-										<div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-xl">
-											<div class="modal-content">
-												<div class="modal-header">
-													 
-												</div>
-
-												<div class="modal-body">
-													<div class="container-fluid">
-													
-													</div>
-												</div>
-											</div>
-										</div>
 									</div>
 								';
 							} 
@@ -166,15 +150,22 @@
 					?>			
 				</div>
 
-				<br>
+				<div class="modal fade" id="showAccount" name="showAccount" aria-labelledby="editInformationLabel" aria-hidden="true">
+					<div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-xl">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
 
-				<div class="row">
-					<div class="col-12">
-						<div class="card">
-							<div class="card-body">
+							<div class="modal-body">
+								<div class="container-fluid">
 								<div class="row">
-									<div class="col-lg-4 col-md-4 col-sm-12">
-										<img src="../img/kobie.jpg" class="img-fluid" max-width="400px">
+									<div class="col-lg-4 col-md-4 col-sm-12 text-start">
+										<img src="../img/profile.jpg" class="img-fluid" max-width="400px">
+										<form action="upload-profile.php" method="post" enctype="multipart/form-data"><br>
+											<input class="form-control" type="file" name="image"><br>
+											<input class="btn btn-primary w-100" type="submit" name="submit" value="Upload">
+										</form>
 									</div>
 
 									<div class="col-xxl-8 col-lg-8 col-md-8 col-sm-12 text-start mt-3">
@@ -186,77 +177,130 @@
 
 										<div class="row">
 											<div class="col-12 pt-4">
-												<ul class="nav nav-tabs" id="personal-tab" role="tablist">
+												<ul class="nav nav-pills" id="personal-tab" role="tablist">
 													<li class="nav-item" role="presentation">
 														<button class="nav-link active" id="personal-info" data-bs-toggle="tab" data-bs-target="#info" type="button" role="tab" aria-controls="info" aria-selected="true">
-														<i class="fas fa-home me-1"></i>
+														<i class="fas fa-circle-info me-1"></i>
 														Personal Info
 														</button>
 													</li>
 
-													<li class="nav-item" role="presentation">
+													<li class="nav-item" role="presentation" role="tablist">
 														<button class="nav-link" id="personal-acc" data-bs-toggle="tab" data-bs-target="#acc" type="button" role="tab" aria-controls="acc" aria-selected="true">
-														<i class="fas fa-home me-1"></i>
+														<i class="fas fa-user me-1"></i>
 														Account
 														</button>
 													</li>
 												</ul>
 											</div>
 
-											<div class="tab-content col-xxl-8 col-md-8 col-sm-12 ms-4 mt-3" id="myTabContent">
-											  <div class="tab-pane fade show text-start active" id="info" role="tabpanel" aria-labelledby="home-tab">
-											  	<h4>Personal Information</h4>
+											<div class="tab-content col-xxl-8 col-md-8 col-sm-12 ms-3 mt-3" id="myTabContent">
+											<div class="tab-pane fade show text-start active" id="info" role="tabpanel" aria-labelledby="home-tab">
+												<h4>Personal Information</h4>
 
-											  	<div class="row ms-3">
-											  		<div class="col-xxl-4 col-lg-4 col-md-12 col-sm-12 pt-3">
-												  		<h6>Full Name:</h6>
-											  		</div>
+												<div class="row ms-1">
+													<div class="col-xxl-6 col-lg-6 col-md-12 col-sm-12 pt-3">
+														<h6>Full Name:</h6>
+													</div>
 
-											  		<div class="col-xxl-8 col-lg-8 col-md-12 col-sm-12 pt-3">
-												  		<p>Kobie Oracion</p>
-											  		</div>
-											  	</div>
+													<div class="col-xxl-8 col-lg-8 col-md-12 col-sm-12 pt-3">
+														<p>Kobie Oracion</p>
+													</div>
+												</div>
 
-											  	<div class="row ms-3">
-											  		<div class="col-xxl-4 col-lg-4 col-md-12 col-sm-12 pt-3">
-												  		<h6>Email Address:</h6>
-											  		</div>
+												<div class="row ms-1">
+													<div class="col-xxl-4 col-lg-4 col-md-12 col-sm-12 pt-3">
+														<h6>Email Address:</h6>
+													</div>
 
-											  		<div class="col-xxl-8 col-lg-8 col-md-12 col-sm-12 pt-3">
-												  		<p>kobie.oracion12@gmail.com</p>
-											  		</div>
-											  	</div>
+													<div class="col-xxl-8 col-lg-8 col-md-12 col-sm-12 pt-3">
+														<p>kobie.oracion12@gmail.com</p>
+													</div>
+												</div>
 
-											  	<div class="row ms-3">
-											  		<div class="col-xxl-4 col-lg-4 col-md-12 col-sm-12 pt-3">
-												  		<h6>Mobile Number:</h6>
-											  		</div>
+												<div class="row ms-1">
+													<div class="col-xxl-4 col-lg-4 col-md-12 col-sm-12 pt-3">
+														<h6>Mobile Number:</h6>
+													</div>
 
-											  		<div class="col-xxl-8 col-lg-8 col-md-12 col-sm-12 pt-3">
-												  		<p>09976616289</p>
-											  		</div>
-											  	</div>
+													<div class="col-xxl-8 col-lg-8 col-md-12 col-sm-12 pt-3">
+														<p>09976616289</p>
+													</div>
+												</div>
 
-											  	<div class="row ms-3">
-											  		<div class="col-xxl-4 col-lg-4 col-md-12 col-sm-12 pt-3">
-												  		<h6>Birth Date:</h6>
-											  		</div>
+												<div class="row ms-1">
+													<div class="col-xxl-4 col-lg-4 col-md-12 col-sm-12 pt-3">
+														<h6>Birth Date:</h6>
+													</div>
 
-											  		<div class="col-xxl-8 col-lg-8 col-md-12 col-sm-12 pt-3">
-												  		<p>July 12, 2000</p>
-											  		</div>
-											  	</div>
+													<div class="col-xxl-8 col-lg-8 col-md-12 col-sm-12 pt-3">
+														<p>July 12, 2000</p>
+													</div>
+												</div>
 
-											  </div>
+												<div class="row ms-1">
+													<div class="col-xxl-4 col-lg-4 col-md-12 col-sm-12 pt-3">
+														<h6>Address:</h6>
+													</div>
 
-											  <div class="tab-pane fade" id="acc" role="tabpanel" aria-labelledby="profile-tab"></div>
+													<div class="col-xxl-8 col-lg-8 col-md-12 col-sm-12 pt-3">
+														<p>Luisiana, Laguna</p>
+													</div>
+												</div>
+
 											</div>
 
-											
+											<div class="tab-pane fade text-start" id="acc" role="tabpanel" aria-labelledby="acc-tab">
+												<h4>Account Information</h4>
 
+												<div class="row ms-1">
+													<div class="col-xxl-4 col-lg-4 col-md-12 col-sm-12 pt-3">
+														<h6>Username:</h6>
+													</div>
+
+													<div class="col-xxl-8 col-lg-8 col-md-12 col-sm-12 pt-3">
+														<p>admin</p>
+													</div>
+												</div>
+
+												<div class="row ms-1">
+													<div class="col-xxl-4 col-lg-4 col-md-12 col-sm-12 pt-3">
+														<h6>Account Status:</h6>
+													</div>
+
+													<div class="col-xxl-8 col-lg-8 col-md-12 col-sm-12 pt-3">
+														<p>New</p>
+													</div>
+												</div>
+
+												<div class="row ms-1">
+													<div class="col-xxl-4 col-lg-4 col-md-12 col-sm-12 pt-3">
+														<h6>Privilege:</h6>
+													</div>
+
+													<div class="col-xxl-8 col-lg-8 col-md-12 col-sm-12 pt-3">
+														<p>Admin</p>
+													</div>
+												</div>
+
+												<div class="row ms-1">
+													<div class="col-xxl-4 col-lg-4 col-md-12 col-sm-12 pt-3">
+														<h6>Date Registered:</h6>
+													</div>
+
+													<div class="col-xxl-8 col-lg-8 col-md-12 col-sm-12 pt-3">
+														<p>February 10, 2022</p>
+													</div>
+												</div>
+											</div>
+
+											<div class="tab-pane fade" id="acc" role="tabpanel" aria-labelledby="profile-tab"></div>
+											</div>
 										</div>
 									</div>
 								</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
