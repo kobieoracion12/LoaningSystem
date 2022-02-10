@@ -105,27 +105,86 @@
 						<div class="card">
 							<div class="card-body m-5">
 								<div class="row">
-									<div class="col-xxl-6 col-lg-6 col-md-6 col-sm-12 text-start ms-5">
-										<h4>Welcome Back, Admin</h4><br>
-										<small>Welcome to your personal dashboard!<br>
-										We got you covered in real-time data management and monitoring.</small>
-									</div>
+									<div class="col-12 text-start">
+										<div class="row">
+											<div class="col-xxl-8 col-sm-12">
+												<h4>Welcome Back, Admin</h4><br>
+												<small>
+													Welcome to your personal dashboard!<br>
+													We got you covered in real-time data management and monitoring.
+												</small>
+											</div>
 
-									<div class="col-xxl-6 col-lg-6 col-md-6 col-sm-12">
-
+											<div class="col-xxl-4 col-sm-12 mt-4">
+												<img src="../img/at-work.svg" class="img-fluid"> 
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-					
+				</div>
 
+				<br>
+
+				<!--Charts-->
+				<div class="row">
+					<!--Pie Chart-->
+					<div class="col-xxl-4 col-lg-4 col-md-4 col-sm-12 text-start">
+						<div class="card">
+							<div class="card-body m-4">
+								<div class="row">
+									<div class="col-10">
+										<h6>Latest Payments</h6>
+									</div>
+
+									<div class="col-2 text-end text-decoration-none">
+										<a href="#" class="">
+											<i class="fa-solid fa-ellipsis-vertical text-dark"></i>
+										</a>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col chart-container m-4">
+										Pie Chart Here
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!--Line Chart-->
+					<div class="col-xxl-8 col-lg-8 col-md-8 col-sm-12 text-start">
+						<div class="card">
+							<div class="card-body m-4">
+								<div class="row">
+									<div class="col-10">
+										<h6>Number of Registered Users</h6>
+									</div>
+
+									<div class="col-2 text-end text-decoration-none">
+										<a href="#" class="">
+											<i class="fa-solid fa-ellipsis-vertical text-dark"></i>
+										</a>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col chart-container m-4">
+										Line Chart Here
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
-
 
 <script type="text/javascript" src="../js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript" src="../js/mdb.min.js"></script>
