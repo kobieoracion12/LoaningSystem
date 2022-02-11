@@ -201,12 +201,12 @@
 								}
 								while($row=mysqli_fetch_array($result2))
 								{
-									$loan_type2=$row['loan_type'];
+									$loan_type3=$row['loan_type'];
 									
 								}
 								while($row=mysqli_fetch_array($result3))
 								{
-									$loan_type3=$row['loan_type'];
+									$loan_type2=$row['loan_type'];
 									
 								}
 
