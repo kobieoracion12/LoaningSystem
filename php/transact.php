@@ -39,11 +39,34 @@
                         if ($trans_amount > $rem) {
                             header('location: paynow.php?msg=negativevalue');
                         }
+
+                        //Deducts payment to the database
                         else {
                             $update = "UPDATE loan_destination SET loan_amount = loan_amount - $trans_amount WHERE ref_no = '$ref_no'";
 
+                            //Check if the remaining balance is zero
                             if (mysqli_query($config, $update)) {
-                                header('location: paynow.php?msg=paymentsuccess');
+
+                                $checkbalance = "SELECT loan_amount FROM loan_destination WHERE ref_no = '$ref_no'";
+                                $checkresult = mysqli_query($config, $checkbalance);
+
+                                while($uwu = mysqli_fetch_array($checkresult)) {
+                                    $loanbalance = $uwu[0];
+
+                                    if ($loanbalance == "0") {
+
+                                        $updatestatus = "UPDATE loan_destination SET loan_status = 'Closed' WHERE ref_no = '$ref_no'";
+                                        if (mysqli_query($config, $updatestatus)) {
+                                            header('location: paynow.php?msg=paymentsuccess');
+                                        }
+                                        else {
+                                            header('location: paynow.php?msg=updatestatuserror');
+                                        }
+                                    }
+                                    else {
+                                        //DO NOTHING
+                                    }
+                                }
                             }
                             else {
                                 header('location: paynow.php?msg=paymentfailed');

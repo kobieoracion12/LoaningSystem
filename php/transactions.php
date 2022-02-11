@@ -145,7 +145,7 @@
 									<?php
 										$id = $_SESSION['user-id'];
 
-										$sql = "SELECT * FROM trans_record WHERE acc_no = '$id'";
+										$sql = "SELECT * FROM trans_record WHERE acc_no = '$id' ORDER BY trans_no DESC";
 										$result = $config -> query($sql);
 
 										if($result -> num_rows > 0) {

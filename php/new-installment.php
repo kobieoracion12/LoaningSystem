@@ -303,7 +303,7 @@
 												<?php
 													$id = $_SESSION['user-id'];
 
-													$sql = "SELECT * FROM loan_destination WHERE acc_no = '$id'";
+													$sql = "SELECT * FROM loan_destination WHERE acc_no = '$id' ORDER BY ref_no DESC";
 													$result = $config -> query($sql);
 
 													if($result -> num_rows > 0) {
@@ -330,6 +330,14 @@
 															elseif($status == 'Declined') {
 																echo '
 																	<td class="table-danger fw-bold text-danger">
+																	'.$status.'	
+																	</td>
+																';
+															}
+
+															elseif($status == 'Closed') {
+																echo '
+																	<td class="table-danger fw-bold text-secondary">
 																	'.$status.'	
 																	</td>
 																';

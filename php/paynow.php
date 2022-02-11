@@ -146,13 +146,16 @@ include_once "userdata.php";
 										Payment successful!
 									</div>';
 									}
-								}
 
-								elseif (isset($_GET['msg'])) {
-
-									if ($_GET['msg'] == "paymentfailed") {
+									elseif ($_GET['msg'] == "paymentfailed") {
 										echo '<div class="alert alert-danger" role="alert">
 										Payment Failed!
+									</div>';
+									}
+
+									elseif ($_GET['msg'] == "updatestatuserror") {
+										echo '<div class="alert alert-danger" role="alert">
+										Status Update Error!
 									</div>';
 									}
 								}
@@ -195,7 +198,7 @@ include_once "userdata.php";
 													$row = mysqli_fetch_row($result);
 													$count = $row[0];
 
-													if($count > 0) {
+													if ($count > 0) {
 														echo 'PHP '.$row[0].'';
 													}
 
@@ -209,11 +212,47 @@ include_once "userdata.php";
 								</div>
 							</div>
 						</div>
-
 				
 					<!--Form Start Here-->
 					<form action="transact.php" method="post" enctype="multipart/form-data">
 						
+						<!--Referrence Number Title-->
+						<div class="row">
+							<div class="col-xxl-12 col-md-12 col-lg-12 col-sm-12 py-2">
+								<div class="p-4 bg-white shadow-4 rounded-3">
+									<div class="row">
+										<div class="col text-start">
+											<p class="mb-1">Referrence Number</p>
+										</div>
+									</div>
+
+									<!--Referrence Number-->
+									<div class="row">
+										<div class="col">
+											<?php
+												if (isset($_GET['msg'])) {
+													if ($_GET['msg'] == "refnotfound") {
+														echo '
+															<input class="form-control is-invalid" type="text" name="referrence_no" id="referrence_no" placeholder="2022xxxxxxx" required>
+															<div class="invalid-feedback text-start ms-2">
+																<i class="fa-solid fa-circle-exclamation me-1"></i>Referrence number not found
+															</div>
+														';
+													}
+													else {
+														echo '<input class="form-control" type="text" name="referrence_no" id="referrence_no" placeholder="2022xxxxxxx" required>';
+													}
+												}
+												else {
+													echo '<input class="form-control" type="text" name="referrence_no" id="referrence_no" placeholder="2022xxxxxxx" required>';
+												}
+											?>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
 						<!--Payment Method-->
 						<div class="row">
 							<div class="col-xxl-12 col-md-12 col-lg-12 col-sm-12 py-2">
@@ -226,14 +265,13 @@ include_once "userdata.php";
 
 									<div class="row">
 										<div class="col">
-											<select name="payment_method" class="form-select" aria-label="Biller Name">
+											<select name="payment_method" class="form-select" aria-label="Biller Name" required>
 												<option selected>Select Payment Method</option>
-												<option value="bdo">BDO</option>
-												<option value="bpi">BPI</option>
-												<option value="cebuana">Cebuana Lhuillier Rural Bank, INC.</option>
-												<option value="gcash">GCASH Instapay</option>
-												<option value="landbank">LANDBANK</option>
-												<option value="shopee">ShopeePay</option>
+												<option value="BDO">BDO</option>
+												<option value="BPI">BPI</option>
+												<option value="Cebuana Lhuillier Rural Bank, INC.">Cebuana Lhuillier Rural Bank, INC.</option>
+												<option value="GCASH Instapay">GCASH Instapay</option>
+												<option value="Landbank">Landbank</option>
 											</select>
 										</div>
 									</div>
@@ -254,7 +292,7 @@ include_once "userdata.php";
 
 									<div class="row">
 										<div class="col">
-											<input class="form-control" type="text" name="account_no" id="account_no">
+											<input class="form-control" type="text" name="account_no" id="account_no" required>
 										</div>
 									</div>
 
@@ -268,7 +306,7 @@ include_once "userdata.php";
 
 									<div class="row">
 										<div class="col">
-											<input class="form-control" type="text" name="account_name" id="account_name">
+											<input class="form-control" type="text" name="account_name" id="account_name" required>
 										</div>
 									</div>
 
@@ -282,13 +320,30 @@ include_once "userdata.php";
 
 									<div class="row">
 										<div class="col">
-											<input class="form-control" type="text" name="amount_transfer" id="amount_transfer" placeholder="0.00">
+											<?php
+												if (isset($_GET['msg'])) {
+													if ($_GET['msg'] == "negativevalue") {
+														echo '
+															<input class="form-control is-invalid" type="text" name="amount_transfer" id="amount_transfer" placeholder="0.00" required>
+															<div class="invalid-feedback text-start ms-2">
+																<i class="fa-solid fa-circle-exclamation me-1"></i>Payment exceeds your remaining balance
+															</div>
+														';
+													}
+													else {
+														echo '<input class="form-control" type="text" name="amount_transfer" id="amount_transfer" placeholder="0.00" required>';
+													}
+												}
+												else {
+													echo '<input class="form-control" type="text" name="amount_transfer" id="amount_transfer" placeholder="0.00" required>';
+												}
+											?>
 										</div>
 									</div>
 
 									<br><br>
 
-									<button type="submit" name="submit" class="btn btn-success w-100">Pay Now</button>
+									<input type="submit" name="submit" class="btn btn-success w-100" value="Pay Now">
 
 								</div>
 							</div>
