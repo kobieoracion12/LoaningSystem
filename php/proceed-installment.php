@@ -90,8 +90,7 @@ if (isset($_POST['submit'])) {
             break;
     }
 
-    $message = "
-        We recieved your loan application, please wait as we review your request!
+    $message = "We recieved your loan application, please wait as we review your request!
     ";
 
     $api = "TR-PORNE355250_RUQQB";

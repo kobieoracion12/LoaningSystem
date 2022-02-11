@@ -164,7 +164,7 @@
 																	</div>
 																</div>
 
-																<div class="col-2 p-3">
+																<div class="col-2 p-3 text-start">
 																	PHP '.$row["trans_amount"].'
 																</div>
 															</div>
