@@ -21,8 +21,7 @@
 <div class="container-fluid">
 	<div class="row flex-nowrap">
 	<div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-white shadow">
-	<!--Navigation Sidebar-->
-
+			<!--Navigation Sidebar-->
 			<div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-3 min-vh-100">
 				<span class="fs-5 d-none d-sm-inline fw-bold">Menu</span>
 
@@ -239,7 +238,7 @@
 
 											<br>
 
-											<button type="submit" name="submit" class="btn btn-primary w-100">Proceed</button>
+											<input type="submit" name="submit" class="btn btn-primary w-100" value="Proceed">
 										</div>
 
 										<!--GCASH-->
@@ -254,7 +253,7 @@
 
 											<br>
 
-											<button type="submit" name="submit" class="btn btn-primary w-100">Proceed</button>
+											<input type="submit" name="submit" class="btn btn-primary w-100" value="Proceed">
 										</div>
 
 										<!--Palawan-->
@@ -272,7 +271,7 @@
 
 											<br>
 
-											<button type="submit" name="submit" class="btn btn-primary w-100">Proceed</button>
+											<input type="submit" name="submit" class="btn btn-primary w-100" value="Proceed">
 										</div>
 
 										<!--Paymaya-->
@@ -287,7 +286,7 @@
 
 											<br>
 
-											<button type="submit" name="submit" class="btn btn-primary w-100">Proceed</button>
+											<input type="submit" name="submit" class="btn btn-primary w-100" value="Proceed">
 										</div>
 									</div>	
 
