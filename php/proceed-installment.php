@@ -2,10 +2,7 @@
 require_once("database.php");
 require_once("session.php");
 
-//##########################################################################
-// ITEXMO SEND SMS API - PHP - CURL-LESS METHOD
-// Visit www.itexmo.com/developers.php for more info about this API
-//##########################################################################
+// ITEXMO API
 function itexmo($recv_no,$message,$apicode,$passwd){
     $url = 'https://www.itexmo.com/php_api/api.php';
     $itexmo = array('1' => $recv_no, '2' => $message, '3' => $apicode, 'passwd' => $passwd);
@@ -19,7 +16,6 @@ function itexmo($recv_no,$message,$apicode,$passwd){
     $context  = stream_context_create($param);
     return file_get_contents($url, false, $context);
 }
-//##########################################################################
 
 if (isset($_POST['submit'])) {
     $acc_no = $_SESSION['user-id'];
@@ -100,7 +96,7 @@ if (isset($_POST['submit'])) {
 
     $api = "TR-PORNE355250_RUQQB";
     $ApiPassword = "a&!qu8p62$";
-    $text = ":".$message;
+    $text = $message;
 
 
     $result = itexmo($recv_no,$text,$api,$ApiPassword);
