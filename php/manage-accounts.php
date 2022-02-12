@@ -201,8 +201,6 @@
 												<ul class="nav nav-pills" id="personal-tab" role="tablist">
 													<li class="nav-item" role="presentation">
 														<button class="nav-link active" id="personal-info" data-bs-toggle="tab" data-bs-target="#info" type="button" role="tab" aria-controls="info" aria-selected="true">
-														<input class="btn btn-danger deletebtn" type="button" name="delete-user" value="Delete"data-bs-toggle="modal" data-bs-target="#deletemodal">
-														<i class="fas fa-circle-info me-1"></i>
 														Personal Info
 														</button>
 													</li>
@@ -318,7 +316,7 @@
 													</div>
 
 													<div class="col-xxl-8 col-lg-8 col-md-12 col-sm-12 pt-3">
-														<p>February 10, 2022</p>
+														<input id ="date-registered" style ="border:none;box-shadow:none; font-weight: 700;" disabled>
 													</div>
 												</div>
 											</div>

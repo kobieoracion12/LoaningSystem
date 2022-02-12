@@ -278,9 +278,6 @@
 										</div>
 									</div>
 
-									<div class="modal-footer">
-										<button type="button" class="btn btn-secondary" data-bs-dismiss="modal" value="Close">
-									</div>
 								</div>
 							</div>
 						</div>
@@ -345,6 +342,37 @@
 		})
 	});
 
+</script>
+
+</script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.btn-close').on('click',function(){
+			$('#showUserData').modal('hide');
+		})
+	});
+
+
+
+</script>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.btn-close').on('click',function(){
+			$('#deletemodal').modal('hide');
+		})
+	});
+	
+</script>
+</script>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.btn_close').on('click',function(){
+			$('#deletemodal').modal('hide');
+		})
+	});
+	
 </script>
 
 <script type="text/javascript">

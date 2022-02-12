@@ -310,10 +310,7 @@
 											</div>
 										</div>
 									</div>
-
-									<div class="modal-footer">
-										<input class="btn btn-secondary" type="button" data-bs-dismiss="modal" value="Close">
-									</div>
+									
 								</div>
 							</div>
 						</div>
@@ -352,6 +349,14 @@
 		})
 	});
 </script>	
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.btn-close').on('click',function(){
+			$('#showUserData').modal('hide');
+		})
+	});
+	
+</script>
 
 <script type="text/javascript" src="../js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript" src="../js/mdb.min.js"></script>
