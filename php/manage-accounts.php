@@ -374,6 +374,14 @@
 	});
 
 </script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.btn-close').on('click',function(){
+			$('#showAccount').modal('hide');
+		})
+	});
+	
+</script>
 
 <script type="text/javascript" src="../js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript" src="../js/mdb.min.js"></script>
