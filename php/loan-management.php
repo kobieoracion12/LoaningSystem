@@ -137,7 +137,7 @@
 										<tr>
 											<td style="display: none;"><?php  echo $data ['acc_no']?></td>
 											<td scope="row"><?php  echo $data ['ref_no']?></td>
-											<td><?php  echo $data ['loan_amount']?></td>
+											<td>₱ <?php  echo $data ['loan_amount']?></td>
 											<td><?php  echo $data ['loan_period']." Months"?></td>
 											<td style="display: none;"><?php  echo $data ['loan_type']?></td>
 											<td style="display: none;"><?php  echo $data ['loan_dest']?></td>
