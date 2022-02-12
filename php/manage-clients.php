@@ -293,7 +293,7 @@
 										<input type="hidden" name="delete_id" id="delete_id">
 										<h4> Do you want to delete this user?</h4>
 										<div class="modal-footer">
-											<input class="btn btn-danger" type="button" data-bs-dismiss="modal" aria-labelledby="Close" value="NO"> 
+											<input class="btn btn-danger btn_close" type="button" data-bs-dismiss="modal" aria-labelledby="Close" value="NO"> 
 											<input type="submit" name="deletedata" class="btn btn-primary" value="YES">
 										</div>
 									</form>

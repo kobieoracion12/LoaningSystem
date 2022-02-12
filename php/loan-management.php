@@ -107,10 +107,9 @@
 									<thead>
 										<tr>
 											<th scope="col">Referrence #</th>
-											<th scope="col" style="display: none;">Reference Number</th>
-											<th scope="col">Full Name</th>
 											<th scope="col">Loan Amount</th>
 											<th scope="col">Payment Duration</th>
+											<th scope="col">Full Name</th>
 											<th scope="col" style="display: none;">Loan Type</th>
 											<th scope="col" style="display: none;">Loan Destination</th>
 											<th scope="col" style="display: none;">Bank Name</th>
@@ -136,10 +135,22 @@
 
 											?>
 										<tr>
+											<td style="display: none;"><?php  echo $data ['acc_no']?></td>
 											<td scope="row"><?php  echo $data ['ref_no']?></td>
-											<td><?php  echo $data ['recv_name']?></td>
 											<td><?php  echo $data ['loan_amount']?></td>
 											<td><?php  echo $data ['loan_period']?></td>
+											<td style="display: none;"><?php  echo $data ['loan_type']?></td>
+											<td style="display: none;"><?php  echo $data ['loan_dest']?></td>
+											<td style="display: none;"><?php  echo $data ['bank_name']?></td>
+											<td style="display: none;"><?php  echo $data ['interest_rate']?></td>
+											<td style="display: none;"><?php  echo $data ['overdue_penalty']?></td>
+											<td><?php  echo $data ['recv_name']?></td>
+											<td style="display: none;"><?php  echo $data ['recv_no']?></td>
+											<td style="display: none;"><?php  echo $data ['loan_status']?></td>
+											<td style="display: none;"><?php  echo $data ['date_req']?></td>
+											<td style="display: none;"><?php  echo $data ['next_due']?></td>
+
+
 											<td>
 												<?php
 				                                	$status = $data ['loan_status'];
@@ -310,7 +321,7 @@
 											</div>
 										</div>
 									</div>
-									
+
 								</div>
 							</div>
 						</div>
@@ -333,10 +344,9 @@
 
 			}).get();
 
-			console.log(data);6
-
-			$('#ref-no').val(data[0]);
-			$('#receiver-name').val(data[1]);
+			console.log(data);
+			$('#acc-no').val(data[0]);
+			$('#ref-no').val(data[1]);
 			$('#loan-amount').val(data[2]);
 			$('#loan-duration').val(data[3]);
 			$('#loan-type').val(data[4]);
@@ -344,8 +354,11 @@
 			$('#bank-name').val(data[6]);
 			$('#interest-rate').val(data[7]);
 			$('#overdue-penalty').val(data[8]);
-			$('#receiver-no').val(data[9]);
-			$('#date-requested').val(data[10]);
+			$('#receiver-name').val(data[9]);
+			$('#receiver-no').val(data[10]);
+			$('#loan-status').val(data[11]);
+			$('#date-requested').val(data[12]);
+			$('#next-due').val(data[13]);
 		})
 	});
 </script>	
