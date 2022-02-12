@@ -138,7 +138,7 @@
 											<td style="display: none;"><?php  echo $data ['acc_no']?></td>
 											<td scope="row"><?php  echo $data ['ref_no']?></td>
 											<td><?php  echo $data ['loan_amount']?></td>
-											<td><?php  echo $data ['loan_period']?></td>
+											<td><?php  echo $data ['loan_period']." Months"?></td>
 											<td style="display: none;"><?php  echo $data ['loan_type']?></td>
 											<td style="display: none;"><?php  echo $data ['loan_dest']?></td>
 											<td style="display: none;"><?php  echo $data ['bank_name']?></td>
@@ -250,7 +250,7 @@
 
 															<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 py-2">
 																<label for="loan-duration" class="d-flex justify-content-start ps-3">Loan Duration</label>
-																<input type="text" name="loan-duration" id="loan-duration" class="form-control" value="Months" readonly>
+																<input type="text" name="loan-duration" id="loan-duration" class="form-control"  readonly>
 															</div>
 														</div>
 
