@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 12, 2022 at 04:54 AM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 7.4.27
+-- Generation Time: Feb 12, 2022 at 05:19 AM
+-- Server version: 10.4.19-MariaDB
+-- PHP Version: 7.3.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -90,25 +90,19 @@ CREATE TABLE `loan_destination` (
 --
 
 INSERT INTO `loan_destination` (`acc_no`, `ref_no`, `loan_amount`, `loan_period`, `loan_type`, `loan_dest`, `bank_name`, `interest_rate`, `overdue_penalty`, `recv_name`, `recv_no`, `loan_status`, `date_req`, `next_due`) VALUES
-(2, 20223300000, 0, '6', 'Credit Card', 'GCash', NULL, '3%', '5%', '', 915221994, 'Closed', '2022-02-11 12:44:31', NULL),
-(2, 20223300040, 0, '36', 'Credit Card', 'Bank Transfer', 'Philippine National Bank', '3%', '5%', '', 0, 'Approved', '2022-02-11 12:30:30', NULL),
-(2, 20223300041, 4000, '12', 'Credit Card', 'GCash', '', '4%', '5%', '', 915221994, 'Pending', '2022-02-04 09:33:53', NULL),
-(2, 20223300042, 4000, '12', 'Credit Card', 'GCash', '', '4%', '5%', '', 915221994, 'Pending', '2022-02-04 09:35:26', NULL),
-(2, 20223300043, 5000, '6', 'Credit Card', 'PayMaya', '', '4%', '5%', 'Kobie Oracion', 0, 'Pending', '2022-02-04 09:36:10', NULL),
-(2, 20223300044, 5000, '36', 'Credit Card', 'GCash', NULL, '4%', '5%', '0915221994', 0, 'Pending', '2022-02-04 09:40:06', NULL),
 (2, 20223300045, 3000, '6', 'Credit Card', 'GCash', NULL, '3%', '5%', 'Kobie Oracion', 915221994, 'Pending', '2022-02-04 09:40:56', NULL),
 (2, 20223300046, 5000, '6', 'Mortgages', 'PayMaya', NULL, '4%', '5%', 'Kobie Oracion', 915221994, 'Pending', '2022-02-04 09:47:41', NULL),
 (2, 20223300047, 10000, '36', 'Student Loans', 'GCash', NULL, '5%', '5%', 'Neil Pornela', 2147483647, 'Approved', '2022-02-11 07:28:07', NULL),
 (2, 20223300048, 10000, '24', 'Student Loans', 'GCash', NULL, '5%', '5%', 'John Llyod Araza', 912312312, 'Pending', '2022-02-04 10:44:45', NULL),
 (2, 20223300049, 3000, '2', 'Student Loans', 'GCash', NULL, '3%', '5%', 'Neil Pornela', 2147483647, 'Pending', '2022-02-11 02:19:21', NULL),
-(2, 20223300050, 5000, '12', 'Student Loans', 'GCash', NULL, '4%', '5%', 'Kobie Oracion', 2147483647, 'Approved', '2022-02-11 07:28:12', NULL),
+(2, 20223300050, 1, '12', 'Student Loans', 'GCash', NULL, '4%', '5%', 'Kobie Oracion', 2147483647, 'Approved', '2022-02-12 04:08:19', NULL),
 (2, 20223300051, 2000, '12', 'Personal Loans', 'GCash', NULL, '3%', '5%', 'Kobie Oracion', 2147483647, 'Pending', '2022-02-11 02:25:29', NULL),
 (2, 20223300052, 10000, '2', 'Small Business', 'GCash', NULL, '5%', '5%', 'Jadee Mae Mallari', 2147483647, 'Pending', '2022-02-11 02:33:00', NULL),
 (2, 20223300053, 2000, '6', 'Home Equity', 'GCash', NULL, '3%', '5%', 'Kobie Oracion', 2147483647, 'Pending', '2022-02-11 02:34:47', NULL),
 (2, 20223300055, 5000, '6', 'Credit Card', 'GCash', NULL, '4%', '5%', 'Kobie Oracion', 2147483647, 'Pending', '2022-02-12 02:02:33', '2022-03-12'),
 (2, 20223300056, 3000, '6', 'Credit Card', 'GCash', NULL, '5%', '5%', 'Kobie Oracion', 2147483647, 'Pending', '2022-02-12 03:39:53', '2022-03-12'),
-(2, 20223300057, 10000, '24', 'Credit Card', 'GCash', NULL, '5%', '5%', 'Kobie Oracion', 2147483647, 'Pending', '2022-02-12 03:45:56', '2022-03-12'),
-(2, 20223300058, 10500, '12', 'Credit Card', 'GCash', NULL, '5%', '5%', 'Kobie Oracion', 2147483647, 'Pending', '2022-02-12 03:49:42', '2022-03-12');
+(2, 20223300057, 1, '24', 'Credit Card', 'GCash', NULL, '5%', '5%', 'Kobie Oracion', 2147483647, 'Pending', '2022-02-12 04:18:57', '2022-03-12'),
+(2, 20223300058, 10500, '12', 'Credit Card', 'GCash', NULL, '5%', '5%', 'Kobie Oracion', 2147483647, 'Approved', '2022-02-12 04:17:53', '2022-03-12');
 
 -- --------------------------------------------------------
 
@@ -176,7 +170,10 @@ INSERT INTO `trans_record` (`acc_no`, `trans_no`, `for_loan`, `trans_type`, `tra
 (2, 20220000049, 2147483647, 'GCash Instapay', 59000, '2022-02-11 12:48:34'),
 (2, 20220000050, 2147483647, 'BPI', 3000, '2022-02-11 12:48:30'),
 (2, 20220000051, 2147483647, 'Landbank', 5000, '2022-02-11 12:48:28'),
-(2, 20220000052, 2147483647, 'Landbank', 5000, '2022-02-11 12:48:26');
+(2, 20220000052, 2147483647, 'Landbank', 5000, '2022-02-11 12:48:26'),
+(2, 20220000053, 2147483647, 'GCASH Instapay', 50000, '2022-02-12 04:07:32'),
+(2, 20220000054, 2147483647, 'GCASH Instapay', 4999, '2022-02-12 04:08:19'),
+(2, 20220000055, 2147483647, 'BPI', 9999, '2022-02-12 04:18:57');
 
 --
 -- Indexes for dumped tables
@@ -237,7 +234,7 @@ ALTER TABLE `loan_destination`
 -- AUTO_INCREMENT for table `trans_record`
 --
 ALTER TABLE `trans_record`
-  MODIFY `trans_no` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20220000053;
+  MODIFY `trans_no` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20220000056;
 
 --
 -- Constraints for dumped tables

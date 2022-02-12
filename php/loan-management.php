@@ -111,15 +111,24 @@
 											<th scope="col">Full Name</th>
 											<th scope="col">Loan Amount</th>
 											<th scope="col">Payment Duration</th>
-											<th scope="col">Loan Status</th>
+											<th scope="col" style="display: none;">Loan Type</th>
+											<th scope="col" style="display: none;">Loan Destination</th>
+											<th scope="col" style="display: none;">Bank Name</th>
+											<th scope="col" style="display: none;">Interest Rate</th>
+											<th scope="col" style="display: none;">Overdue Penalty</th>
+											<th scope="col" style="display: none;">Reciever Name</th>
+											<th scope="col" style="display: none;">Reciever No.</th>
+											<th scope="col" style="display: none;">Loan Status</th>
 											<th scope="col">Action</th>
+
+
 										</tr>
 									</thead>
 
 									<tbody>
 										<tr>
 											<?php 
-												$records = mysqli_query($config," select * from loan_destination" );
+												$records = mysqli_query($config," select * from loan_destination ORDER BY ref_no DESC" );
 
 												 while($data = mysqli_fetch_array ($records) )
 												 {

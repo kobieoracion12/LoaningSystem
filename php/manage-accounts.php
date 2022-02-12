@@ -201,6 +201,7 @@
 												<ul class="nav nav-pills" id="personal-tab" role="tablist">
 													<li class="nav-item" role="presentation">
 														<button class="nav-link active" id="personal-info" data-bs-toggle="tab" data-bs-target="#info" type="button" role="tab" aria-controls="info" aria-selected="true">
+														<input class="btn btn-danger deletebtn" type="button" name="delete-user" value="Delete"data-bs-toggle="modal" data-bs-target="#deletemodal">
 														<i class="fas fa-circle-info me-1"></i>
 														Personal Info
 														</button>
@@ -324,6 +325,7 @@
 
 											<div class="tab-pane fade" id="acc" role="tabpanel" aria-labelledby="profile-tab"></div>
 											</div>
+
 										</div>
 									</div>
 								</div>
