@@ -303,18 +303,25 @@
 												<?php
 													$id = $_SESSION['user-id'];
 
-													$sql = "SELECT * FROM loan_destination WHERE acc_no = '$id' ORDER BY ref_no DESC";
+													$sql = "SELECT * FROM loan_destination WHERE acc_no = '$id' ORDER BY ref_no	 DESC";
 													$result = $config -> query($sql);
+
+													
 
 													if($result -> num_rows > 0) {
 														while($row = $result -> fetch_assoc()) {
+															
+															$getdate = $row['date_req'];
+															$date = date('F j, Y', strtotime('+1 month', strtotime($getdate)));
+
 															echo '
 																<tr>
 																<th scope="row">'.$row["acc_no"].'</th>
 																<td class="ps-4 text-start">
 																	<h6>Years/Months: '.$row["loan_period"].' Months</h6>
-																	<small class="fw-light">Interest: <strong>'.$row["interest_rate"].'</strong></small><br>
-																	<small class="fw-light">Overdue Penalty: <strong>'.$row["overdue_penalty"].'</strong></small>
+																	<small class="fw-light text-center">Ref #: <strong>'.$row["ref_no"].'</strong></small><br>
+																	<small class="fw-light text-center">Remaining Balance: <strong>₱'.$row["loan_amount"].'</strong></small><br>
+																	<small class="fw-light">Next Due: <strong>'.$date.'</strong></small><br>
 																</td>
 															';
 

@@ -101,7 +101,8 @@ if (isset($_POST['submit'])) {
     $result = itexmo($recv_no,$text,$api,$ApiPassword);
 
     if ($result == "") {
-        header("Location: new-installment.php?itextmo=error");
+        //echo "Error Num ". $result . " was encountered!";
+        header("Location: new-installment.php?itextmo=error '. $result .'");
     }
 
     elseif ($result == 0) {
@@ -112,9 +113,45 @@ if (isset($_POST['submit'])) {
         }
 
         else {
-            $stmt = $config->prepare("INSERT INTO loan_destination (acc_no, loan_amount, loan_period, loan_type, loan_dest, bank_name, interest_rate, overdue_penalty, recv_name, recv_no) VALUES (?,?,?,?,?,?,?,?,?,?)");
+            $nextdue = date('Y-m-d', strtotime('+1 month')); 
 
-            $stmt->bind_param("iisssssssi",$acc_no, $loan_amount, $loan_period, $loan_type, $loan_dest, $bank_name, $interest_rate, $overdue_penalty, $recv_name, $recv_no);
+            //Formula
+            switch ($interest_rate) {
+                case "3%":
+                    $percent = 0.03;
+                    break;
+                case "4%":
+                    $percent = 0.04;
+                    break;
+                case "5%":
+                    $percent = 0.05;
+                    break;
+            }
+
+            switch ($loan_period) {
+                case 2:
+                    $length = 0.2;
+                    break;
+                case 6:
+                    $length = 0.6;
+                    break;
+                case 12:
+                    $length = 1;
+                    break;
+                case 24:
+                    $length = 2;
+                    break;
+                case 36:
+                    $length = 3;
+                    break;
+            }
+
+            $interest = ($loan_amount * $percent) * $length;
+            $final_amount = $loan_amount + $interest;
+
+            $stmt = $config->prepare("INSERT INTO loan_destination (acc_no, loan_amount, loan_period, loan_type, loan_dest, bank_name, interest_rate, overdue_penalty, recv_name, recv_no, next_due) VALUES (?,?,?,?,?,?,?,?,?,?,?)");
+
+            $stmt->bind_param("iisssssssis", $acc_no, $final_amount, $loan_period, $loan_type, $loan_dest, $bank_name, $interest_rate, $overdue_penalty, $recv_name, $recv_no, $nextdue);
 
             $stmt->execute();
             header('location: new-installment.php?installmentsuccess');
@@ -123,7 +160,7 @@ if (isset($_POST['submit'])) {
 
     else {
         //echo "Error Num ". $result . " was encountered!";
-        header("Location: new-installment.php?itextmo=rejected");
+        header("Location: new-installment.php?itextmo=rejected '. $result .'");
     }
 
     mysqli_close($config);
