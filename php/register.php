@@ -22,9 +22,11 @@
 	$checkbox = $_POST['agree'];
 	$fileUploadName = $_FILES["identification"]["name"];
 	$status = 'New';
+	$privilege = 'User';
+	$profile = $_FILES['../img/register.php']['name'];
 
 
-	if(    empty($fname) || empty($lname) || empty($email) || empty($mobile_no) || empty($bday) || empty($age) || empty($address) || empty($username) || empty($password) || empty($cpassword) || empty($fileUploadName))  {
+	if(empty($fname) || empty($lname) || empty($email) || empty($mobile_no) || empty($bday) || empty($age) || empty($address) || empty($username) || empty($password) || empty($cpassword) || empty($fileUploadName))  {
 		header('location: sign-up.php?error=emptyfields');
 		exit();
 	}
@@ -78,7 +80,7 @@
 
 	$file = "uploads/".$fileUploadName;
 
-	$sql = "INSERT INTO accounts (first_name, last_name, email_add, mobile_no, birth_date, age, address, valid_id, username, password, acc_priv) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	$sql = "INSERT INTO accounts (first_name, last_name, email_add, mobile_no, birth_date, age, address, valid_id, username, password, acc_status, acc_priv) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)";
 
 	$stmt = mysqli_stmt_init($config);
 
@@ -89,8 +91,8 @@
 	}
 	else
 	{
-		mysqli_stmt_bind_param($stmt, "sssisisssss", $fname, $lname, $email, $mobile_no, $bday, $age, $address, $file, $username, $password, $status);
+		mysqli_stmt_bind_param($stmt, "sssisissssss", $fname, $lname, $email, $mobile_no, $bday, $age, $address, $file, $username, $password, $status, $privilege);
 		mysqli_stmt_execute($stmt);
-		header('location: sign-up.php?msg=success');
+		header('location: ../index.php?msg=success');
 		exit();
 }

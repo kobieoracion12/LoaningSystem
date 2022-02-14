@@ -122,7 +122,7 @@
 											<th scope="col" style="display: none;">Password</th>
 											<th scope="col"style="display: none;">Privilege</th>
 											<th scope="col" style="display: none;">Date Registered</th>
-											<th scope="col">VIEW</th>
+											<th scope="col">Action</th>
 										</tr>
 									</thead>
 
@@ -133,12 +133,16 @@
 
 										 while($data = mysqli_fetch_array ($records) )
 										 {
-										 	
-										 	echo '
-										 	<td><img class="rounded-circle mx-auto d-block" src="data:image/jpg;charset=utf8;base64,'.base64_encode($data['profile_pic']).'" width="100px" height="100px"></td>'
-
-
+											if ($data['profile_pic'] == "") {
+												echo '
+										 		<td><img class="rounded-circle mx-auto d-block" src="../img/profile.jpg" width="100px" height="100px"></td>';
+											}
+											else {
+												echo '
+										 		<td><img class="rounded-circle mx-auto d-block" src="data:image/jpg;charset=utf8;base64,'.base64_encode($data['profile_pic']).'" width="100px" height="100px"></td>';
+											}
 										?>
+										
 										<td scope="row"><?php  echo $data ['acc_no']?></td>
 											<td><?php  echo $data ['first_name']?></td>
 											<td><?php  echo $data ['last_name']?></td>
