@@ -111,7 +111,16 @@
 											<th scope="col">Loan Amount</th>
 											<th scope="col">Payment Duration</th>
 											<th scope="col">Full Name</th>
-											<th scope="col">Pending Status</th>
+											<th scope="col" style="display: none;">Loan Type</th>
+											<th scope="col" style="display: none;">Loan Destination</th>
+											<th scope="col" style="display: none;">Bank Name</th>
+											<th scope="col" style="display: none;">Interest Rate</th>
+											<th scope="col" style="display: none;">Overdue Penalty</th>
+											<th scope="col" style="display: none;">Reciever Name</th>
+											<th scope="col" style="display: none;">Reciever No.</th>
+											<th scope="col" style="display: none;">Loan Status</th>
+											<th scope="col" style="display: none;">Date Requested</th>
+											<th scope="col" style="display: none;">Next Due</th>
 											<th scope="col">Action</th>
 
 
@@ -133,8 +142,16 @@
 											<td scope="row"><?php  echo $data ['ref_no']?></td>
 											<td>₱ <?php  echo $data ['loan_amount']?></td>
 											<td><?php  echo $data ['loan_period']." Months"?></td>
+											<td style="display: none;"><?php  echo $data ['loan_type']?></td>
+											<td style="display: none;"><?php  echo $data ['loan_dest']?></td>
+											<td style="display: none;"><?php  echo $data ['bank_name']?></td>
+											<td style="display: none;"><?php  echo $data ['interest_rate']?></td>
+											<td style="display: none;"><?php  echo $data ['overdue_penalty']?></td>
 											<td><?php  echo $data ['recv_name']?></td>
-
+											<td style="display: none;"><?php  echo $data ['recv_no']?></td>
+											<td style="display: none;"><?php  echo $data ['loan_status']?></td>
+											<td style="display: none;"><?php  echo $data ['date_req']?></td>
+											<td style="display: none;"><?php  echo $data ['next_due']?></td>
 
 											<td>
 												<?php
@@ -187,7 +204,7 @@
 									                </div>
 
 									                <div class="ps-2">
-									                	<input class="btn btn-secondary" type="button" name="delete-data" value="Archive" formaction="">
+									                	<input class="btn btn-secondary archivebtn" type="button" name="delete-data" value="Archive" formaction="">
 									                </div>
 									            </div>
 											</td>
@@ -287,7 +304,7 @@
 														<div class="row">
 															<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 py-2">
 																<label for="date-requested" class="d-flex justify-content-start ps-3">Date Requested</label>
-																<input type="date" name="date-requested" id="date-requested" class="form-control" readonly>
+																<input id="date-request" class="form-control" readonly>
 															</div>
 														</div>
 
@@ -307,6 +324,24 @@
 										</div>
 									</div>
 
+								</div>
+							</div>
+						</div>
+						<!-- Archive Modal -->
+						<div class="modal fade" id="archivemodal" tabindex="-1" role="dialog" aria-labelledby="deletemodal" aria-hidden="true">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+									</div>
+									<form class="form-control border-0" method="post" action="archive_delete.php">
+										<input type="hidden" name="delete_id" id="delete_id">
+										<h4> Do you want to delete this?</h4>
+										<div class="modal-footer">
+											<input class="btn btn-secondary btn_close" type="button" data-bs-dismiss="modal" aria-labelledby="Close" value="NO"> 
+											<input type="submit" name="deletedata" class="btn btn-primary" value="YES">
+										</div>
+									</form>
 								</div>
 							</div>
 						</div>
@@ -342,7 +377,7 @@
 			$('#receiver-name').val(data[9]);
 			$('#receiver-no').val(data[10]);
 			$('#loan-status').val(data[11]);
-			$('#date-requested').val(data[12]);
+			$('#date-request').val(data[12]);
 			$('#next-due').val(data[13]);
 		})
 	});
@@ -355,6 +390,46 @@
 	});
 	
 </script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.btn_close').on('click',function(){
+			$('#archivemodal').modal('hide');
+		})
+	});
+	
+</script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.btn-close').on('click',function(){
+			$('#archivemodal').modal('hide');
+		})
+	});
+	
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+      $('.archivebtn').on('click', function(){
+
+        $('#archivemodal').modal('show');
+
+
+        $tr = $(this).closest('tr');
+
+        var data =  $tr.children("td").map(function(){
+          return $(this).text();
+
+
+        }).get();
+
+        console.log(data);
+
+
+        $('#delete_id').val(data[1]);
+
+
+      })
+    });
+  </script>
 
 <script type="text/javascript" src="../js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript" src="../js/mdb.min.js"></script>
