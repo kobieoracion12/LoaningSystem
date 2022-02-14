@@ -9,10 +9,6 @@ body {
     background-size: cover;
 }
 
-.form-style {
-	text-align: : center;
-}
-
 .login-button {
 	width: 100%;
 }
@@ -38,7 +34,7 @@ body {
 	position: relative;
 	top: 50%;
 	transform: translateY(-50%);
-	height: 200px;
+	height: 250px;
 	width: auto;
 }
 

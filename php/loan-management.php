@@ -15,6 +15,7 @@
 	<link rel="stylesheet" type="text/css" href="../css/fontawesome.css">
 	<link rel="stylesheet" type="text/css" href="../css/brands.css">
 	<link rel="stylesheet" type="text/css" href="../css/solid.css">
+	<link rel="shortcut icon" href="../img/loan-icon.ico">
 </head>
 <body>
 
@@ -110,14 +111,7 @@
 											<th scope="col">Loan Amount</th>
 											<th scope="col">Payment Duration</th>
 											<th scope="col">Full Name</th>
-											<th scope="col" style="display: none;">Loan Type</th>
-											<th scope="col" style="display: none;">Loan Destination</th>
-											<th scope="col" style="display: none;">Bank Name</th>
-											<th scope="col" style="display: none;">Interest Rate</th>
-											<th scope="col" style="display: none;">Overdue Penalty</th>
-											<th scope="col" style="display: none;">Reciever Name</th>
-											<th scope="col" style="display: none;">Reciever No.</th>
-											<th scope="col" style="display: none;">Loan Status</th>
+											<th scope="col">Pending Status</th>
 											<th scope="col">Action</th>
 
 
@@ -139,16 +133,7 @@
 											<td scope="row"><?php  echo $data ['ref_no']?></td>
 											<td>₱ <?php  echo $data ['loan_amount']?></td>
 											<td><?php  echo $data ['loan_period']." Months"?></td>
-											<td style="display: none;"><?php  echo $data ['loan_type']?></td>
-											<td style="display: none;"><?php  echo $data ['loan_dest']?></td>
-											<td style="display: none;"><?php  echo $data ['bank_name']?></td>
-											<td style="display: none;"><?php  echo $data ['interest_rate']?></td>
-											<td style="display: none;"><?php  echo $data ['overdue_penalty']?></td>
 											<td><?php  echo $data ['recv_name']?></td>
-											<td style="display: none;"><?php  echo $data ['recv_no']?></td>
-											<td style="display: none;"><?php  echo $data ['loan_status']?></td>
-											<td style="display: none;"><?php  echo $data ['date_req']?></td>
-											<td style="display: none;"><?php  echo $data ['next_due']?></td>
 
 
 											<td>
@@ -202,7 +187,7 @@
 									                </div>
 
 									                <div class="ps-2">
-									                	<input class="btn btn-danger" type="button" name="delete-data" value="Delete" formaction="">
+									                	<input class="btn btn-secondary" type="button" name="delete-data" value="Archive" formaction="">
 									                </div>
 									            </div>
 											</td>

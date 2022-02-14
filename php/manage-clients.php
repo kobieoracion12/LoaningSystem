@@ -15,6 +15,7 @@
 	<link rel="stylesheet" type="text/css" href="../css/fontawesome.css">
 	<link rel="stylesheet" type="text/css" href="../css/brands.css">
 	<link rel="stylesheet" type="text/css" href="../css/solid.css">
+	<link rel="shortcut icon" href="../img/loan-icon.ico">
 </head>
 <body>
 

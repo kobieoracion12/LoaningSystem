@@ -8,13 +8,14 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 	<title>Dashboard</title>
 	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../css/style-min.css">
 	<link rel="stylesheet" type="text/css" href="../css/fontawesome.css">
 	<link rel="stylesheet" type="text/css" href="../css/brands.css">
 	<link rel="stylesheet" type="text/css" href="../css/solid.css">
+	<link rel="shortcut icon" href="../img/loan-icon.ico">
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
@@ -313,6 +314,7 @@
 </div>
 
 <script type="text/javascript" src="../js/bootstrap.bundle.min.js"></script>
+
 <script type="text/javascript" src="../js/mdb.min.js"></script>
 </body>
 </html>

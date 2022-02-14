@@ -6,6 +6,7 @@
 	<title>Loaning System</title>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/style-min.css">
+  <link rel="shortcut icon" href="img/loan-icon.ico">
 </head>
 <body>
 
@@ -14,12 +15,14 @@
     <div class="card-body">
       <div class="container-fluid">
         <div class="row">
-          <div class="col">
-            <img class="login-vector" src="img/login-vector.jpg">
+
+          <!--Image Holder-->
+          <div class="col-xxl-6 col-lg-12 col-md-12 col-sm-12">
+            <img class="login-vector" src="img/login-vector2.jpg">
           </div>
 
-
-          <div class="col">
+          <!--Login Area-->
+          <div class="col-xxl-6 col-lg-12 col-md-12 col-sm-12">
             <form method="post" action="php/auth.php" style="padding: 15%">
               <div class="mb-3 mt-3">
                 <h3 style="font-weight: bold">Login</h3><br><br>
