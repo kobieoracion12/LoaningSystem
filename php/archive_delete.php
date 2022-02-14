@@ -5,7 +5,7 @@ if (isset($_POST['deletedata'])) {
 
     // sql to delete a record
     $id=$_POST['delete_id'];
-    $sql = "DELETE FROM loan_destination WHERE ref_no='$id'";
+    $sql = "UPDATE loan_destination SET loan_status ='Archived' WHERE ref_no='$id'";
 
     if ($config->query($sql) === TRUE) {
       header("location:loan-management.php?success");
