@@ -8,95 +8,64 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Settings</title>
+	<title>Dashboard</title>
 	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../css/style-min.css">
 	<link rel="stylesheet" type="text/css" href="../css/fontawesome.css">
 	<link rel="stylesheet" type="text/css" href="../css/brands.css">
 	<link rel="stylesheet" type="text/css" href="../css/solid.css">
 	<link rel="shortcut icon" href="../img/loan-icon.ico">
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
 <div class="container-fluid">
 	<div class="row flex-nowrap">
-	<!--Navigation Sidebar-->
-	<div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-white shadow">
+		<!--Navigation Sidebar-->
+		<div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-white shadow">
 			<div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-3 min-vh-100">
-				<span class="fs-5 d-none d-sm-inline fw-bold">Menu</span>
+				<span class="fs-5 d-none d-sm-inline fw-bold">Admin</span>
 
 				<hr>
 
 				<ul class="nav nav-pills flex-column mb-sm-auto mb-0 ms-2 align-items-start" id="menu">
 					<li class="nav-item nav-list">
-						<a href="home.php" class="nav-link align-middle px-0 text-wrap">
-							<i class="fas fa-regular fa-home bi me-2"></i>	
-							<span class="d-none d-sm-inline fw-bold">Home</span>
+						<a href="dashboard.php" class="nav-link align-middle px-0 text-wrap">
+							<i class="fas fa-regular fa-gauge bi me-2"></i>	
+							<span class="d-none d-sm-inline fw-bold">Dashboard</span>
 						</a>
 					</li>
 
-					 <li class="nav-item nav-list">
-                        <a href="#install" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                            <i class="fas fa-regular fa-credit-card bi me-2"></i> <span class="ms-1 d-none d-sm-inline fw-bold">Installment</span> </a>
-                        <ul class="collapse show nav flex-column ms-1 text-start" id="install" data-bs-parent="#menu">
-                            <li class="w-100">
-                                <?php
-                                	$status = $_SESSION['stats'];
-                                	if($status == 'Terminated') {
-                                		echo '
-                                		<span class="d-inline-block" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-content="Disabled popover">
-	                                		<a href="new-installment.php" class="nav-link px-0 disabled">
-			                                	<span class="d-none d-sm-inline">New Installment</span>
-			                                </a>
-		                                </span>
-                                		';
-                                	} else {
-                                		echo '
-                                		<a href="new-installment.php" class="nav-link px-0">
-		                                	<span class="d-none d-sm-inline">New Installment</span>
-		                                </a>';
-                                	}
-                                ?>
-                            </li>
-                            
-                            <li>
-                                <a href="transactions.php" class="nav-link px-0">
-                                	<span class="d-none d-sm-inline">Transaction Record</span>
-                                </a>
-                            </li>
-
-                            <li>
-                            	<?php 
-                            		$status = $_SESSION['stats'];
-                                	if($status == 'New' || $status == 'Repeat' || $status == 'Loyal' || $status == 'Terminated') {
-                                		echo '
-                                			<a href="paynow.php" class="nav-link px-0">
-			                                	<span class="d-none d-sm-inline">Pay Now</span>
-			                                </a>
-                                		';
-                                	} else {
-                                		echo '
-                                			<a href="paynow.php" class="nav-link px-0 disabled">
-			                                	<span class="d-none d-sm-inline">Pay Now</span>
-			                                </a>
-                                		';
-                                	}
-
-                            	?>
-                                
-                            </li>
-                        </ul>
-                    </li>
-
 					<li class="nav-item nav-list">
-						<a href="accounts.php" class="nav-link align-middle px-0">
+						<a href="manage-accounts.php" class="nav-link align-middle px-0">
 							<i class="fas fa-regular fa-user bi me-2"></i>	
 							<span class="d-none d-sm-inline fw-bold">Accounts</span>
 						</a>
 					</li>
 
 					<li class="nav-item nav-list">
-						<a href="settings.php" class="nav-link align-middle px-0">
+						<a href="manage-clients.php" class="nav-link align-middle px-0">
+							<i class="fas fa-regular fa-user-group bi me-2"></i>	
+							<span class="d-none d-sm-inline fw-bold">Manage Clients</span>
+						</a>
+					</li>
+
+					<li class="nav-item nav-list">
+						<a href="loan-management.php" class="nav-link align-middle px-0">
+							<i class="fas fa-regular fa-hand-holding-dollar bi me-2"></i>	
+							<span class="d-none d-sm-inline fw-bold">Loan Management</span>
+						</a>
+					</li>
+
+					<li class="nav-item nav-list">
+						<a href="archive-data.php" class="nav-link align-middle px-0">
+						<i class="fa-solid fa-box-archive bi me-2"></i>
+							<span class="d-none d-sm-inline fw-bold">Archived Data</span>
+						</a>
+					</li>
+
+					<li class="nav-item nav-list">
+						<a href="admin-settings.php" class="nav-link align-middle px-0">
 							<i class="fas fa-regular fa-gear bi me-2"></i>	
 							<span class="d-none d-sm-inline fw-bold">Settings</span>
 						</a>
@@ -139,28 +108,7 @@
 				</div>
 
 				<div class="row">
-					<div class="col-md-6 col-lg-6 col-sm-12 py-1">
-						<div class="p-4 bg-white shadow-4 rounded-3">
-							<div class="row">
-								<div class="col text-start ps-3 fw-bold">
-									<label for="lang-list" class="form-label">Language</label>
-								</div>
-								
-							</div>
-
-							<div class="row">
-								<div class="col d-flex justify-content-center">
-									<input class="form-control" list="language" id="lang-list" placeholder="English (Default)">
-									<datalist id="language"> 
-										<option value="English (US)">
-										<option value="English (UK)">
-									</datalist>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-md-6 col-lg-6 col-sm-12 py-1">
+					<div class="col-md-12 col-lg-12 col-sm-12 py-1">
 						<div class="p-4 bg-white shadow-4 rounded-3">
 							<div class="row">
 								<div class="col text-start ps-3 fw-bold">
@@ -240,9 +188,9 @@
 	</div>
 </div>
 
-
-
 <script type="text/javascript" src="../js/bootstrap.bundle.min.js"></script>
+
 <script type="text/javascript" src="../js/mdb.min.js"></script>
 </body>
 </html>
+

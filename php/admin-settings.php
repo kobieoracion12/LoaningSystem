@@ -108,28 +108,7 @@
 				</div>
 
 				<div class="row">
-					<div class="col-md-6 col-lg-6 col-sm-12 py-1">
-						<div class="p-4 bg-white shadow-4 rounded-3">
-							<div class="row">
-								<div class="col text-start ps-3 fw-bold">
-									<label for="lang-list" class="form-label">Language</label>
-								</div>
-								
-							</div>
-
-							<div class="row">
-								<div class="col d-flex justify-content-center">
-									<input class="form-control" list="language" id="lang-list" placeholder="English (Default)">
-									<datalist id="language"> 
-										<option value="English (US)">
-										<option value="English (UK)">
-									</datalist>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-md-6 col-lg-6 col-sm-12 py-1">
+					<div class="col-md-12 col-lg-12 col-sm-12 py-1">
 						<div class="p-4 bg-white shadow-4 rounded-3">
 							<div class="row">
 								<div class="col text-start ps-3 fw-bold">
