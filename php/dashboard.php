@@ -315,6 +315,27 @@
 						</div>
 					</div>
 				</div>
+
+				<!--Footer-->
+				<footer class="footer mt-3 py-3 bg-white">
+					<div class="row m-5">
+						<div class="col-lg-6 col-md-12 col-sm-12 text-muted text-start">
+							Baonutang Loaning System
+							<p class="fw-bold mt-4 my-0">Disclamer</p>
+							<small>
+								This website is intended for school purposes only.<br>
+								The developers did not intent to use this website to gain money and/or to sale certain functions.<br><br>
+								Laguna State Polytechnic University - SCC
+							</small>
+						</div>
+
+						<div class="col-lg-6 col-md-12 col-sm-12 text-muted">
+						<img class="login-vector mt-2" src="../img/login-vector2.jpg">
+						</div>
+					</div>
+				</footer>
+
+				
 			</div>
 		</div>
 	</div>
