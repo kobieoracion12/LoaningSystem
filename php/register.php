@@ -24,6 +24,7 @@
 	$status = 'New';
 	$privilege = 'User';
 	$profile = $_FILES['../img/register.php']['name'];
+	$regdate = $_POST['date_registered'];
 
 
 	if(empty($fname) || empty($lname) || empty($email) || empty($mobile_no) || empty($bday) || empty($age) || empty($address) || empty($username) || empty($password) || empty($cpassword) || empty($fileUploadName))  {
@@ -80,7 +81,7 @@
 
 	$file = "uploads/".$fileUploadName;
 
-	$sql = "INSERT INTO accounts (first_name, last_name, email_add, mobile_no, birth_date, age, address, valid_id, username, password, acc_status, acc_priv) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)";
+	$sql = "INSERT INTO accounts (first_name, last_name, email_add, mobile_no, birth_date, age, address, valid_id, username, password, acc_status, acc_priv, date_registered) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,NOW())";
 
 	$stmt = mysqli_stmt_init($config);
 
