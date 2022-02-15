@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 12, 2022 at 05:19 AM
--- Server version: 10.4.19-MariaDB
--- PHP Version: 7.3.28
+-- Generation Time: Feb 15, 2022 at 03:59 AM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 7.4.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -80,7 +80,7 @@ CREATE TABLE `loan_destination` (
   `overdue_penalty` varchar(4) NOT NULL,
   `recv_name` varchar(99) NOT NULL,
   `recv_no` int(10) NOT NULL,
-  `loan_status` enum('Pending','Approved','Released','Closed','Terminated','Declined') NOT NULL,
+  `loan_status` enum('Pending','Approved','Released','Closed','Terminated','Declined','Archived') NOT NULL,
   `date_req` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `next_due` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -95,14 +95,12 @@ INSERT INTO `loan_destination` (`acc_no`, `ref_no`, `loan_amount`, `loan_period`
 (2, 20223300047, 10000, '36', 'Student Loans', 'GCash', NULL, '5%', '5%', 'Neil Pornela', 2147483647, 'Approved', '2022-02-11 07:28:07', NULL),
 (2, 20223300048, 10000, '24', 'Student Loans', 'GCash', NULL, '5%', '5%', 'John Llyod Araza', 912312312, 'Pending', '2022-02-04 10:44:45', NULL),
 (2, 20223300049, 3000, '2', 'Student Loans', 'GCash', NULL, '3%', '5%', 'Neil Pornela', 2147483647, 'Pending', '2022-02-11 02:19:21', NULL),
-(2, 20223300050, 1, '12', 'Student Loans', 'GCash', NULL, '4%', '5%', 'Kobie Oracion', 2147483647, 'Approved', '2022-02-12 04:08:19', NULL),
 (2, 20223300051, 2000, '12', 'Personal Loans', 'GCash', NULL, '3%', '5%', 'Kobie Oracion', 2147483647, 'Pending', '2022-02-11 02:25:29', NULL),
-(2, 20223300052, 10000, '2', 'Small Business', 'GCash', NULL, '5%', '5%', 'Jadee Mae Mallari', 2147483647, 'Pending', '2022-02-11 02:33:00', NULL),
+(2, 20223300052, 10000, '2', 'Small Business', 'GCash', NULL, '5%', '5%', 'Jadee Mae Mallari', 2147483647, 'Approved', '2022-02-15 02:50:10', NULL),
 (2, 20223300053, 2000, '6', 'Home Equity', 'GCash', NULL, '3%', '5%', 'Kobie Oracion', 2147483647, 'Pending', '2022-02-11 02:34:47', NULL),
 (2, 20223300055, 5000, '6', 'Credit Card', 'GCash', NULL, '4%', '5%', 'Kobie Oracion', 2147483647, 'Pending', '2022-02-12 02:02:33', '2022-03-12'),
 (2, 20223300056, 3000, '6', 'Credit Card', 'GCash', NULL, '5%', '5%', 'Kobie Oracion', 2147483647, 'Pending', '2022-02-12 03:39:53', '2022-03-12'),
-(2, 20223300057, 1, '24', 'Credit Card', 'GCash', NULL, '5%', '5%', 'Kobie Oracion', 2147483647, 'Pending', '2022-02-12 04:18:57', '2022-03-12'),
-(2, 20223300058, 10500, '12', 'Credit Card', 'GCash', NULL, '5%', '5%', 'Kobie Oracion', 2147483647, 'Approved', '2022-02-12 04:17:53', '2022-03-12');
+(2, 20223300058, 10500, '12', 'Credit Card', 'GCash', NULL, '5%', '5%', 'Kobie Oracion', 2147483647, 'Archived', '2022-02-15 01:47:14', '2022-03-12');
 
 -- --------------------------------------------------------
 
