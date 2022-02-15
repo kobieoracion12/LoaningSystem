@@ -9,7 +9,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Manage Clients</title>
+	<title>Archives</title>
 	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../css/style-min.css">
 	<link rel="stylesheet" type="text/css" href="../css/fontawesome.css">
@@ -106,48 +106,15 @@
 						<br>
 						<h2 class="text-white text-start ps-3">Loan Management</h2><br>
 						<?php
-							if(isset($_GET['approved'])) {
-								echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
-									<div class="fw-bold text-success">
-										<i class="fa-solid fa-circle-check"></i> Loan Approved
-									</div>
-										<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+							if(isset($_GET['success'])) {
+								echo '<div class="alert alert-success" role="alert">
+										Data successfuly deleted
 									</div>';
 							}
 
-							if(isset($_GET['archived'])) {
-								echo '<div class="alert alert-secondary alert-dismissible fade show" role="alert">
-									<div class="fw-bold text-secondary">
-										<i class="fa-solid fa-circle-check"></i> Loan Archived
-									</div>
-										<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-									</div>';
-							}
-
-							if(isset($_GET['declined'])) {
-								echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-									<div class="fw-bold text-danger">
-										<i class="fa-solid fa-circle-check"></i> Loan Declined
-									</div>
-										<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-									</div>';
-							}
-
-							if(isset($_GET['terminated'])) {
-								echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">
-									<div class="fw-bold text-warning">
-										<i class="fa-solid fa-circle-check"></i> Loan Terminated
-									</div>
-										<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-									</div>';
-							}
-
-							if(isset($_GET['updatefailed'])) {
-								echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-									<div class="fw-bold text-danger">
-										<i class="fa-solid fa-triangle-exclamation"></i> Error updating status
-									</div>
-										<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+							if(isset($_GET['failed'])) {
+								echo '<div class="alert alert-danger" role="alert">
+										Data deletion error
 									</div>';
 							}
 						?>
@@ -173,7 +140,7 @@
 									<tbody>
 										<tr>
 											<?php 
-												$records = mysqli_query($config," SELECT * FROM loan_destination WHERE loan_status != 'Archived' ORDER BY ref_no DESC" );
+												$records = mysqli_query($config," SELECT * FROM loan_destination WHERE loan_status = 'Archived' ORDER BY ref_no DESC" );
 
 												 while($data = mysqli_fetch_array($records) )
 												 {
@@ -225,9 +192,9 @@
 				                                		';
 				                                	}
 
-				                                	elseif($status == 'Terminated') {
+				                                	elseif($status == 'Archived') {
 				                                		echo '
-				                                		<div class="fw-bold text-warning">
+				                                		<div class="fw-bold text-secondary">
 				                                		'.$status.'
 				                                		</div>
 				                                		';
@@ -248,7 +215,7 @@
 									                </div>
 
 									                <div class="ps-2">
-									                	<input class="btn btn-secondary archivebtn" type="button" name="delete-data" value="Archive" formaction="">
+									                	<input class="btn btn-secondary archivebtn" type="button" name="delete-data" value="Delete" formaction="">
 									                </div>
 									            </div>
 											</td>
@@ -270,7 +237,7 @@
 
 									<div class="modal-body m-5">
 										<div class="container-fluid">
-											<h4>Loan Request Information</h4><br>
+											<h4>Loan Information</h4><br>
 											<div class="row">
 											<script type="text/javascript">
 													if (true) {}
@@ -351,17 +318,6 @@
 																<input id="date-request" class="form-control" readonly>
 															</div>
 														</div>
-
-														
-
-														<div class="row">
-															<div class="col">
-																<br><br>
-																<input class="btn btn-success w-25" type="submit" name="approve-loan" value="Approve" formaction="update-status.php">
-																<input class="btn btn-danger w-25" type="submit" name="decline-loan" value="Decline" formaction="update-status.php">
-																<input class="btn btn-warning w-25" type="submit" name="terminate-loan" value="Terminate" formaction="update-status.php">
-															</div>
-														</div>
 													</div>
 												</form>
 											</div>
@@ -371,20 +327,21 @@
 								</div>
 							</div>
 						</div>
+						
 						<!-- Archive Modal -->
 						<div class="modal fade" id="archivemodal" tabindex="-1" role="dialog" aria-labelledby="deletemodal" aria-hidden="true">
 							<div class="modal-dialog modal-dialog-centered" role="document">
 								<div class="modal-content">
 									<div class="modal-header">
-										<h5 class="modal-title">Archive Data</h5>
+										<h5 class="modal-title">Delete Data</h5>
 										<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 									</div>
 									<form class="form-control border-0" method="post" action="archive_delete.php">
 										<input type="hidden" name="delete_id" id="delete_id">
-										<p class="m-4"> Are you sure you wanna archive this?</p>
+										<p class="m-4"> Are you sure you wanna delete this?</p>
 										<div class="modal-footer">
 											<input class="btn btn-secondary btn_close" type="button" data-bs-dismiss="modal" aria-labelledby="Close" value="No"> 
-											<input type="submit" name="archive_data" class="btn btn-primary" value="Proceed">
+											<input type="submit" name="delete_data" class="btn btn-danger" value="Delete">
 										</div>
 									</form>
 								</div>

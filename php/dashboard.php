@@ -58,6 +58,13 @@
 					</li>
 
 					<li class="nav-item nav-list">
+						<a href="archive-data.php" class="nav-link align-middle px-0">
+						<i class="fa-solid fa-box-archive bi me-2"></i>
+							<span class="d-none d-sm-inline fw-bold">Archived Data</span>
+						</a>
+					</li>
+
+					<li class="nav-item nav-list">
 						<a href="admin-settings.php" class="nav-link align-middle px-0">
 							<i class="fas fa-regular fa-gear bi me-2"></i>	
 							<span class="d-none d-sm-inline fw-bold">Settings</span>

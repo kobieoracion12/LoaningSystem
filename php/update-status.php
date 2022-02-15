@@ -9,7 +9,8 @@
 		if ($config -> query($sql) === TRUE) {
 		  header ('location:loan-management.php?approved');
 		} else {
-		  echo "Error updating record: " . $config->error;
+			header ('location:loan-management.php?updatefailed');
+			//echo "Error updating record: " . $config->error;
 		}
 	}	
 
@@ -21,7 +22,8 @@
 		if ($config -> query($sql) === TRUE) {
 		  header ('location:loan-management.php?declined');
 		} else {
-		  echo "Error updating record: " . $config->error;
+			header ('location:loan-management.php?updatefailed');
+		  //echo "Error updating record: " . $config->error;
 		}
 	}
 
@@ -33,7 +35,8 @@
 		if ($config -> query($sql) === TRUE) {
 		  header ('location:loan-management.php?terminated');
 		} else {
-		  echo "Error updating record: " . $config->error;
+			header ('location:loan-management.php?updatefailed');
+			//echo "Error updating record: " . $config->error;
 		}
 	}		
 

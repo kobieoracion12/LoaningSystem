@@ -93,6 +93,6 @@
 	{
 		mysqli_stmt_bind_param($stmt, "sssisissssss", $fname, $lname, $email, $mobile_no, $bday, $age, $address, $file, $username, $password, $status, $privilege);
 		mysqli_stmt_execute($stmt);
-		header('location: ../index.php?msg=success');
+		header('location: ../index.php?msg=accountregistered');
 		exit();
 }

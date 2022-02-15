@@ -50,6 +50,12 @@
                       Session broken. Login First.
                       </div>';
               }
+
+              if(isset($_GET['accountregistered'])) {
+                echo '<div class="alert alert-success" role="alert">
+                      Account successfully created
+                      </div>';
+              }
             ?>
 
             </form>
